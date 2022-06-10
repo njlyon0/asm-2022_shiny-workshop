@@ -28,6 +28,15 @@ ui <- fluidPage(
                   min = 5, value = 30, max = 50),
 
       # Heading
+      htmltools::h3("Pick a Plot Color"),
+
+      # Color dropdown menu
+      selectInput(inputId = "color",
+                  label = "Choose a Color",
+                  choices = palette_find(site = "LTER"),
+                  selected = palette_find(site = "LTER")[2]),
+
+      # Heading
       htmltools::h3("Enter Plot Labels"),
 
       # X-axis label
@@ -37,14 +46,8 @@ ui <- fluidPage(
       textInput(inputId = "y_lab", label = "Y-Axis Label"),
 
       # Plot title
-      textInput(inputId = "title", label = "Plot Title"),
+      textInput(inputId = "title", label = "Plot Title")
 
-      # Heading
-      htmltools::h3("Pick a Plot Color"),
-      selectInput(inputId = "color",
-                  label = "Choose a Color",
-                  choices = palette_find(site = "LTER"),
-                  selected = palette_find(site = "LTER")[2])
     ), # Close `sidebarPanel(...`
 
     # UI - Main Panel Content ----
