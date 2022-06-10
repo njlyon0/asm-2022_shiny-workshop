@@ -57,7 +57,7 @@ ui <- fluidPage(
 
     ), # Close `column(...`
 
-    # UI - Main Panel Content ----
+    # UI - Column 3 Content ----
     column(width = 4,
       plotOutput(outputId = "histo")
     ) # Close `column(...`
