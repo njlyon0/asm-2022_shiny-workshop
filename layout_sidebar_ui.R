@@ -7,7 +7,10 @@ library(shiny); library(htmltools); library(lterpalettefinder)
 # User Interface (UI) --------------
 sidebar_ui <- fluidPage(
 
-  # Title of app
+  # Add a title that appears in the browser tab
+  title = "Shiny Sidebar",
+
+  # Title within app
   headerPanel(list(title = "Layout Options - Sidebar",
                    htmltools::img(src = "lter_logo.png",
                                   height = 62,

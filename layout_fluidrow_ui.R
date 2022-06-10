@@ -1,5 +1,5 @@
 ## ------------------------------------- ##
-         # Layout Options - Sidebar
+      # Layout Options - Fluid Row
 ## ------------------------------------- ##
 # Call needed libraries
 library(shiny); library(htmltools); library(lterpalettefinder)
@@ -7,8 +7,11 @@ library(shiny); library(htmltools); library(lterpalettefinder)
 # User Interface (UI) --------------
 fluidrow_ui <- fluidPage(
 
-  # Title of app
-  headerPanel(list(title = "Layout Options - Sidebar",
+  # Add a title that appears in the browser tab
+  title = "Shiny Fluid Row",
+
+  # Title within app
+  headerPanel(list(title = "Layout Options - Fluid Row",
                    htmltools::img(src = "lter_logo.png",
                                   height = 62,
                        align = "right") ) ),
