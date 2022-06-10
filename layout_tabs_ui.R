@@ -13,7 +13,7 @@ tabs_ui <- fluidPage(
   # Title within app
   headerPanel(list(title = "Layout Options - Tabs",
                    htmltools::img(src = "lter_logo.png",
-                                  height = 62,
+                                  height = 42,
                                   align = "right") ) ),
 
   # Decide on layout

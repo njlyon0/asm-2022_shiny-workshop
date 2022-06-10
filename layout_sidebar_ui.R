@@ -13,7 +13,7 @@ sidebar_ui <- fluidPage(
   # Title within app
   headerPanel(list(title = "Layout Options - Sidebar",
                    htmltools::img(src = "lter_logo.png",
-                                  height = 62,
+                                  height = 42,
                        align = "right") ) ),
 
   # Decide on sidebar layout
