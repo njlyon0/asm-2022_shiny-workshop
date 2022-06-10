@@ -13,7 +13,7 @@ ui <- fluidPage(
                                   height = 62,
                        align = "right") ) ),
 
-  # Decide on sidebar layout
+  # Decide on layout
   fluidRow(
 
     # UI - Column 1 Content ----
