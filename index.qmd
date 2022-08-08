@@ -1,0 +1,26 @@
+---
+title: "Overview"
+---
+
+## Welcome!
+
+<img src="images/lter-logo-wide.png" align="right" width="50%"/>
+
+<img src="images/nceas-logo-wide.png" align="right" width="50%"/>
+
+**Welcome to the 2022 All Scientists' Meeting workshop "Shiny Apps for Sharing Science"!** We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM's scheduling site) is included [here](https://2022lterasm.sched.com/event/13kyO/22x053-shiny-app-for-sharing-science).
+
+<img src="images/r-shiny-hex.png" align="right" width="15%"/>
+
+We will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you [download R](https://www.r-project.org/) and [download RStudio](https://www.rstudio.com/products/rstudio/download/) **before the workshop.** If your current RStudio version (see "About RStudio" in the top menubar) begins with anything earlier than "2020...", we recommend updating RStudio. If your R version begins with anything other than "4..." we recommend you [update R](https://www.r-project.org/). These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.
+
+### Let's Get To It!
+
+We aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:
+
+**Gabe De La Rosa**: []
+
+**Francisco J Guerrero**: []
+
+**Nick J Lyon**: [lyon\@nceas.ucsb.edu](mailto:lyon@nceas.ucsb.edu){.email}
+

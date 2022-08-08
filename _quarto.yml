@@ -1,0 +1,37 @@
+project:
+  type: website
+  execute-dir: project
+  output-dir: docs
+
+execute:
+  freeze: false
+
+website:
+  title: "ASM 2022 Workshop - R Shiny"
+  favicon: images/lter-logo.png
+  repo-url: https://github.com/njlyon0/asm-2022_shiny-workshop
+  repo-actions: [issue]
+  twitter-card: true
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+    right:
+      - icon: github
+        href: https://github.com/njlyon0/asm-2022_shiny-workshop
+  page-footer:
+    center: "Copyright 2022, NCEAS"
+    background: secondary
+
+format:
+  html:
+    theme:
+       light: yeti
+       dark: cyborg
+    css: styles.css
+    toc: true
+    link-external-newwindow: true
+    link-external-icon: false
+    
