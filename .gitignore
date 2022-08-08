@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # Add RStudio project file(s)
 *.Rproj
+
+# Quarto files
+/.quarto/
