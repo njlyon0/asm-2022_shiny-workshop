@@ -14,7 +14,7 @@ Gabe is the Digital Communications Coordinator for the Long-Term Ecological Rese
 
 ## Francisco J. Guerrero
 
- -- <img src="images/github-logo.png" width="2%"/> [guerrero-fj]([https://github.com/njlyon0](https://github.com/guerrero-fj)) -- <img src="images/twitter-logo.png" width="2%"/> [\@fjguerrerob](https://twitter.com/fjguerrerob) -- **francisco.guerrero@pnnl.gov**
+ -- <img src="images/github-logo.png" width="2%"/> [guerrero-fj](https://github.com/guerrero-fj) -- <img src="images/twitter-logo.png" width="2%"/> [\@fjguerrerob](https://twitter.com/fjguerrerob) -- **francisco.guerrero@pnnl.gov**
  
 <img src="images/guerrero_fj_3.png" align="right" width="23%"/>
 
