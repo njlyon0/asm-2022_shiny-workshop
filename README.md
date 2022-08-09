@@ -3,7 +3,7 @@
 
 # All Scientists’ Meeting - R Shiny Workshop
 
-### Co-led by [Gabe De La Rosa](https://www.gabrieldelarosa.com/) & [Nick J Lyon](https://njlyon0.github.io/)
+### Team led by [Gabe De La Rosa](https://www.gabrieldelarosa.com/), [Francisco J Guerrero](https://github.com/guerrero-fj) & [Nick J Lyon](https://njlyon0.github.io/)
 
 <!-- badges: start -->
 <!-- badges: end -->
