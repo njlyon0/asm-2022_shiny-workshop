@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”! We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included here.\n\nWe will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you download R and download RStudio before the workshop. If your current RStudio version (see “About RStudio” in the top menubar) begins with anything earlier than “2020…”, we recommend updating RStudio. If your R version begins with anything other than “4…” we recommend you update R. These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.\n\n\nWe aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:\nGabe De La Rosa: delarosa@nceas.ucsb.edu\nFrancisco J Guerrero: []\nNick J Lyon: lyon@nceas.ucsb.edu"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Content Creators",
@@ -21,11 +14,11 @@
     "text": "Gabe De La Rosa\ngabrieldelarosa.com –  gdlr.github.io –  @gabe_de_la – delarosa@nceas.ucsb.edu\n\nGabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB’s Bren School of Environmental Science and Management, and most recently built a shiny app that displays an interactive map of LTER sites. …"
   },
   {
-    "objectID": "about.html#francisco-j-guerrero",
-    "href": "about.html#francisco-j-guerrero",
+    "objectID": "about.html#francisco-j.-guerrero",
+    "href": "about.html#francisco-j.-guerrero",
     "title": "Content Creators",
-    "section": "Francisco J Guerrero",
-    "text": "Francisco J Guerrero\n…"
+    "section": "Francisco J. Guerrero",
+    "text": "Francisco J. Guerrero\n–  guerrero-fj –  @fjguerrerob – francisco.guerrero@pnnl.gov\n\nFrancisco J. Guerrero is the Science and Communication Research Associate for the Integrated, Coordinated, Open, and Networked-ICON Science Cooperative at PNNL. He is a watershed ecologist and a science communicator. since 2004, Francisco has been studying land to ocean carbon fluxes in small mountainous river systems. In his parallel role as communicator (since 2014), he has designed and implemented communication infrastructure (workshops, panels, working groups facilitation, etc.) at research-driven organizations from regional to national levels (e.g. universities, state agencies, and national research centers). Currently, Francisco is creating workflows for scientists and knowledge workers to integrate strategic communication tools along the scientific production lifecycle (from ideation to publication)."
   },
   {
     "objectID": "about.html#nick-j-lyon",
@@ -33,5 +26,12 @@
     "title": "Content Creators",
     "section": "Nick J Lyon",
     "text": "Nick J Lyon\nnjlyon0.github.io –  njlyon0 –  @scilyon – lyon@nceas.ucsb.edu\n\nNick is a member of the Scientific Computing Support Team at NCEAS. He learned R Shiny in order to build the Herbivory Variability Network’s data submission portal ( repository linked here) but has since gained a broader appreciation for the value of Shiny apps in supporting many aspects of data visualization and wrangling. In particular, Nick recently developed a Shiny app to allow non-R users to explore his lterpalettefinder R package without needing to “speak” R ( repository linked here). Nick completed his M.Sc. in Ecology and Evolutionary Biology at Iowa State University."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”! We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included here.\n\nWe will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you download R and download RStudio before the workshop. If your current RStudio version (see “About RStudio” in the top menubar) begins with anything earlier than “2020…”, we recommend updating RStudio. If your R version begins with anything other than “4…” we recommend you update R. These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.\n\n\nWe aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:\nGabe De La Rosa: delarosa@nceas.ucsb.edu\nFrancisco J. Guerrero: francisco.guerrero@pnnl.gov\nNick J Lyon: lyon@nceas.ucsb.edu"
   }
 ]
