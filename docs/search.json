@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "ARC_exploratory.html",
-    "href": "ARC_exploratory.html",
-    "title": "exploring_lter_data",
-    "section": "",
-    "text": "and_data <- lterdatasampler::and_vertebrates"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Overview",
