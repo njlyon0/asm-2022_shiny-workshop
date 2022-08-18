@@ -4,7 +4,7 @@
     "href": "ARC_exploratory.html",
     "title": "exploring_lter_data",
     "section": "",
-    "text": "data <- lterdatasampler::arc_weather %>% \n  mutate(date = ymd(date)) %>% \n  mutate(year = ymd(date)) %>% \n  mutate(month = month(date)) %>% \n  mutate(day = day(date))\n\nggplot(data = data) +\n  geom_line(aes(x = date, y = mean_airtemp)) +\n  theme_bw()\n\n\n\nbymonth <- data %>% \n  group_by(month) %>% \n  summarize(mean_airtemp = mean(mean_airtemp))\n\nggplot(data = data) +\n  geom_violin(aes(x = month, y = mean_airtemp))\n\n\n\nggplot(data = data) +\n  geom_violin(aes(x = year, y = mean_airtemp))"
+    "text": "and_data <- lterdatasampler::and_vertebrates"
   },
   {
     "objectID": "index.html",
@@ -26,20 +26,6 @@
     "title": "Content Creators",
     "section": "Gabe De La Rosa",
     "text": "Gabe De La Rosa\ngabrieldelarosa.com –  gdlr.github.io –  @gabe_de_la – delarosa@nceas.ucsb.edu\n\nGabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB’s Bren School of Environmental Science and Management, and most recently built a shiny app that displays an interactive map of LTER sites."
-  },
-  {
-    "objectID": "about.html#francisco-j-guerrero",
-    "href": "about.html#francisco-j-guerrero",
-    "title": "Content Creators",
-    "section": "Francisco J Guerrero",
-    "text": "Francisco J Guerrero\n…"
-  },
-  {
-    "objectID": "about.html#nick-j-lyon",
-    "href": "about.html#nick-j-lyon",
-    "title": "Content Creators",
-    "section": "Nick J Lyon",
-    "text": "Nick J Lyon\nnjlyon0.github.io –  njlyon0 –  @scilyon – lyon@nceas.ucsb.edu\n\nNick is a member of the Scientific Computing Support Team at NCEAS. He learned R Shiny in order to build the Herbivory Variability Network’s data submission portal ( repository linked here) but has since gained a broader appreciation for the value of Shiny apps in supporting many aspects of data visualization and wrangling. In particular, Nick recently developed a Shiny app to allow non-R users to explore his lterpalettefinder R package without needing to “speak” R ( repository linked here). Nick completed his M.Sc. in Ecology and Evolutionary Biology at Iowa State University."
   },
   {
     "objectID": "about.html#francisco-j.-guerrero",
