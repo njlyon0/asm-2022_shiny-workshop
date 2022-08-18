@@ -10,13 +10,18 @@ This workshop was created and facilitated by a dynamic team that is here to assi
 
 <img src="images/gd.jpg" align="right" width="23%"/>
 
-Gabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB's Bren School of Environmental Science and Management, and most recently built a shiny app that displays an [interactive map of LTER sites](hyyp://lternet.edu/sites). ...
+Gabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB's Bren School of Environmental Science and Management, and most recently built a shiny app that displays an [interactive map of LTER sites](hyyp://lternet.edu/sites).
 
-## Francisco J Guerrero
+## Francisco J. Guerrero
 
-...
+<img src="images/github-logo.png" width="2%"/> [guerrero-fj](https://github.com/guerrero-fj) -- <img src="images/twitter-logo.png" width="2%"/> [\@fjguerrerob](https://twitter.com/fjguerrerob) -- **francisco.guerrero@pnnl.gov**
+ 
+<img src="images/guerrero_fj_3.png" align="right" width="23%"/>
 
-## Nick J Lyon
+Francisco J. Guerrero is the Science and Communication Research Associate for the Integrated, Coordinated, Open, and Networked-[ICON](https://www.pnnl.gov/projects/icon-science) Science Cooperative at PNNL. He is a watershed ecologist and a science communicator. 
+since 2004, Francisco has been studying land to ocean carbon fluxes in small mountainous river systems. In his parallel role as communicator (since 2014), he has designed and implemented communication infrastructure (workshops, panels, working groups facilitation, etc.) at research-driven organizations from regional to national levels (e.g. universities, state agencies, and national research centers). Currently, Francisco is creating workflows for scientists and knowledge workers to integrate strategic communication tools along the scientific production lifecycle (from ideation to publication).
+
+## Nick J. Lyon
 
 [njlyon0.github.io](https://njlyon0.github.io/) -- <img src="images/github-logo.png" width="2%"/> [njlyon0](https://github.com/njlyon0) -- <img src="images/twitter-logo.png" width="2%"/> [\@scilyon](https://twitter.com/scilyon) -- **lyon\@nceas.ucsb.edu**
 
