@@ -1,71 +1,55 @@
 ---
-title: "Explore Data"
+title: "Data Source"
 ---
 
-## Using Data from `lterdatasampler`
+## The `lterdatasampler` R Package
 
-```{r libraries-data, message = F}
+<img src="images/lterdatasampler-hex.png" align="right" width="20%">
+
+The Long Term Ecological Research program (LTER) Network has recently created an [R package containing example datasets](https://lter.github.io/lterdatasampler/) from some of the LTER sites called `lterdatasampler`. The goal of `lterdatasampler` is to provide tidy versions of datasets from LTER sites for use in teaching and training contexts (like this workshop!). Eventually this package will contain datasets from each of the 28 extant LTER sites so be sure to check back often for updates as those data are integrated.
+
+For this workshop, we'll be using one of the datasets in this package to give our apps something to work with. Let's explore that more fully below.
+
+## Andrews Forest Data
+
+Specifically, we'll be using the [Andrews Forest ("AND") LTER](https://lternet.edu/site/andrews-forest-lter/) data. This dataset contains the length and width measurements of Cutthroat trout and salamanders found in Mack Creek at Andrews Forest.
+
+To access this data, we'll need to install the `lterdatasampler` dataset and we'll also want both the `tidyverse` and `librarian` packages as well (for data wrangling and package installation convenience respectively).
+
+```{r libraries, message = F}
 # install.packages("librarian")
-librarian::shelf(tidyverse, lter/lterdatasampler, lubridate)
+librarian::shelf(lter/lterdatasampler, tidyverse)
 ```
 
-Let's take a look at the data from the Arctic LTER
+Once we have the packages that we need, we can retrieve the data and take a look at it.
 
-```{r arc-raw, message = F}
-# Load data
-arc <- lterdatasampler::arc_weather
-
-# Take a look
-dplyr::glimpse(arc)
-```
-
-Modify a few date columns before continuing.
-
-```{r arc-wrangle, message = F}
-arc_mod <- arc %>% 
-  dplyr::mutate(
-    date = lubridate::ymd(date),
-    year = lubridate::year(date),
-    month = lubridate::month(date),
-    day = lubridate::day(date) )
-```
-
-```{r arc-plot, message = F}
-ggplot(arc_mod, aes(x = date, y = mean_airtemp)) +
-  geom_line() +
-  theme_bw()
-```
-
-Finally, summarize within month and year (separately).
-
-```{r arc-summarize-1}
-# Grouping by month:
-arc_bymonth <- arc_mod %>% 
-  dplyr::group_by(month) %>% 
-  dplyr::summarize(m_airtemp = mean(mean_airtemp, na.rm = TRUE),
-                   sd = sd(mean_airtemp, na.rm = TRUE))
-
-# Glimpse it
-dplyr::glimpse(arc_bymonth)
-```
-
-```{r arc-summarize-2}
-
-# Grouping by year:
-arc_byyear <- arc_mod %>% 
-  group_by(year) %>% 
-  summarize(m_airtemp = mean(mean_airtemp, na.rm = TRUE),
-            sd = sd(mean_airtemp, na.rm = TRUE))
-
-# Glimpse it
-dplyr::glimpse(arc_byyear)
-```
-
-Now look at Andrews Forest data
-```{r and-raw, message = F}
-# Load data
+```{r, and-raw, message = F}
+# Load the data from AND
 and_data <- lterdatasampler::and_vertebrates
 
-# Take a look
-dplyr::glimpse(arc)
+# Take a quick look at it
+dplyr::glimpse(and_data)
 ```
+
+### AND Data Dictionary
+
+Information about the data in AND can be accessed by running `?and_vertebrates` but for simplicity's sake, the columns and their meanings are recapitulated here as well.
+
+- `year` -- number -- **observation year**
+- `sitecode` -- character -- **abbreviated name of sample area**
+- `section` -- character -- section of Mack Creek **CC = clear cut** forest, **OG = old growth** forest upstream
+- `reach` -- character -- reach sampled from each section; **L = lower** reach (0 - 50 meters), **M = middle** reach (50 - 100 meters), **U = upper** reach (100 - 150 meters))
+- `pass` -- number -- **electroshocking pass number**, either 1 or 2
+- `unitnum` -- number -- **channel unit number**
+- `unittype` -- character -- channel unit classification type (**C = cascade**, **I = riffle**, **IP = isolated pool** (not connected to channel), **P = pool**, **R = rapid**, **S = step** (small falls), **SC = side channel**, NA = not sampled by unit)
+- `vert_index` -- number -- unique **index for each vertebrate**
+- `pitnumber` -- number -- unique **tag number** embedded into vertebrate (tagging started in 2007)
+- `species` -- character -- **species measured**
+- `length_1_mm` -- number -- **vertebrate length in millimeters**; total or snout-fork length for trout, and snout-vent length for salamanders
+- `length_2_mm` -- number -- snout-tail **length in millimeters** (for *Coastal giant salamander only*)
+- `weight_g` -- number -- **vertebrate mass in grams**
+- `clip` -- character -- **fin clip type** for cutthroat trout, ended in 2006 (LV = left ventrical fin; LVRV = left and right ventrical fins; RV = right ventrical fin; NONE = no ventral fin clip)
+- `sampledate` -- date -- **date of observation**
+- `notes` -- character -- additional comments
+
+We may not use all of these columns today but your app could rely on any of them that you so choose!
