@@ -1,0 +1,71 @@
+---
+title: "Explore Data"
+---
+
+## Using Data from `lterdatasampler`
+
+```{r libraries-data, message = F}
+# indysll.packages("librarian")
+librarian::shelf(tidyverse, lter/lterdatasampler, lubridate)
+```
+
+Let's take a look at the data from the Arctic LTER
+
+```{r arc-raw, message = F}
+# Load data
+arc <- lterdatasampler::arc_weather
+
+# Take a look
+dplyr::glimpse(arc)
+```
+
+Modify a few date columns before continuing.
+
+```{r arc-wrangle, message = F}
+arc_mod <- arc %>% 
+  dplyr::mutate(
+    date = lubridate::ymd(date),
+    year = lubridate::year(date),
+    month = lubridate::month(date),
+    day = lubridate::day(date) )
+```
+
+```{r arc-plot, message = F}
+ggplot(arc_mod, aes(x = date, y = mean_airtemp)) +
+  geom_line() +
+  theme_bw()
+```
+
+Finally, summarize within month and year (separately).
+
+```{r arc-summarize-1}
+# Grouping by month:
+arc_bymonth <- arc_mod %>% 
+  dplyr::group_by(month) %>% 
+  dplyr::summarize(m_airtemp = mean(mean_airtemp, na.rm = TRUE),
+                   sd = sd(mean_airtemp, na.rm = TRUE))
+
+# Glimpse it
+dplyr::glimpse(arc_bymonth)
+```
+
+```{r arc-summarize-2}
+
+# Grouping by year:
+arc_byyear <- arc_mod %>% 
+  group_by(year) %>% 
+  summarize(m_airtemp = mean(mean_airtemp, na.rm = TRUE),
+            sd = sd(mean_airtemp, na.rm = TRUE))
+
+# Glimpse it
+dplyr::glimpse(arc_byyear)
+```
+
+Now look at Andrews Forest data
+```{r and-raw, message = F}
+# Load data
+and_data <- lterdatasampler::and_vertebrates
+
+# Take a look
+dplyr::glimpse(arc)
+```
