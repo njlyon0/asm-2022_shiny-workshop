@@ -1,0 +1,323 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>George Lienkaemper</origin>
+        <pubdate>19970101</pubdate>
+        <title>Experimental watershed boundaries</title>
+        <edition>1</edition>
+        <geoform>vector digital data</geoform>
+        <pubinfo>
+          <pubplace>Corvallis, OR</pubplace>
+          <publish>Forest Science Data Bank</publish>
+        </pubinfo>
+        <othercit>hf014</othercit>
+        <onlink>http://andrewsforest.oregonstate.edu/data/studies/spatialdata/hf01401.zip</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Experimental watershed boundaries for the Andrews Experimental Forest. The boundaries show all the area that drains into the watershed, not taking into consideration the location of the stream gage.</abstract>
+      <purpose>To support research management within the HJ Andrews Experimental Forest</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>19970101</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>As needed</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-122.262494</westbc>
+        <eastbc>-122.100927</eastbc>
+        <northbc>44.281987</northbc>
+        <southbc>44.197502</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>Andrews Forest LTER Thesaurus</themekt>
+        <themekey>experimental watershed studies</themekey>
+        <themekey>watershed boundaries</themekey>
+        <themekey>hydrography</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Categories</themekt>
+        <themekey>boundaries</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Oregon</placekey>
+        <placekey>western Cascades</placekey>
+        <placekey>HJ Andrews Experimental Forest</placekey>
+      </place>
+    </keywords>
+    <accconst>Available on-line</accconst>
+    <useconst>See data access policy at www.fsl.orst.edu/lter/data.cfm (especially the data use policy)</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Corvallis Forest Science Laboratory</cntorg>
+          <cntper>Theresa Valentine</cntper>
+        </cntorgp>
+        <cntpos>Spatial Information Manager</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>3200 SW Jefferson Way</address>
+          <city>Corvallis</city>
+          <state>Oregon</state>
+          <postal>97332</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>541-750-7333</cntvoice>
+        <cntfax>541-750-7760</cntfax>
+        <cntemail>tvalentine@fs.fed.us or theresa.valentine@orst.edu</cntemail>
+        <hours>m-f 0800-1630</hours>
+      </cntinfo>
+    </ptcontac>
+    <secinfo>
+      <secclass>Unclassified</secclass>
+    </secinfo>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+    <crossref>
+      <citeinfo>
+        <origin>Sherri Johnson</origin>
+        <title>Andrews Experimental Forest: Small watershed streamflow summaries</title>
+        <geoform>database</geoform>
+        <othercit>FSDB Code HF004</othercit>
+        <onlink>http://www.fsl.orst.edu/lter/data/framepage.cfm?frameURL=studies/hf04/hf04fmt.htm&amp;topnav=135</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <logic>not available</logic>
+    <lineage>
+      <srcinfo>
+        <srcscale>24000</srcscale>
+        <typesrc>hardcopyPaper</typesrc>
+        <srccontr>Willamette National Forest Vegetation Coverage, DEM contours, and HF01402 (gaged watershed boundaries)</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>Watersheds 1, 6, 7, and 9 were extracted from the Willamette Natl For vegetation coverage. 2, 3, and 8, were digitized using DEM contours. Watershed 9 and 10 were added from the gaged watershed coverage. The gaged watershed lines were removed to show the complete watershed boundaries.</procdesc>
+        <procdate>19970101</procdate>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>USDA Forest Service Corvallis FSL Lab.</cntorg>
+              <cntper>George Lienkaemper</cntper>
+            </cntorgp>
+            <cntpos>GIS specialist (retired)</cntpos>
+          </cntinfo>
+        </proccont>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>GT-polygon composed of chains</sdtstype>
+        <ptvctcnt>10</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <planar>
+        <mapproj>
+          <mapprojn>NAD 1983 UTM Zone 10N</mapprojn>
+          <transmer>
+            <sfctrmer>0.9996</sfctrmer>
+            <longcm>-123.0</longcm>
+            <latprjo>0.0</latprjo>
+            <feast>500000.0</feast>
+            <fnorth>0.0</fnorth>
+          </transmer>
+        </mapproj>
+        <planci>
+          <plance>coordinate pair</plance>
+          <coordrep>
+            <absres>0.000000002220024164500956</absres>
+            <ordres>0.000000002220024164500956</ordres>
+          </coordrep>
+          <plandu>meter</plandu>
+        </planci>
+      </planar>
+      <geodetic>
+        <horizdn>D North American 1983</horizdn>
+        <ellips>GRS 1980</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257222101</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>exwatershed1</enttypl>
+        <enttypd>polygon shape file</enttypd>
+        <enttypds>esri</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>FID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>EXWATERSHE</attrlabl>
+        <attrdef>unique identifier for the polygon</attrdef>
+        <attrdefs>esri</attrdefs>
+        <attrdomv>
+          <udom>unique whole number</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>WS_</attrlabl>
+        <attrdef>watershed number/name</attrdef>
+        <attrdefs>Forest Science Data Bank documentation</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>1</edomv>
+            <edomvd>watershed 1</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>2</edomv>
+            <edomvd>watershed 2</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>3</edomv>
+            <edomvd>watershed 3</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>4</edomv>
+            <edomvd>Lookout creek</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>6</edomv>
+            <edomvd>watershed 6</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>7</edomv>
+            <edomvd>watershed 7</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>8</edomv>
+            <edomvd>watershed 8</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>9</edomv>
+            <edomvd>watershed 9</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>10</edomv>
+            <edomvd>watershed 10</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+          <edom>
+            <edomv>MACK</edomv>
+            <edomvd>Mack Creek</edomvd>
+            <edomvds>Forest Science Data Bank documentation</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>F_AREA</attrlabl>
+        <attrdef>polygon area, calculated from shapefile</attrdef>
+        <attrdefs>Forest Science Data Bank documentation</attrdefs>
+        <attrdomv>
+          <udom>calculated field</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Corvallis Forest Science Laboratory</cntorg>
+          <cntper>Theresa Valentine</cntper>
+        </cntorgp>
+        <cntpos>Spatial Information Manger</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>3200 SW Jefferson Way</address>
+          <city>Corvallis</city>
+          <state>OR</state>
+          <postal>97332</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>541-750-7333</cntvoice>
+        <cntfax>541-758-7760</cntfax>
+        <cntemail>tvalentine@fs.fed.us or theresa.valentine@orst.edu</cntemail>
+        <hours>m-f 8:00am-4:30pm</hours>
+      </cntinfo>
+    </distrib>
+    <distliab>While substantial efforts are made to ensure the accuracy of data and documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is". The Andrews LTER shall not be liable for damages resulting from any use or misinterpretation of data sets.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>ArcGIS shapefile</formname>
+          <formvern>10.1</formvern>
+        </digtinfo>
+      </digform>
+      <fees>none</fees>
+      <ordering>Obtain information off of WWW site, call contact person for special requests.</ordering>
+      <turnarnd>as time permits</turnarnd>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20140227</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Corvallis Forest Science Laboratory</cntorg>
+          <cntper>Theresa Valentine</cntper>
+        </cntorgp>
+        <cntpos>Spatial Information Manager</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>3200 SW Jefferson Way</address>
+          <city>Corvallis</city>
+          <state>Oregon</state>
+          <postal>97332</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>541-750-7333</cntvoice>
+        <cntfax>541-758-7760</cntfax>
+        <cntemail>tvalentine@fs.fed.us or theresa.valentine@orst.edu</cntemail>
+        <hours>m-f 8:00am-4:00pm</hours>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+    <metsi>
+      <metsc>Unclassified</metsc>
+    </metsi>
+  </metainfo>
+</metadata>

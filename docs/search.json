@@ -1,10 +1,17 @@
 [
   {
+    "objectID": "ARC_exploratory.html",
+    "href": "ARC_exploratory.html",
+    "title": "exploring_lter_data",
+    "section": "",
+    "text": "data <- lterdatasampler::arc_weather %>% \n  mutate(date = ymd(date)) %>% \n  mutate(year = ymd(date)) %>% \n  mutate(month = month(date)) %>% \n  mutate(day = day(date))\n\nggplot(data = data) +\n  geom_line(aes(x = date, y = mean_airtemp)) +\n  theme_bw()\n\n\n\nbymonth <- data %>% \n  group_by(month) %>% \n  summarize(mean_airtemp = mean(mean_airtemp))\n\nggplot(data = data) +\n  geom_violin(aes(x = month, y = mean_airtemp))\n\n\n\nggplot(data = data) +\n  geom_violin(aes(x = year, y = mean_airtemp))"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Overview",
     "section": "",
-    "text": "Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”! We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included here.\n\nWe will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you download R and download RStudio before the workshop. If your current RStudio version (see “About RStudio” in the top menubar) begins with anything earlier than “2020…”, we recommend updating RStudio. If your R version begins with anything other than “4…” we recommend you update R. These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.\n\n\nWe aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:\nGabe De La Rosa: []\nFrancisco J Guerrero: []\nNick J Lyon: lyon@nceas.ucsb.edu"
+    "text": "Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”! We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included here.\n\nWe will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you download R and download RStudio before the workshop. If your current RStudio version (see “About RStudio” in the top menubar) begins with anything earlier than “2020…”, we recommend updating RStudio. If your R version begins with anything other than “4…” we recommend you update R. These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.\n\n\nWe aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:\nGabe De La Rosa: delarosa@nceas.ucsb.edu\nFrancisco J Guerrero: []\nNick J Lyon: lyon@nceas.ucsb.edu"
   },
   {
     "objectID": "about.html",
@@ -18,7 +25,7 @@
     "href": "about.html#gabe-de-la-rosa",
     "title": "Content Creators",
     "section": "Gabe De La Rosa",
-    "text": "Gabe De La Rosa\ngabrieldelarosa.com\n…"
+    "text": "Gabe De La Rosa\ngabrieldelarosa.com –  gdlr.github.io –  @gabe_de_la – delarosa@nceas.ucsb.edu\n\nGabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB’s Bren School of Environmental Science and Management, and most recently built a shiny app that displays an interactive map of LTER sites. …"
   },
   {
     "objectID": "about.html#francisco-j-guerrero",
