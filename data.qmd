@@ -5,7 +5,7 @@ title: "Explore Data"
 ## Using Data from `lterdatasampler`
 
 ```{r libraries-data, message = F}
-# indysll.packages("librarian")
+# install.packages("librarian")
 librarian::shelf(tidyverse, lter/lterdatasampler, lubridate)
 ```
 
