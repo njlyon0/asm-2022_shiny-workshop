@@ -34,7 +34,7 @@ We aim to make this training fun and interactive so please reach out if you have
 
 10:40a - Welcome to the Wonderland of R Shiny
 
-10:50a - User Interface Elements & Their Interactions with the Server
+10:50a - Core Shiny Structure (User Interface vs. Server)
 
 11:15a - Labels & Headers
 

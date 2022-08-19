@@ -1,0 +1,108 @@
+---
+title: "Shiny Architecture"
+---
+
+## Fundamental Shiny Architecture
+
+Every R Shiny app--no matter how nuanced and visually appealing--is composed of three components:
+
+1. User Interface ("UI")
+2. Server
+3. `shinyApp` R function that binds the UI and server together
+
+Let's delve into each of these in greater detail to better understand how they collectively make up a Shiny app.
+
+Before we can do that however, we need a few key R packages installed, namely: `shiny` and (for convenience) `htmltools`. `shiny` is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. There are other supporting packages you may decide to use in the future but `shiny` is a great place to start. `htmltools` contains some helpful secondary functions that make formatting headings and labels within an app more developer-friendly (you are the developer in this case!).
+
+```{r libraries-core-shiny, message = F}
+# install.packages("librarian")
+librarian::shelf(htmltools, shiny)
+```
+
+With those two packages installed, we can continue.
+
+## User Interface
+
+The User Interface ("UI") is everything that you see in a functioning R Shiny app. This includes both the things that users can interact with (check boxes, text fields, etc.) *and* the things that user's inputs create or modify (plots, printed messages, etc.).
+
+From the coding side of things, **the UI includes all of the inputs and outputs of a given app**. However, the UI does *not* include any code that turns inputs *into* outputs. We'll cover that part momentarily, but an example of a UI element will be helpful here.
+
+### UI Example
+
+Let's imagine that we wanted to make an app with a single check box that users can either check or uncheck. To do this, we would have to define the check box in our app's UI like so:
+
+```{r ui-definition}
+# `fluidPage` is the wrapper for all the UI bits
+my_ui <- fluidPage(
+  
+    # We can then create out checkbox
+    checkboxInput(inputId = "my_checkbox",
+                  label = "Check me!"),
+      
+    # And print the checkbox's output
+    "The box is checked",
+    verbatimTextOutput(outputId = "my_checkbox_out")
+    
+) # Close `fluidPage` parentheses
+```
+
+After running that code, you should have an object called `my_ui` in your Environment. Notice though that there is no app yet, that's because we still need to tell our app what to do with that check box and then tell R that the UI + server *is* an app! Also, crucially, even though we defined an output here in our UI, the server is where we'll tell the app how to turn the input into the output.
+
+Three quick notes on the UI code:
+
+1. The type of UI element is defined by which `...Input` function you use. In the above example, we used `checkboxInput` so our app will give us a checkbox. If you wanted a numeric slider instead, you'd need to use `sliderInput`
+    - If you downloaded all of the contents of this workshop's GitHub repository, check out the "ui_elements.R" script for an example of some of the more common UI inputs
+
+2. Notice how after each bit of the UI (the checkbox, some text, and the output) there is a comma (`,`) but they are otherwise all just loose inside of the `fluidPage` parentheses
+    - This syntax is key to the flexibility of Shiny apps because you can add any number of things and they'll show up in the app (we'll cover defining app layouts later)
+
+3. Not a syntax note *per se* but be careful with matching your parentheses!
+    - Shiny apps (particularly the UI) can be many lines and it is easy to forget to close all the parentheses. We recommend turning on "Rainbow parentheses" in RStudio's preferences to help make this easier
+    - RStudio -> Preferences -> Code -> Display -> Rainbow parentheses (checkbox)
+
+## Server
+
+The server is the "behind the curtain" part of a Shiny app. The server receives all inputs from the User Interface, creates the outputs you define from those inputs, and finally returns the outputs to the UI so that they can be displayed. Unlike the UI, **the server only creates outputs from inputs** and is *not* visible to users of the app.
+
+In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don't usually write your own functions, don't worry! See the example below:
+
+### Server Example
+
+Returning to our growing app, let's tell the server how to handle our checkbox.
+
+```{r server-definition}
+# Begin by defining the server function
+my_server <- function(input, output){
+  
+  # Let's take the checkbox input and print it
+  output$my_checkbox_out <- renderPrint({ input$my_checkbox })
+  
+} # Close the server's curly brace
+```
+
+Once you run that you should have a function in your environment called `my_server` but still no app! We are nearly there so bear with us!
+
+Notes on server code:
+
+1. Putting `function(input, output)` tells the server that it should expect things called `input` and things called `output`
+    - Missing either of these will make your app not know how to handle one or both
+
+2. Notice how the `input$...` and `output$...` names are exact matches for what we put as the `inputId` and `outputId` in the UI
+    - This is no accident! In the UI, in/outputs are given IDs, in the server they are placed into intermediary in/output objects
+
+## Combining UI and Server
+
+The final step to bringing our app to life is to tell R that this *is* a Shiny app. This "telling" involves both using the `shinyApp` function **and** telling that function the name of your UI object and server function. R Shiny has made this step really streamlined which is convenient for us!
+
+### Run App Example
+
+Double check that your Environment includes both the `my_ui` and `my_server` objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.
+
+```{r make-app-1, eval = F}
+shinyApp(ui = my_ui, server = my_server)
+```
+
+Once you run this line, you should have a new window open with your living app! If you check the box the app should say "TRUE" and if you uncheck it the app should say "FALSE".
+
+**Congratulations!** You've successfully completed a Shiny app!
+

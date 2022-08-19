@@ -18,6 +18,7 @@ website:
       - href: index.qmd
         text: Home
       - data.qmd
+      - core_shiny.qmd
       - about.qmd
     right:
       - icon: github

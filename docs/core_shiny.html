@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ASM 2022 Workshop - R Shiny - Data Source</title>
+<title>ASM 2022 Workshop - R Shiny - Shiny Architecture</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,8 +122,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Data Source">
-<meta name="twitter:description" content="The Long Term Ecological Research program (LTER) Network has recently created an R package containing example datasets from some of the LTER sites called lterdatasampler.">
+<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Shiny Architecture">
+<meta name="twitter:description" content="Every R Shiny app–no matter how nuanced and visually appealing–is composed of three components:">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -145,10 +145,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./data.html" aria-current="page">Data Source</a>
+    <a class="nav-link" href="./data.html">Data Source</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./core_shiny.html">Shiny Architecture</a>
+    <a class="nav-link active" href="./core_shiny.html" aria-current="page">Shiny Architecture</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">Content Creators</a>
@@ -178,10 +178,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-lterdatasampler-r-package" id="toc-the-lterdatasampler-r-package" class="nav-link active" data-scroll-target="#the-lterdatasampler-r-package">The <code>lterdatasampler</code> R Package</a></li>
-  <li><a href="#andrews-forest-data" id="toc-andrews-forest-data" class="nav-link" data-scroll-target="#andrews-forest-data">Andrews Forest Data</a>
+  <li><a href="#fundamental-shiny-architecture" id="toc-fundamental-shiny-architecture" class="nav-link active" data-scroll-target="#fundamental-shiny-architecture">Fundamental Shiny Architecture</a></li>
+  <li><a href="#user-interface" id="toc-user-interface" class="nav-link" data-scroll-target="#user-interface">User Interface</a>
   <ul class="collapse">
-  <li><a href="#and-data-dictionary" id="toc-and-data-dictionary" class="nav-link" data-scroll-target="#and-data-dictionary">AND Data Dictionary</a></li>
+  <li><a href="#ui-example" id="toc-ui-example" class="nav-link" data-scroll-target="#ui-example">UI Example</a></li>
+  </ul></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a>
+  <ul class="collapse">
+  <li><a href="#server-example" id="toc-server-example" class="nav-link" data-scroll-target="#server-example">Server Example</a></li>
+  </ul></li>
+  <li><a href="#combining-ui-and-server" id="toc-combining-ui-and-server" class="nav-link" data-scroll-target="#combining-ui-and-server">Combining UI and Server</a>
+  <ul class="collapse">
+  <li><a href="#run-app-example" id="toc-run-app-example" class="nav-link" data-scroll-target="#run-app-example">Run App Example</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/asm-2022_shiny-workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -193,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Source</h1>
+<h1 class="title">Shiny Architecture</h1>
 </div>
 
 
@@ -207,70 +215,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="the-lterdatasampler-r-package" class="level2">
-<h2 class="anchored" data-anchor-id="the-lterdatasampler-r-package">The <code>lterdatasampler</code> R Package</h2>
-<p><img src="images/lterdatasampler-hex.png" align="right" width="20%"></p>
-<p>The Long Term Ecological Research program (LTER) Network has recently created an <a href="https://lter.github.io/lterdatasampler/">R package containing example datasets</a> from some of the LTER sites called <code>lterdatasampler</code>. The goal of <code>lterdatasampler</code> is to provide tidy versions of datasets from LTER sites for use in teaching and training contexts (like this workshop!). Eventually this package will contain datasets from each of the 28 extant LTER sites so be sure to check back often for updates as those data are integrated.</p>
-<p>For this workshop, we’ll be using one of the datasets in this package to give our apps something to work with. Let’s explore that more fully below.</p>
-</section>
-<section id="andrews-forest-data" class="level2">
-<h2 class="anchored" data-anchor-id="andrews-forest-data">Andrews Forest Data</h2>
-<p>Specifically, we’ll be using the <a href="https://lternet.edu/site/andrews-forest-lter/">Andrews Forest (“AND”) LTER</a> data. This dataset contains the length and width measurements of Cutthroat trout and salamanders found in Mack Creek at Andrews Forest.</p>
-<p>To access this data, we’ll need to install the <code>lterdatasampler</code> dataset and we’ll also want both the <code>tidyverse</code> and <code>librarian</code> packages as well (for data wrangling and package installation convenience respectively).</p>
+<section id="fundamental-shiny-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="fundamental-shiny-architecture">Fundamental Shiny Architecture</h2>
+<p>Every R Shiny app–no matter how nuanced and visually appealing–is composed of three components:</p>
+<ol type="1">
+<li>User Interface (“UI”)</li>
+<li>Server</li>
+<li><code>shinyApp</code> R function that binds the UI and server together</li>
+</ol>
+<p>Let’s delve into each of these in greater detail to better understand how they collectively make up a Shiny app.</p>
+<p>Before we can do that however, we need a few key R packages installed, namely: <code>shiny</code> and (for convenience) <code>htmltools</code>. <code>shiny</code> is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. There are other supporting packages you may decide to use in the future but <code>shiny</code> is a great place to start. <code>htmltools</code> contains some helpful secondary functions that make formatting headings and labels within an app more developer-friendly (you are the developer in this case!).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(lter<span class="sc">/</span>lterdatasampler, tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(htmltools, shiny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once we have the packages that we need, we can retrieve the data and take a look at it.</p>
+<p>With those two packages installed, we can continue.</p>
+</section>
+<section id="user-interface" class="level2">
+<h2 class="anchored" data-anchor-id="user-interface">User Interface</h2>
+<p>The User Interface (“UI”) is everything that you see in a functioning R Shiny app. This includes both the things that users can interact with (check boxes, text fields, etc.) <em>and</em> the things that user’s inputs create or modify (plots, printed messages, etc.).</p>
+<p>From the coding side of things, <strong>the UI includes all of the inputs and outputs of a given app</strong>. However, the UI does <em>not</em> include any code that turns inputs <em>into</em> outputs. We’ll cover that part momentarily, but an example of a UI element will be helpful here.</p>
+<section id="ui-example" class="level3">
+<h3 class="anchored" data-anchor-id="ui-example">UI Example</h3>
+<p>Let’s imagine that we wanted to make an app with a single check box that users can either check or uncheck. To do this, we would have to define the check box in our app’s UI like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data from AND</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>and_data <span class="ot">&lt;-</span> lterdatasampler<span class="sc">::</span>and_vertebrates</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a quick look at it</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(and_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 32,209
-Columns: 16
-$ year        &lt;dbl&gt; 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987…
-$ sitecode    &lt;chr&gt; "MACKCC-L", "MACKCC-L", "MACKCC-L", "MACKCC-L", "MACKCC-L"…
-$ section     &lt;chr&gt; "CC", "CC", "CC", "CC", "CC", "CC", "CC", "CC", "CC", "CC"…
-$ reach       &lt;chr&gt; "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L"…
-$ pass        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-$ unitnum     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2…
-$ unittype    &lt;chr&gt; "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R"…
-$ vert_index  &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, …
-$ pitnumber   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ species     &lt;chr&gt; "Cutthroat trout", "Cutthroat trout", "Cutthroat trout", "…
-$ length_1_mm &lt;dbl&gt; 58, 61, 89, 58, 93, 86, 107, 131, 103, 117, 100, 127, 99, …
-$ length_2_mm &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ weight_g    &lt;dbl&gt; 1.75, 1.95, 5.60, 2.15, 6.90, 5.90, 10.50, 20.60, 9.55, 13…
-$ clip        &lt;chr&gt; "NONE", "NONE", "NONE", "NONE", "NONE", "NONE", "NONE", "N…
-$ sampledate  &lt;date&gt; 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-0…
-$ notes       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `fluidPage` is the wrapper for all the UI bits</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We can then create out checkbox</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"my_checkbox"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Check me!"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And print the checkbox's output</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The box is checked"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="st">"my_checkbox_out"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Close `fluidPage` parentheses</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<section id="and-data-dictionary" class="level3">
-<h3 class="anchored" data-anchor-id="and-data-dictionary">AND Data Dictionary</h3>
-<p>Information about the data in AND can be accessed by running <code>?and_vertebrates</code> but for simplicity’s sake, the columns and their meanings are recapitulated here as well.</p>
+<p>After running that code, you should have an object called <code>my_ui</code> in your Environment. Notice though that there is no app yet, that’s because we still need to tell our app what to do with that check box and then tell R that the UI + server <em>is</em> an app! Also, crucially, even though we defined an output here in our UI, the server is where we’ll tell the app how to turn the input into the output.</p>
+<p>Three quick notes on the UI code:</p>
+<ol type="1">
+<li>The type of UI element is defined by which <code>...Input</code> function you use. In the above example, we used <code>checkboxInput</code> so our app will give us a checkbox. If you wanted a numeric slider instead, you’d need to use <code>sliderInput</code>
 <ul>
-<li><code>year</code> – number – <strong>observation year</strong></li>
-<li><code>sitecode</code> – character – <strong>abbreviated name of sample area</strong></li>
-<li><code>section</code> – character – section of Mack Creek <strong>CC = clear cut</strong> forest, <strong>OG = old growth</strong> forest upstream</li>
-<li><code>reach</code> – character – reach sampled from each section; <strong>L = lower</strong> reach (0 - 50 meters), <strong>M = middle</strong> reach (50 - 100 meters), <strong>U = upper</strong> reach (100 - 150 meters))</li>
-<li><code>pass</code> – number – <strong>electroshocking pass number</strong>, either 1 or 2</li>
-<li><code>unitnum</code> – number – <strong>channel unit number</strong></li>
-<li><code>unittype</code> – character – channel unit classification type (<strong>C = cascade</strong>, <strong>I = riffle</strong>, <strong>IP = isolated pool</strong> (not connected to channel), <strong>P = pool</strong>, <strong>R = rapid</strong>, <strong>S = step</strong> (small falls), <strong>SC = side channel</strong>, NA = not sampled by unit)</li>
-<li><code>vert_index</code> – number – unique <strong>index for each vertebrate</strong></li>
-<li><code>pitnumber</code> – number – unique <strong>tag number</strong> embedded into vertebrate (tagging started in 2007)</li>
-<li><code>species</code> – character – <strong>species measured</strong></li>
-<li><code>length_1_mm</code> – number – <strong>vertebrate length in millimeters</strong>; total or snout-fork length for trout, and snout-vent length for salamanders</li>
-<li><code>length_2_mm</code> – number – snout-tail <strong>length in millimeters</strong> (for <em>Coastal giant salamander only</em>)</li>
-<li><code>weight_g</code> – number – <strong>vertebrate mass in grams</strong></li>
-<li><code>clip</code> – character – <strong>fin clip type</strong> for cutthroat trout, ended in 2006 (LV = left ventral fin; LVRV = left and right ventral fins; RV = right ventral fin; NONE = no ventral fin clip)</li>
-<li><code>sampledate</code> – date – <strong>date of observation</strong></li>
-<li><code>notes</code> – character – additional comments</li>
-</ul>
-<p>We may not use all of these columns today but your app could rely on any of them that you so choose!</p>
+<li>If you downloaded all of the contents of this workshop’s GitHub repository, check out the “ui_elements.R” script for an example of some of the more common UI inputs</li>
+</ul></li>
+<li>Notice how after each bit of the UI (the checkbox, some text, and the output) there is a comma (<code>,</code>) but they are otherwise all just loose inside of the <code>fluidPage</code> parentheses
+<ul>
+<li>This syntax is key to the flexibility of Shiny apps because you can add any number of things and they’ll show up in the app (we’ll cover defining app layouts later)</li>
+</ul></li>
+<li>Not a syntax note <em>per se</em> but be careful with matching your parentheses!
+<ul>
+<li>Shiny apps (particularly the UI) can be many lines and it is easy to forget to close all the parentheses. We recommend turning on “Rainbow parentheses” in RStudio’s preferences to help make this easier</li>
+<li>RStudio -&gt; Preferences -&gt; Code -&gt; Display -&gt; Rainbow parentheses (checkbox)</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="server" class="level2">
+<h2 class="anchored" data-anchor-id="server">Server</h2>
+<p>The server is the “behind the curtain” part of a Shiny app. The server receives all inputs from the User Interface, creates the outputs you define from those inputs, and finally returns the outputs to the UI so that they can be displayed. Unlike the UI, <strong>the server only creates outputs from inputs</strong> and is <em>not</em> visible to users of the app.</p>
+<p>In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don’t usually write your own functions, don’t worry! See the example below:</p>
+<section id="server-example" class="level3">
+<h3 class="anchored" data-anchor-id="server-example">Server Example</h3>
+<p>Returning to our growing app, let’s tell the server how to handle our checkbox.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Begin by defining the server function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the checkbox input and print it</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_checkbox_out <span class="ot">&lt;-</span> <span class="fu">renderPrint</span>({ input<span class="sc">$</span>my_checkbox })</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>} <span class="co"># Close the server's curly brace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you run that you should have a function in your environment called <code>my_server</code> but still no app! We are nearly there so bear with us!</p>
+<p>Notes on server code:</p>
+<ol type="1">
+<li>Putting <code>function(input, output)</code> tells the server that it should expect things called <code>input</code> and things called <code>output</code>
+<ul>
+<li>Missing either of these will make your app not know how to handle one or both</li>
+</ul></li>
+<li>Notice how the <code>input$...</code> and <code>output$...</code> names are exact matches for what we put as the <code>inputId</code> and <code>outputId</code> in the UI
+<ul>
+<li>This is no accident! In the UI, in/outputs are given IDs, in the server they are placed into intermediary in/output objects</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="combining-ui-and-server" class="level2">
+<h2 class="anchored" data-anchor-id="combining-ui-and-server">Combining UI and Server</h2>
+<p>The final step to bringing our app to life is to tell R that this <em>is</em> a Shiny app. This “telling” involves both using the <code>shinyApp</code> function <strong>and</strong> telling that function the name of your UI object and server function. R Shiny has made this step really streamlined which is convenient for us!</p>
+<section id="run-app-example" class="level3">
+<h3 class="anchored" data-anchor-id="run-app-example">Run App Example</h3>
+<p>Double check that your Environment includes both the <code>my_ui</code> and <code>my_server</code> objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> my_ui, <span class="at">server =</span> my_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you run this line, you should have a new window open with your living app! If you check the box the app should say “TRUE” and if you uncheck it the app should say “FALSE”.</p>
+<p><strong>Congratulations!</strong> You’ve successfully completed a Shiny app!</p>
 
 
 </section>
