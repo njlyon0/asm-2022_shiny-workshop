@@ -48,7 +48,7 @@ Information about the data in AND can be accessed by running `?and_vertebrates` 
 - `length_1_mm` -- number -- **vertebrate length in millimeters**; total or snout-fork length for trout, and snout-vent length for salamanders
 - `length_2_mm` -- number -- snout-tail **length in millimeters** (for *Coastal giant salamander only*)
 - `weight_g` -- number -- **vertebrate mass in grams**
-- `clip` -- character -- **fin clip type** for cutthroat trout, ended in 2006 (LV = left ventrical fin; LVRV = left and right ventrical fins; RV = right ventrical fin; NONE = no ventral fin clip)
+- `clip` -- character -- **fin clip type** for cutthroat trout, ended in 2006 (LV = left ventral fin; LVRV = left and right ventral fins; RV = right ventral fin; NONE = no ventral fin clip)
 - `sampledate` -- date -- **date of observation**
 - `notes` -- character -- additional comments
 
