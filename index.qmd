@@ -23,3 +23,29 @@ We aim to make this training fun and interactive so please reach out if you have
 **Francisco J. Guerrero**: [francisco.guerrero\@pnnl.gov](mailto:francisco.guerrero@pnnl.gov){.email}
 
 **Nick J. Lyon**: [lyon\@nceas.ucsb.edu](mailto:lyon@nceas.ucsb.edu){.email}
+
+---
+
+## Agenda*
+
+\*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.
+
+10:30a (PT) - Introductions & Workshop Overview
+
+10:40a - Welcome to the Wonderland of R Shiny
+
+10:50a - User Interface Elements & Their Interactions with the Server
+
+11:15a - Labels & Headers
+
+11:30a - Shiny App Layouts
+
+11:45a - Debrief
+
+11:55a - Evaluation
+
+**12:00p - Done!**
+
+--- 
+
+- Feel free to grab us after the workshop if you have questions or just want to keep the conversation going!
