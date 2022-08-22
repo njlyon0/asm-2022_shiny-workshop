@@ -14,10 +14,13 @@ Let's delve into each of these in greater detail to better understand how they c
 
 Before we can do that however, we need one key R package installed, namely: `shiny`. `shiny` is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package inside of a Shiny app, which makes things like manipulating data or plotting more familiar. However, the only *required* package to create a Shiny app is `shiny`.
 
+:::callout-note
+#### 
 ```{r libraries-core-shiny, message = F}
 # install.packages("librarian")
 librarian::shelf(shiny)
 ```
+:::
 
 With that package installed, we can continue.
 
@@ -29,17 +32,22 @@ The power of shiny comes when you let users interact with the data, and the app 
 
 Let's take a very basic example:
 
+:::callout-note
+#### 
 ```{r basic-ui-v1}
 # Define UI
 basic_ui <- fluidPage(
   "Here's some text"
 )
 ```
+:::
 
 Here, we just tell the UI that we want some text to display. `fluidPage` is a function in the `shiny` package that defines the page structure---there's a few others, but fluidPage is a great default, because it's incredibly flexible. It wraps the code for the entire app! We'll worry about more complicated structure later.
 
 We can add other elements, too:
 
+:::callout-note
+#### 
 ```{r basic-ui-v2}
 basic_ui <- fluidPage(
   titlePanel("A simple app"),
@@ -47,6 +55,7 @@ basic_ui <- fluidPage(
   img(src = "https://lternet.edu/wp-content/themes/ndic/library/images/logo.svg")
 )
 ```
+:::
 
 The shiny package contains some convenient functions for formatting and placement. In this case, we used `titlePanel` to format some text as a title, and the `img` function to render an image from a source on the internet. If you want something to display, there's likely a `shiny` function that let's you do it easily.
 
@@ -54,6 +63,8 @@ If we want to run the app, we need to define both the server, and then run the `
 
 At the end, we use the `shinyApp` function to tell R to compile our server and ui into an app.
 
+:::callout-note
+#### 
 ```{r basic-app, message = F}
 # Define server
 basic_server <- function(input, output){ }
@@ -61,6 +72,7 @@ basic_server <- function(input, output){ }
 # Create the app
 shinyApp(ui = basic_ui, server = basic_server)
 ```
+:::
 
 If you know a bit of web development, the app you create might look like what you get when you code HTML without any CSS styling. A huge benefit of `shiny` is that we can actually define the layout and styling within the UI, alongside the actual objects (text, images)---though we did minimal formatting in this case. More on this later---and if these last two sentences make no sense, it's totally fine to ignore them and move on!
 
@@ -74,6 +86,8 @@ This concept is key: the UI includes both the things that users can interact wit
 
 Let's start coding this up, starting with adding the buttons:
 
+:::callout-note
+#### 
 ```{r reactive-ui-v1}
 # Define the UI
 reactive_ui <- fluidPage(
@@ -85,11 +99,14 @@ reactive_ui <- fluidPage(
   
 )
 ```
+:::
 
 Notice that this also uses a convenient function in the `shiny` package: `numericInput`. There are many functions that let you add interactive objects, which `shiny` users generally call **widgets**. We can internally name the buttons using the `inputId` argument, which lets us refer to it (and also the output it generates!) in later code.
 
 Let's also define where we want the results of our selection to show up. The syntax mirrors defining an input:
 
+:::callout-note
+#### 
 ```{r reactive-ui-v2}
 # Define the UI
 reactive_ui <- fluidPage(
@@ -105,6 +122,7 @@ reactive_ui <- fluidPage(
   
   )  
 ```
+:::
 
 We similarly want to define the output ID so we can refer to it later. The `inputId` and `outputId` arguments let us connect a specific input to a specific output *in the server*, which we'll do in a moment.
 
@@ -130,6 +148,8 @@ In terms of code, the server is actually one big function that accepts UI inputs
 
 Returning to our growing app, let's tell the server how to handle our inputs.
 
+:::callout-note
+#### 
 ```{r reactive-server}
 # Define the server
 reactive_server <- function(input, output){
@@ -139,6 +159,7 @@ reactive_server <- function(input, output){
   
 }
 ```
+:::
 
 The syntax is a bit unique compared to other R code, so let's break it down.
 
@@ -159,9 +180,12 @@ Notes on server code:
 
 Double check that your Environment includes both the `reactive_ui` and `reactive_server` objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.
 
+:::callout-note
+#### 
 ```{r reactive-app, message = F}
 shinyApp(ui = reactive_ui, server = reactive_server)
 ```
+:::
 
 Once you run this line, you should have a new window open with your living app! After you type a number, the app should display the square root of that number.
 

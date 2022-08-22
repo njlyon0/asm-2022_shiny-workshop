@@ -16,13 +16,18 @@ Specifically, we'll be using the [Andrews Forest ("AND") LTER](https://lternet.e
 
 To access this data, we'll need to install the `lterdatasampler` dataset and we'll also want both the `tidyverse` and `librarian` packages as well (for data wrangling and package installation convenience respectively).
 
+:::callout-note
+#### 
 ```{r libraries, message = F}
 # install.packages("librarian")
 librarian::shelf(lter/lterdatasampler, tidyverse)
 ```
+:::
 
 Once we have the packages that we need, we can retrieve the data and take a look at it.
 
+:::callout-note
+#### 
 ```{r, and-raw, message = F}
 # Load the data from AND
 and_data <- lterdatasampler::and_vertebrates
@@ -30,6 +35,7 @@ and_data <- lterdatasampler::and_vertebrates
 # Take a quick look at it
 dplyr::glimpse(and_data)
 ```
+:::
 
 ### AND Data Dictionary
 

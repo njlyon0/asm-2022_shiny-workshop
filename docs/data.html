@@ -217,11 +217,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="andrews-forest-data">Andrews Forest Data</h2>
 <p>Specifically, we’ll be using the <a href="https://lternet.edu/site/andrews-forest-lter/">Andrews Forest (“AND”) LTER</a> data. This dataset contains the length and width measurements of Cutthroat trout and salamanders found in Mack Creek at Andrews Forest.</p>
 <p>To access this data, we’ll need to install the <code>lterdatasampler</code> dataset and we’ll also want both the <code>tidyverse</code> and <code>librarian</code> packages as well (for data wrangling and package installation convenience respectively).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(lter<span class="sc">/</span>lterdatasampler, tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
 <p>Once we have the packages that we need, we can retrieve the data and take a look at it.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data from AND</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>and_data <span class="ot">&lt;-</span> lterdatasampler<span class="sc">::</span>and_vertebrates</span>
@@ -247,6 +269,8 @@ $ weight_g    &lt;dbl&gt; 1.75, 1.95, 5.60, 2.15, 6.90, 5.90, 10.50, 20.60, 9.55
 $ clip        &lt;chr&gt; "NONE", "NONE", "NONE", "NONE", "NONE", "NONE", "NONE", "N…
 $ sampledate  &lt;date&gt; 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-0…
 $ notes       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
+</div>
+</div>
 </div>
 </div>
 <section id="and-data-dictionary" class="level3">

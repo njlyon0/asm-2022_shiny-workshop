@@ -220,9 +220,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Let’s delve into each of these in greater detail to better understand how they collectively make up a Shiny app.</p>
 <p>Before we can do that however, we need one key R package installed, namely: <code>shiny</code>. <code>shiny</code> is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package inside of a Shiny app, which makes things like manipulating data or plotting more familiar. However, the only <em>required</em> package to create a Shiny app is <code>shiny</code>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(shiny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 <p>With that package installed, we can continue.</p>
 </section>
@@ -231,14 +243,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The User Interface (“UI”) is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app <strong>only</strong> in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a wsywyg editor like wordpress or drupal might generate.</p>
 <p>The power of shiny comes when you let users interact with the data, and the app responds to their selections. This requires making <strong>reactive</strong> objects in the server, the key to unlocking the full power of shiny. We’ll dive into this connection later. For now, we focus on the UI.</p>
 <p>Let’s take a very basic example:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>basic_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Here's some text"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
 <p>Here, we just tell the UI that we want some text to display. <code>fluidPage</code> is a function in the <code>shiny</code> package that defines the page structure—there’s a few others, but fluidPage is a great default, because it’s incredibly flexible. It wraps the code for the entire app! We’ll worry about more complicated structure later.</p>
 <p>We can add other elements, too:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>basic_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"A simple app"</span>),</span>
@@ -246,9 +280,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://lternet.edu/wp-content/themes/ndic/library/images/logo.svg"</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
 <p>The shiny package contains some convenient functions for formatting and placement. In this case, we used <code>titlePanel</code> to format some text as a title, and the <code>img</code> function to render an image from a source on the internet. If you want something to display, there’s likely a <code>shiny</code> function that let’s you do it easily.</p>
 <p>If we want to run the app, we need to define both the server, and then run the <code>shinyApp</code> function that tells R to stitch it all together. In this case, our server is empty, because we don’t actually need the app to do anything behind the hood yet. Note that the server is just a user defined function with the variables <code>input</code> and <code>output</code> — not a pre defined function.</p>
 <p>At the end, we use the <code>shinyApp</code> function to tell R to compile our server and ui into an app.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>basic_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){ }</span>
@@ -259,6 +305,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="core_shiny_files/figure-html/basic-app-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</div>
+</div>
 <p>If you know a bit of web development, the app you create might look like what you get when you code HTML without any CSS styling. A huge benefit of <code>shiny</code> is that we can actually define the layout and styling within the UI, alongside the actual objects (text, images)—though we did minimal formatting in this case. More on this later—and if these last two sentences make no sense, it’s totally fine to ignore them and move on!</p>
 </section>
 <section id="creating-a-reactive-ui" class="level2">
@@ -267,6 +315,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If the UI defines what a user sees, we want them to see two things: the radio buttons, but also the output—maybe some text in this case—that the buttons generate.</p>
 <p>This concept is key: the UI includes both the things that users can interact with (check boxes, text fields, etc.) <em>and</em> the things that user’s inputs create or modify (plots, printed messages, etc.).</p>
 <p>Let’s start coding this up, starting with adding the buttons:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the UI</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
@@ -278,8 +336,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
 <p>Notice that this also uses a convenient function in the <code>shiny</code> package: <code>numericInput</code>. There are many functions that let you add interactive objects, which <code>shiny</code> users generally call <strong>widgets</strong>. We can internally name the buttons using the <code>inputId</code> argument, which lets us refer to it (and also the output it generates!) in later code.</p>
 <p>Let’s also define where we want the results of our selection to show up. The syntax mirrors defining an input:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the UI</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
@@ -294,6 +364,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">"my_output"</span>)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  )  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 <p>We similarly want to define the output ID so we can refer to it later. The <code>inputId</code> and <code>outputId</code> arguments let us connect a specific input to a specific output <em>in the server</em>, which we’ll do in a moment.</p>
 <p>Three quick notes on the UI code:</p>
@@ -321,6 +393,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="server-example" class="level3">
 <h3 class="anchored" data-anchor-id="server-example">Server Example</h3>
 <p>Returning to our growing app, let’s tell the server how to handle our inputs.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the server</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
@@ -329,6 +411,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>( <span class="fu">sqrt</span>(input<span class="sc">$</span>my_input) )</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 <p>The syntax is a bit unique compared to other R code, so let’s break it down.</p>
 <p>We first need to define where we want the output to display. Remember those names we gave the inputs and outputs in the UI? Here’s where they come in handy.</p>
@@ -349,10 +433,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="run-this-final-app" class="level3">
 <h3 class="anchored" data-anchor-id="run-this-final-app">Run this final app!</h3>
 <p>Double check that your Environment includes both the <code>reactive_ui</code> and <code>reactive_server</code> objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> reactive_ui, <span class="at">server =</span> reactive_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="core_shiny_files/figure-html/reactive-app-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </div>
 </div>
 <p>Once you run this line, you should have a new window open with your living app! After you type a number, the app should display the square root of that number.</p>
