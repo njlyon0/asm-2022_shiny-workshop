@@ -8,7 +8,7 @@ Every R Shiny app--no matter how nuanced and visually appealing--is composed of 
 
 1.  User Interface ("UI")
 2.  Server
-3.  `shinyApp()` R function that binds the UI and server together
+3.  `shinyApp` R function that binds the UI and server together
 
 Let's delve into each of these in greater detail to better understand how they collectively make up a Shiny app.
 
@@ -29,18 +29,18 @@ The power of shiny comes when you let users interact with the data, and the app 
 
 Let's take a very basic example:
 
-```{r}
+```{r basic-ui-v1}
 # Define UI
 basic_ui <- fluidPage(
   "Here's some text"
 )
 ```
 
-Here, we just tell the UI that we want some text to display. `fluidPage()` is a function in the `shiny` package that defines the page structure---there's a few others, but fluidPage is a great default, because it's incredibly flexible. It wraps the code for the entire app! We'll worry about more complicated structure later.
+Here, we just tell the UI that we want some text to display. `fluidPage` is a function in the `shiny` package that defines the page structure---there's a few others, but fluidPage is a great default, because it's incredibly flexible. It wraps the code for the entire app! We'll worry about more complicated structure later.
 
 We can add other elements, too:
 
-```{r}
+```{r basic-ui-v2}
 basic_ui <- fluidPage(
   titlePanel("A simple app"),
   "Here's some text",
@@ -48,100 +48,105 @@ basic_ui <- fluidPage(
 )
 ```
 
-The shiny package contains some convenient functions for formatting and placement. In this case, we used `titlePanel` to format some text as a title, and the `img()` function to render an image from a source on the internet. If you want something to display, there's likely a `shiny` function that let's you do it easily.
+The shiny package contains some convenient functions for formatting and placement. In this case, we used `titlePanel` to format some text as a title, and the `img` function to render an image from a source on the internet. If you want something to display, there's likely a `shiny` function that let's you do it easily.
 
 If we want to run the app, we need to define both the server, and then run the `shinyApp` function that tells R to stitch it all together. In this case, our server is empty, because we don't actually need the app to do anything behind the hood yet. Note that the server is just a user defined function with the variables `input` and `output` --- not a pre defined function.
 
-At the end, we use the shinyApp function to tell R to compile our server and ui into an app.
+At the end, we use the `shinyApp` function to tell R to compile our server and ui into an app.
 
-```{r}
-# Define Server
-basic_server <- function(input, output){
-}
+```{r basic-app, message = F}
+# Define server
+basic_server <- function(input, output){ }
+
 # Create the app
 shinyApp(ui = basic_ui, server = basic_server)
 ```
 
 If you know a bit of web development, the app you create might look like what you get when you code HTML without any CSS styling. A huge benefit of `shiny` is that we can actually define the layout and styling within the UI, alongside the actual objects (text, images)---though we did minimal formatting in this case. More on this later---and if these last two sentences make no sense, it's totally fine to ignore them and move on!
 
-## Setting up the UI for reactivity
+## Creating a Reactive UI
 
-So far, we haven't made Shiny do anything very useful---and it's certainly more convoluted than a wsywyg editor. But say we had a goal of creating an interactive app? Maybe a check box where a user can select an object, then see a different output based on that selection?
+So far, we haven't made Shiny do anything very useful---and it's certainly more convoluted than a "wsywyg" editor ("<u>W</u>hat <u>Y</u>ou <u>S</u>ee is <u>W</u>hat <u>Y</u>ou <u>G</u>et"). But say we had a goal of creating an interactive app? Maybe radio buttons where a user can select an option, then see a different output based on that selection?
 
-If the UI defines what a user sees, we want them to see two things: the check boxes, but also the output---maybe some text in this case---that the check boxes generate.
+If the UI defines what a user sees, we want them to see two things: the radio buttons, but also the output---maybe some text in this case---that the buttons generate.
 
 This concept is key: the UI includes both the things that users can interact with (check boxes, text fields, etc.) *and* the things that user's inputs create or modify (plots, printed messages, etc.).
 
-Let's actually start coding this up, starting with adding the check box:
+Let's start coding this up, starting with adding the buttons:
 
-```{r ui-definition}
-
-checkbox_ui <- fluidPage(
+```{r reactive-ui-v1}
+# Define the UI
+reactive_ui <- fluidPage(
   
-    # Let's create the checkbox
-    checkboxInput(inputId = "my_checkbox",
-                  label = "Check me!"),
-    
-) # Close `fluidPage` parentheses
+    # Let's create the input
+  numericInput(inputId = "my_input",
+               label = "Type a number",
+               value = 25)
+  
+)
 ```
 
-Notice that this also uses a convenient function in the `shiny` package: `checkboxInput()`. There are many functions that let you add interactive objects, which `shiny` users generally call **widgets**. We can internally name the checkbox using the inputID argument, which lets us refer to it (and also the output it generates!) in other code.
+Notice that this also uses a convenient function in the `shiny` package: `numericInput`. There are many functions that let you add interactive objects, which `shiny` users generally call **widgets**. We can internally name the buttons using the `inputId` argument, which lets us refer to it (and also the output it generates!) in later code.
 
 Let's also define where we want the results of our selection to show up. The syntax mirrors defining an input:
 
-```{r}
-my_ui <- fluidPage(
-    checkboxInput(inputId = "my_checkbox",
-                  label = "Check me!"),
-    
-    # And print the checkbox's output
-    "The box is checked",
-    textOutput(outputId = "my_checkbox_out")
-    
-) # Close `fluidPage` parentheses
+```{r reactive-ui-v2}
+# Define the UI
+reactive_ui <- fluidPage(
+  
+    # Let's create the radio buttons
+  numericInput(inputId = "my_input",
+               label = "Type a number",
+               value = 25),
+  
+    # And print the output
+  "Square root is: ",
+  textOutput(outputId = "my_output")
+  
+  )  
 ```
 
-We similarly want to define the ouputID so we can refer to it later. The `inputID` and `outputID` arguments let us connect a specific input to a specific output in the server, which we'll do in a moment.
+We similarly want to define the output ID so we can refer to it later. The `inputId` and `outputId` arguments let us connect a specific input to a specific output *in the server*, which we'll do in a moment.
 
 Three quick notes on the UI code:
 
-1.  The type of UI element is defined by which `*Input` function you use. In the above example, we used `checkboxInput` so our app will give us a checkbox. If you wanted a numeric slider instead, you'd need to use `sliderInput`
+1.  The type of UI element is defined by which `*Input` function you use. In the above example, we used `numericInput` so our app will give us a field that accepts numbers. If you wanted a checkbox instead, you'd need to use `checkboxInput`
     -   If you downloaded all of the contents of this workshop's GitHub repository, check out the "ui_elements.R" script for an example of some of the more common UI inputs
-2.  Notice how after each bit of the UI (the checkbox, some text, and the output) there is a comma (`,`) but they are otherwise all just loose inside of the `fluidPage` parentheses
+2.  Notice how after each bit of the UI (the input, some text, and the output) there is a comma (`,`) but they are otherwise all just loose inside of the `fluidPage` parentheses
     -   This syntax is key to the flexibility of Shiny apps because you can add any number of things and they'll show up in the app (we'll cover defining app layouts later)
 3.  Not a syntax note *per se* but be careful with matching your parentheses!
     -   Shiny apps (particularly the UI) can be many lines and it is easy to forget to close all the parentheses. We recommend turning on "Rainbow parentheses" in RStudio's preferences to help make this easier
-    -   RStudio -\> Preferences -\> Code -\> Display -\> Rainbow parentheses (checkbox)
+    -   RStudio -\> Preferences -\> Code -\> Display -\> Rainbow parentheses (check the checkbox)
 
 ## Server
 
 Our new app is interactive, so we now actually have to put something in the server function!
 
-The server is the "behind the curtain" part of a Shiny app. The server receives all inputs from the User Interface, creates the outputs based on some pre-defined code that the developer has prepared, and finally returns the outputs to the UI so that the user can see the result of their selection.
+The server is the "behind the curtain" part of a Shiny app. The server receives all inputs from the User Interface, then uses the code that you write in the server to create the outputs based on the inputs. These outputs are then returned to the UI so that the user can see the result of their selection.
 
-In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don't usually write your own functions, don't worry! See the example below:
+In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don't usually write your own functions, don't worry! See the example below to help clarify these ideas:
 
 ### Server Example
 
-Returning to our growing app, let's tell the server how to handle our checkbox.
+Returning to our growing app, let's tell the server how to handle our inputs.
 
-```{r server-definition}
-# Begin by defining the server function
-my_server <- function(input, output){
+```{r reactive-server}
+# Define the server
+reactive_server <- function(input, output){
   
-  # Let's take the checkbox input and print it
-  output$my_checkbox_out <- renderText( input$my_checkbox )
+  # Let's take the numeric input and take the square root
+  output$my_output <- renderText( sqrt(input$my_input) )
   
-} # Close the server's curly brace
+}
 ```
 
 The syntax is a bit unique compared to other R code, so let's break it down.
 
 We first need to define where we want the output to display. Remember those names we gave the inputs and outputs in the UI? Here's where they come in handy.
 
-We know we want to create our output called `my_checkbox_out`. Every output in the server starts with `output$`, and the ID of the output widget follows the dollar sign. Think of this like a named object in R, which we can assign to something. So, we start with `output$my_checkbox_out`, followed by the assignment operator `->`.
+We know we want to create our output called `my_output`. Every output in the server starts with `output$`, and the ID of the output widget follows the dollar sign. Think of this like a named object in R, which we can assign to something. So, we start with `output$my_output`, followed by the assignment operator `<-`.
 
-Most often, you want to assign the output object to a bit of code that generates something. Shiny has it's own set of functions that prepare objects for display in the UI, which all start with `render*` and usually finish with a descriptive term of the output. In this case, we're just asking the app to render some text that tells us if the checkbox is checked, so we use........`renderText()`! And in those parentheses, we know we want the output generated by our checkbox input, so...we refer to it using it's name: `input$my_checkbox`.
+Most often, you want to assign the output object to a bit of code that generates something. Shiny has it's own set of functions that prepare objects for display in the UI, which all start with `render*` and usually finish with a descriptive term of the output. In this case, we're just asking the app to render some text that tells us if the checkbox is checked, so we use... `renderText`! And in those parentheses, we know we want the output generated by our numeric input, so we refer to it using its name: `input$my_input`.
 
 Notes on server code:
 
@@ -152,12 +157,12 @@ Notes on server code:
 
 ### Run this final app!
 
-Double check that your Environment includes both the `my_ui` and `my_server` objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.
+Double check that your Environment includes both the `reactive_ui` and `reactive_server` objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.
 
-```{r make-app-1, eval = F}
-shinyApp(ui = my_ui, server = my_server)
+```{r reactive-app, message = F}
+shinyApp(ui = reactive_ui, server = reactive_server)
 ```
 
-Once you run this line, you should have a new window open with your living app! If you check the box the app should say "TRUE" and if you uncheck it the app should say "FALSE".
+Once you run this line, you should have a new window open with your living app! After you type a number, the app should display the square root of that number.
 
 **Congratulations!** You've successfully completed a Shiny app!

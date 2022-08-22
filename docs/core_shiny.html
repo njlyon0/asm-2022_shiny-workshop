@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#fundamental-shiny-architecture" id="toc-fundamental-shiny-architecture" class="nav-link active" data-scroll-target="#fundamental-shiny-architecture">Fundamental Shiny Architecture</a></li>
   <li><a href="#user-interface" id="toc-user-interface" class="nav-link" data-scroll-target="#user-interface">User Interface</a></li>
-  <li><a href="#setting-up-the-ui-for-reactivity" id="toc-setting-up-the-ui-for-reactivity" class="nav-link" data-scroll-target="#setting-up-the-ui-for-reactivity">Setting up the UI for reactivity</a></li>
+  <li><a href="#creating-a-reactive-ui" id="toc-creating-a-reactive-ui" class="nav-link" data-scroll-target="#creating-a-reactive-ui">Creating a Reactive UI</a></li>
   <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a>
   <ul class="collapse">
   <li><a href="#server-example" id="toc-server-example" class="nav-link" data-scroll-target="#server-example">Server Example</a></li>
@@ -216,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>User Interface (“UI”)</li>
 <li>Server</li>
-<li><code>shinyApp()</code> R function that binds the UI and server together</li>
+<li><code>shinyApp</code> R function that binds the UI and server together</li>
 </ol>
 <p>Let’s delve into each of these in greater detail to better understand how they collectively make up a Shiny app.</p>
 <p>Before we can do that however, we need one key R package installed, namely: <code>shiny</code>. <code>shiny</code> is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package inside of a Shiny app, which makes things like manipulating data or plotting more familiar. However, the only <em>required</em> package to create a Shiny app is <code>shiny</code>.</p>
@@ -237,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Here's some text"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Here, we just tell the UI that we want some text to display. <code>fluidPage()</code> is a function in the <code>shiny</code> package that defines the page structure—there’s a few others, but fluidPage is a great default, because it’s incredibly flexible. It wraps the code for the entire app! We’ll worry about more complicated structure later.</p>
+<p>Here, we just tell the UI that we want some text to display. <code>fluidPage</code> is a function in the <code>shiny</code> package that defines the page structure—there’s a few others, but fluidPage is a great default, because it’s incredibly flexible. It wraps the code for the entire app! We’ll worry about more complicated structure later.</p>
 <p>We can add other elements, too:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>basic_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
@@ -246,92 +246,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://lternet.edu/wp-content/themes/ndic/library/images/logo.svg"</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The shiny package contains some convenient functions for formatting and placement. In this case, we used <code>titlePanel</code> to format some text as a title, and the <code>img()</code> function to render an image from a source on the internet. If you want something to display, there’s likely a <code>shiny</code> function that let’s you do it easily.</p>
+<p>The shiny package contains some convenient functions for formatting and placement. In this case, we used <code>titlePanel</code> to format some text as a title, and the <code>img</code> function to render an image from a source on the internet. If you want something to display, there’s likely a <code>shiny</code> function that let’s you do it easily.</p>
 <p>If we want to run the app, we need to define both the server, and then run the <code>shinyApp</code> function that tells R to stitch it all together. In this case, our server is empty, because we don’t actually need the app to do anything behind the hood yet. Note that the server is just a user defined function with the variables <code>input</code> and <code>output</code> — not a pre defined function.</p>
-<p>At the end, we use the shinyApp function to tell R to compile our server and ui into an app.</p>
+<p>At the end, we use the <code>shinyApp</code> function to tell R to compile our server and ui into an app.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Server</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>basic_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>basic_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){ }</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the app</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> basic_ui, <span class="at">server =</span> basic_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Listening on http://127.0.0.1:3426</code></pre>
-</div>
 <div class="cell-output-display">
-<p><img src="core_shiny_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="core_shiny_files/figure-html/basic-app-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>If you know a bit of web development, the app you create might look like what you get when you code HTML without any CSS styling. A huge benefit of <code>shiny</code> is that we can actually define the layout and styling within the UI, alongside the actual objects (text, images)—though we did minimal formatting in this case. More on this later—and if these last two sentences make no sense, it’s totally fine to ignore them and move on!</p>
 </section>
-<section id="setting-up-the-ui-for-reactivity" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-ui-for-reactivity">Setting up the UI for reactivity</h2>
-<p>So far, we haven’t made Shiny do anything very useful—and it’s certainly more convoluted than a wsywyg editor. But say we had a goal of creating an interactive app? Maybe a check box where a user can select an object, then see a different output based on that selection?</p>
-<p>If the UI defines what a user sees, we want them to see two things: the check boxes, but also the output—maybe some text in this case—that the check boxes generate.</p>
+<section id="creating-a-reactive-ui" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-reactive-ui">Creating a Reactive UI</h2>
+<p>So far, we haven’t made Shiny do anything very useful—and it’s certainly more convoluted than a “wsywyg” editor (“<u>W</u>hat <u>Y</u>ou <u>S</u>ee is <u>W</u>hat <u>Y</u>ou <u>G</u>et”). But say we had a goal of creating an interactive app? Maybe radio buttons where a user can select an option, then see a different output based on that selection?</p>
+<p>If the UI defines what a user sees, we want them to see two things: the radio buttons, but also the output—maybe some text in this case—that the buttons generate.</p>
 <p>This concept is key: the UI includes both the things that users can interact with (check boxes, text fields, etc.) <em>and</em> the things that user’s inputs create or modify (plots, printed messages, etc.).</p>
-<p>Let’s actually start coding this up, starting with adding the check box:</p>
+<p>Let’s start coding this up, starting with adding the buttons:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>checkbox_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Let's create the checkbox</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"my_checkbox"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Check me!"</span>),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Close `fluidPage` parentheses</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the UI</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Let's create the input</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"my_input"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">label =</span> <span class="st">"Type a number"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">value =</span> <span class="dv">25</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notice that this also uses a convenient function in the <code>shiny</code> package: <code>checkboxInput()</code>. There are many functions that let you add interactive objects, which <code>shiny</code> users generally call <strong>widgets</strong>. We can internally name the checkbox using the inputID argument, which lets us refer to it (and also the output it generates!) in other code.</p>
+<p>Notice that this also uses a convenient function in the <code>shiny</code> package: <code>numericInput</code>. There are many functions that let you add interactive objects, which <code>shiny</code> users generally call <strong>widgets</strong>. We can internally name the buttons using the <code>inputId</code> argument, which lets us refer to it (and also the output it generates!) in later code.</p>
 <p>Let’s also define where we want the results of our selection to show up. The syntax mirrors defining an input:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"my_checkbox"</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Check me!"</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And print the checkbox's output</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The box is checked"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">"my_checkbox_out"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Close `fluidPage` parentheses</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the UI</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Let's create the radio buttons</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"my_input"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">label =</span> <span class="st">"Type a number"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">value =</span> <span class="dv">25</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And print the output</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Square root is: "</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">"my_output"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  )  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We similarly want to define the ouputID so we can refer to it later. The <code>inputID</code> and <code>outputID</code> arguments let us connect a specific input to a specific output in the server, which we’ll do in a moment.</p>
+<p>We similarly want to define the output ID so we can refer to it later. The <code>inputId</code> and <code>outputId</code> arguments let us connect a specific input to a specific output <em>in the server</em>, which we’ll do in a moment.</p>
 <p>Three quick notes on the UI code:</p>
 <ol type="1">
-<li>The type of UI element is defined by which <code>*Input</code> function you use. In the above example, we used <code>checkboxInput</code> so our app will give us a checkbox. If you wanted a numeric slider instead, you’d need to use <code>sliderInput</code>
+<li>The type of UI element is defined by which <code>*Input</code> function you use. In the above example, we used <code>numericInput</code> so our app will give us a field that accepts numbers. If you wanted a checkbox instead, you’d need to use <code>checkboxInput</code>
 <ul>
 <li>If you downloaded all of the contents of this workshop’s GitHub repository, check out the “ui_elements.R” script for an example of some of the more common UI inputs</li>
 </ul></li>
-<li>Notice how after each bit of the UI (the checkbox, some text, and the output) there is a comma (<code>,</code>) but they are otherwise all just loose inside of the <code>fluidPage</code> parentheses
+<li>Notice how after each bit of the UI (the input, some text, and the output) there is a comma (<code>,</code>) but they are otherwise all just loose inside of the <code>fluidPage</code> parentheses
 <ul>
 <li>This syntax is key to the flexibility of Shiny apps because you can add any number of things and they’ll show up in the app (we’ll cover defining app layouts later)</li>
 </ul></li>
 <li>Not a syntax note <em>per se</em> but be careful with matching your parentheses!
 <ul>
 <li>Shiny apps (particularly the UI) can be many lines and it is easy to forget to close all the parentheses. We recommend turning on “Rainbow parentheses” in RStudio’s preferences to help make this easier</li>
-<li>RStudio -&gt; Preferences -&gt; Code -&gt; Display -&gt; Rainbow parentheses (checkbox)</li>
+<li>RStudio -&gt; Preferences -&gt; Code -&gt; Display -&gt; Rainbow parentheses (check the checkbox)</li>
 </ul></li>
 </ol>
 </section>
 <section id="server" class="level2">
 <h2 class="anchored" data-anchor-id="server">Server</h2>
 <p>Our new app is interactive, so we now actually have to put something in the server function!</p>
-<p>The server is the “behind the curtain” part of a Shiny app. The server receives all inputs from the User Interface, creates the outputs based on some pre-defined code that the developer has prepared, and finally returns the outputs to the UI so that the user can see the result of their selection.</p>
-<p>In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don’t usually write your own functions, don’t worry! See the example below:</p>
+<p>The server is the “behind the curtain” part of a Shiny app. The server receives all inputs from the User Interface, then uses the code that you write in the server to create the outputs based on the inputs. These outputs are then returned to the UI so that the user can see the result of their selection.</p>
+<p>In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don’t usually write your own functions, don’t worry! See the example below to help clarify these ideas:</p>
 <section id="server-example" class="level3">
 <h3 class="anchored" data-anchor-id="server-example">Server Example</h3>
-<p>Returning to our growing app, let’s tell the server how to handle our checkbox.</p>
+<p>Returning to our growing app, let’s tell the server how to handle our inputs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Begin by defining the server function</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the checkbox input and print it</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_checkbox_out <span class="ot">&lt;-</span> <span class="fu">renderText</span>( input<span class="sc">$</span>my_checkbox )</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>} <span class="co"># Close the server's curly brace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the server</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the numeric input and take the square root</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>( <span class="fu">sqrt</span>(input<span class="sc">$</span>my_input) )</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The syntax is a bit unique compared to other R code, so let’s break it down.</p>
 <p>We first need to define where we want the output to display. Remember those names we gave the inputs and outputs in the UI? Here’s where they come in handy.</p>
-<p>We know we want to create our output called <code>my_checkbox_out</code>. Every output in the server starts with <code>output$</code>, and the ID of the output widget follows the dollar sign. Think of this like a named object in R, which we can assign to something. So, we start with <code>output$my_checkbox_out</code>, followed by the assignment operator <code>-&gt;</code>.</p>
-<p>Most often, you want to assign the output object to a bit of code that generates something. Shiny has it’s own set of functions that prepare objects for display in the UI, which all start with <code>render*</code> and usually finish with a descriptive term of the output. In this case, we’re just asking the app to render some text that tells us if the checkbox is checked, so we use……..<code>renderText()</code>! And in those parentheses, we know we want the output generated by our checkbox input, so…we refer to it using it’s name: <code>input$my_checkbox</code>.</p>
+<p>We know we want to create our output called <code>my_output</code>. Every output in the server starts with <code>output$</code>, and the ID of the output widget follows the dollar sign. Think of this like a named object in R, which we can assign to something. So, we start with <code>output$my_output</code>, followed by the assignment operator <code>&lt;-</code>.</p>
+<p>Most often, you want to assign the output object to a bit of code that generates something. Shiny has it’s own set of functions that prepare objects for display in the UI, which all start with <code>render*</code> and usually finish with a descriptive term of the output. In this case, we’re just asking the app to render some text that tells us if the checkbox is checked, so we use… <code>renderText</code>! And in those parentheses, we know we want the output generated by our numeric input, so we refer to it using its name: <code>input$my_input</code>.</p>
 <p>Notes on server code:</p>
 <ol type="1">
 <li>Putting <code>function(input, output)</code> tells the server that it should expect things called <code>input</code> and things called <code>output</code>
@@ -346,11 +348,14 @@ Listening on http://127.0.0.1:3426</code></pre>
 </section>
 <section id="run-this-final-app" class="level3">
 <h3 class="anchored" data-anchor-id="run-this-final-app">Run this final app!</h3>
-<p>Double check that your Environment includes both the <code>my_ui</code> and <code>my_server</code> objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.</p>
+<p>Double check that your Environment includes both the <code>reactive_ui</code> and <code>reactive_server</code> objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> my_ui, <span class="at">server =</span> my_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> reactive_ui, <span class="at">server =</span> reactive_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="core_shiny_files/figure-html/reactive-app-1.png" class="img-fluid" width="672"></p>
 </div>
-<p>Once you run this line, you should have a new window open with your living app! If you check the box the app should say “TRUE” and if you uncheck it the app should say “FALSE”.</p>
+</div>
+<p>Once you run this line, you should have a new window open with your living app! After you type a number, the app should display the square root of that number.</p>
 <p><strong>Congratulations!</strong> You’ve successfully completed a Shiny app!</p>
 
 
