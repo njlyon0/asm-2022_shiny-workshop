@@ -12,14 +12,14 @@ Every R Shiny app--no matter how nuanced and visually appealing--is composed of 
 
 Let's delve into each of these in greater detail to better understand how they collectively make up a Shiny app.
 
-Before we can do that however, we need a few key R packages installed, namely: `shiny` and (for convenience) `htmltools`. `shiny` is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package to runs R code, which makes things like manipulating data or plotting familiar. But the only required package to create a shiny app is `shiny`.
+Before we can do that however, we need one key R package installed, namely: `shiny`. `shiny` is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package inside of a Shiny app, which makes things like manipulating data or plotting more familiar. However, the only *required* package to create a Shiny app is `shiny`.
 
 ```{r libraries-core-shiny, message = F}
 # install.packages("librarian")
 librarian::shelf(shiny)
 ```
 
-With those two packages installed, we can continue.
+With that package installed, we can continue.
 
 ## User Interface
 

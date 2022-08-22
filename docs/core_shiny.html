@@ -219,12 +219,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>shinyApp()</code> R function that binds the UI and server together</li>
 </ol>
 <p>Let’s delve into each of these in greater detail to better understand how they collectively make up a Shiny app.</p>
-<p>Before we can do that however, we need a few key R packages installed, namely: <code>shiny</code> and (for convenience) <code>htmltools</code>. <code>shiny</code> is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package to runs R code, which makes things like manipulating data or plotting familiar. But the only required package to create a shiny app is <code>shiny</code>.</p>
+<p>Before we can do that however, we need one key R package installed, namely: <code>shiny</code>. <code>shiny</code> is, perhaps unsurprisingly, the core workhorse package of most Shiny apps. One huge benefit of Shiny is that you can use any R package inside of a Shiny app, which makes things like manipulating data or plotting more familiar. However, the only <em>required</em> package to create a Shiny app is <code>shiny</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(shiny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>With those two packages installed, we can continue.</p>
+<p>With that package installed, we can continue.</p>
 </section>
 <section id="user-interface" class="level2">
 <h2 class="anchored" data-anchor-id="user-interface">User Interface</h2>
@@ -257,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> basic_ui, <span class="at">server =</span> basic_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
-Listening on http://127.0.0.1:5996</code></pre>
+Listening on http://127.0.0.1:3426</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="core_shiny_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
