@@ -20,6 +20,7 @@ website:
       - data.qmd
       - core_shiny.qmd
       - labels.qmd
+      - layouts.qmd
       - about.qmd
     right:
       - icon: github

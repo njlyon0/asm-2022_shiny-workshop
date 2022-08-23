@@ -1,0 +1,101 @@
+---
+title: "Layouts"
+---
+
+## App Layout Options
+
+R Shiny apps come with several pre-built layouts stored as functions. As with labels and headers, **layouts are exlcusively controlled in the UI**. This makes choosing a layout a similar process to the labels and headers selection process so hopefully the examples below will feel familiar!
+
+As before, we need to re-define our UI, server, and app.We will also need to make sure that both `shiny` and `htmltools` are loaded as our app now depends on both.
+
+:::callout-note
+#### 
+```{r libraries-layout, message = F}
+# install.packages("librarian")
+librarian::shelf(shiny, htmltools)
+```
+:::
+
+Once we have the packages that we need, re-create the UI we wound up with at the end of the "Labels and Headers" chapter.
+
+:::callout-note
+####
+```{r layout-ui-v1, message = F}
+# Define the UI
+layout_ui <- fluidPage(
+  
+  # Add a top-level header
+  htmltools::h1("Square Root Calculator"),
+  
+  # Add an app explanation as a small(ish) header
+  htmltools::h4(
+    ## Put "Welcome" in bold
+  htmltools::strong("Welcome!"),
+  ## Keep plain text in the label
+  "This app takes the square root of any number that you type into the box below (by using the R function ",
+  ## Make the function name "code formatted"
+  htmltools::code("sqrt"),
+  ## Close the sentence's parentheses in plain text
+  ")."
+  ),
+  
+  # Add two line breaks
+  htmltools::hr(),
+  htmltools::hr(),
+
+  # Now add a smaller header for the input
+  htmltools::h3("Enter a Number Below"),
+  
+  # Create the radio buttons
+  numericInput(inputId = "my_input",
+               label = "Type a number",
+               value = 25),
+  
+  # Add a line break
+  htmltools::hr(),
+  
+  # Also include a smaller header for the output
+  htmltools::h3("See Answer Below"),
+  
+  # And print the output
+  "Square root is: ",
+  textOutput(outputId = "my_output")
+  
+  )
+```
+:::
+
+Build the server again.
+
+:::callout-note
+####
+```{r layout-server}
+# Define the server
+layout_server <- function(input, output){
+  
+  # Let's take the numeric input and take the square root
+  output$my_output <- renderText( sqrt(input$my_input) )
+  
+}
+```
+:::
+
+Finally, create the app!
+
+:::callout-note
+#### 
+```{r layout-app-v1, message = F}
+shinyApp(ui = layout_ui, server = layout_server)
+```
+:::
+
+The layout we have used so far is the default for Shiny: a single fluid page where all content is stacked vertically (that's what the `fluidPage` function in the first line of the UI defaults to). However, if desired, we can invoke one of `shiny`'s built-in functions for specifying different app layouts. Let's experiment with (1) an app that has a sidebar versus a main panel and (2) an app where content is divided into tabs.
+
+## Layout - Sidebar
+
+...[Under Construction]...
+
+## Layout - Tabs
+
+...[Under Construction]...
+

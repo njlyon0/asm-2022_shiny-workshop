@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ASM 2022 Workshop - R Shiny - Example Data</title>
+<title>ASM 2022 Workshop - R Shiny - Layouts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,8 +122,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Example Data">
-<meta name="twitter:description" content="The Long Term Ecological Research program (LTER) Network has recently created an R package containing example datasets from some of the LTER sites called lterdatasampler.">
+<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Layouts">
+<meta name="twitter:description" content="R Shiny apps come with several pre-built layouts stored as functions. As with labels and headers, layouts are exlcusively controlled in the UI.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./data.html" aria-current="page">Example Data</a>
+    <a class="nav-link" href="./data.html">Example Data</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./core_shiny.html">Shiny Architecture</a>
@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./labels.html">Labels &amp; Headers</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./layouts.html">Layouts</a>
+    <a class="nav-link active" href="./layouts.html" aria-current="page">Layouts</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">Content Creators</a>
@@ -184,11 +184,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-lterdatasampler-r-package" id="toc-the-lterdatasampler-r-package" class="nav-link active" data-scroll-target="#the-lterdatasampler-r-package">The <code>lterdatasampler</code> R Package</a></li>
-  <li><a href="#andrews-forest-data" id="toc-andrews-forest-data" class="nav-link" data-scroll-target="#andrews-forest-data">Andrews Forest Data</a>
-  <ul class="collapse">
-  <li><a href="#and-data-dictionary" id="toc-and-data-dictionary" class="nav-link" data-scroll-target="#and-data-dictionary">AND Data Dictionary</a></li>
-  </ul></li>
+  <li><a href="#app-layout-options" id="toc-app-layout-options" class="nav-link active" data-scroll-target="#app-layout-options">App Layout Options</a></li>
+  <li><a href="#layout---sidebar" id="toc-layout---sidebar" class="nav-link" data-scroll-target="#layout---sidebar">Layout - Sidebar</a></li>
+  <li><a href="#layout---tabs" id="toc-layout---tabs" class="nav-link" data-scroll-target="#layout---tabs">Layout - Tabs</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/asm-2022_shiny-workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -199,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Example Data</h1>
+<h1 class="title">Layouts</h1>
 </div>
 
 
@@ -213,16 +211,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="the-lterdatasampler-r-package" class="level2">
-<h2 class="anchored" data-anchor-id="the-lterdatasampler-r-package">The <code>lterdatasampler</code> R Package</h2>
-<p><img src="images/lterdatasampler-hex.png" align="right" width="20%"></p>
-<p>The Long Term Ecological Research program (LTER) Network has recently created an <a href="https://lter.github.io/lterdatasampler/">R package containing example datasets</a> from some of the LTER sites called <code>lterdatasampler</code>. The goal of <code>lterdatasampler</code> is to provide tidy versions of datasets from LTER sites for use in teaching and training contexts (like this workshop!). Eventually this package will contain datasets from each of the 28 extant LTER sites so be sure to check back often for updates as those data are integrated.</p>
-<p>For this workshop, we’ll be using one of the datasets in this package to give our apps something to work with. Let’s explore that more fully below.</p>
-</section>
-<section id="andrews-forest-data" class="level2">
-<h2 class="anchored" data-anchor-id="andrews-forest-data">Andrews Forest Data</h2>
-<p>Specifically, we’ll be using the <a href="https://lternet.edu/site/andrews-forest-lter/">Andrews Forest (“AND”) LTER</a> data. This dataset contains the length and width measurements of Cutthroat trout and salamanders found in Mack Creek at Andrews Forest.</p>
-<p>To access this data, we’ll need to install the <code>lterdatasampler</code> dataset and we’ll also want both the <code>tidyverse</code> and <code>librarian</code> packages as well (for data wrangling and package installation convenience respectively).</p>
+<section id="app-layout-options" class="level2">
+<h2 class="anchored" data-anchor-id="app-layout-options">App Layout Options</h2>
+<p>R Shiny apps come with several pre-built layouts stored as functions. As with labels and headers, <strong>layouts are exlcusively controlled in the UI</strong>. This makes choosing a layout a similar process to the labels and headers selection process so hopefully the examples below will feel familiar!</p>
+<p>As before, we need to re-define our UI, server, and app.We will also need to make sure that both <code>shiny</code> and <code>htmltools</code> are loaded as our app now depends on both.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -235,11 +227,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(lter<span class="sc">/</span>lterdatasampler, tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(shiny, htmltools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<p>Once we have the packages that we need, we can retrieve the data and take a look at it.</p>
+<p>Once we have the packages that we need, re-create the UI we wound up with at the end of the “Labels and Headers” chapter.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -251,59 +243,102 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data from AND</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>and_data <span class="ot">&lt;-</span> lterdatasampler<span class="sc">::</span>and_vertebrates</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a quick look at it</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(and_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 32,209
-Columns: 16
-$ year        &lt;dbl&gt; 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987…
-$ sitecode    &lt;chr&gt; "MACKCC-L", "MACKCC-L", "MACKCC-L", "MACKCC-L", "MACKCC-L"…
-$ section     &lt;chr&gt; "CC", "CC", "CC", "CC", "CC", "CC", "CC", "CC", "CC", "CC"…
-$ reach       &lt;chr&gt; "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L"…
-$ pass        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-$ unitnum     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2…
-$ unittype    &lt;chr&gt; "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "R"…
-$ vert_index  &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, …
-$ pitnumber   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ species     &lt;chr&gt; "Cutthroat trout", "Cutthroat trout", "Cutthroat trout", "…
-$ length_1_mm &lt;dbl&gt; 58, 61, 89, 58, 93, 86, 107, 131, 103, 117, 100, 127, 99, …
-$ length_2_mm &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ weight_g    &lt;dbl&gt; 1.75, 1.95, 5.60, 2.15, 6.90, 5.90, 10.50, 20.60, 9.55, 13…
-$ clip        &lt;chr&gt; "NONE", "NONE", "NONE", "NONE", "NONE", "NONE", "NONE", "N…
-$ sampledate  &lt;date&gt; 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-0…
-$ notes       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the UI</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>layout_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a top-level header</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">h1</span>(<span class="st">"Square Root Calculator"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add an app explanation as a small(ish) header</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">h4</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Put "Welcome" in bold</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">strong</span>(<span class="st">"Welcome!"</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Keep plain text in the label</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"This app takes the square root of any number that you type into the box below (by using the R function "</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Make the function name "code formatted"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">code</span>(<span class="st">"sqrt"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Close the sentence's parentheses in plain text</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">")."</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add two line breaks</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">hr</span>(),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">hr</span>(),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now add a smaller header for the input</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">h3</span>(<span class="st">"Enter a Number Below"</span>),</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create the radio buttons</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"my_input"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">label =</span> <span class="st">"Type a number"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">value =</span> <span class="dv">25</span>),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a line break</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">hr</span>(),</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Also include a smaller header for the output</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">h3</span>(<span class="st">"See Answer Below"</span>),</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># And print the output</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Square root is: "</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">"my_output"</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+<p>Build the server again.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<section id="and-data-dictionary" class="level3">
-<h3 class="anchored" data-anchor-id="and-data-dictionary">AND Data Dictionary</h3>
-<p>Information about the data in AND can be accessed by running <code>?and_vertebrates</code> but for simplicity’s sake, the columns and their meanings are recapitulated here as well.</p>
-<ul>
-<li><code>year</code> – number – <strong>observation year</strong></li>
-<li><code>sitecode</code> – character – <strong>abbreviated name of sample area</strong></li>
-<li><code>section</code> – character – section of Mack Creek <strong>CC = clear cut</strong> forest, <strong>OG = old growth</strong> forest upstream</li>
-<li><code>reach</code> – character – reach sampled from each section; <strong>L = lower</strong> reach (0 - 50 meters), <strong>M = middle</strong> reach (50 - 100 meters), <strong>U = upper</strong> reach (100 - 150 meters))</li>
-<li><code>pass</code> – number – <strong>electroshocking pass number</strong>, either 1 or 2</li>
-<li><code>unitnum</code> – number – <strong>channel unit number</strong></li>
-<li><code>unittype</code> – character – channel unit classification type (<strong>C = cascade</strong>, <strong>I = riffle</strong>, <strong>IP = isolated pool</strong> (not connected to channel), <strong>P = pool</strong>, <strong>R = rapid</strong>, <strong>S = step</strong> (small falls), <strong>SC = side channel</strong>, NA = not sampled by unit)</li>
-<li><code>vert_index</code> – number – unique <strong>index for each vertebrate</strong></li>
-<li><code>pitnumber</code> – number – unique <strong>tag number</strong> embedded into vertebrate (tagging started in 2007)</li>
-<li><code>species</code> – character – <strong>species measured</strong></li>
-<li><code>length_1_mm</code> – number – <strong>vertebrate length in millimeters</strong>; total or snout-fork length for trout, and snout-vent length for salamanders</li>
-<li><code>length_2_mm</code> – number – snout-tail <strong>length in millimeters</strong> (for <em>Coastal giant salamander only</em>)</li>
-<li><code>weight_g</code> – number – <strong>vertebrate mass in grams</strong></li>
-<li><code>clip</code> – character – <strong>fin clip type</strong> for cutthroat trout, ended in 2006 (LV = left ventral fin; LVRV = left and right ventral fins; RV = right ventral fin; NONE = no ventral fin clip)</li>
-<li><code>sampledate</code> – date – <strong>date of observation</strong></li>
-<li><code>notes</code> – character – additional comments</li>
-</ul>
-<p>We may not use all of these columns today but your app could rely on any of them that you so choose!</p>
+<div class="callout-caption-container flex-fill">
 
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the server</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>layout_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the numeric input and take the square root</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>( <span class="fu">sqrt</span>(input<span class="sc">$</span>my_input) )</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Finally, create the app!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> layout_ui, <span class="at">server =</span> layout_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="layouts_files/figure-html/layout-app-v1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<p>The layout we have used so far is the default for Shiny: a single fluid page where all content is stacked vertically (that’s what the <code>fluidPage</code> function in the first line of the UI defaults to). However, if desired, we can invoke one of <code>shiny</code>’s built-in functions for specifying different app layouts. Let’s experiment with (1) an app that has a sidebar versus a main panel and (2) an app where content is divided into tabs.</p>
 </section>
+<section id="layout---sidebar" class="level2">
+<h2 class="anchored" data-anchor-id="layout---sidebar">Layout - Sidebar</h2>
+<p>…[Under Construction]…</p>
+</section>
+<section id="layout---tabs" class="level2">
+<h2 class="anchored" data-anchor-id="layout---tabs">Layout - Tabs</h2>
+<p>…[Under Construction]…</p>
+
+
 </section>
 
 </main> <!-- /main -->
