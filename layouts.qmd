@@ -20,24 +20,18 @@ Once we have the packages that we need, re-create the UI we wound up with at the
 
 :::callout-note
 ####
-```{r layout-ui-v1, message = F}
+```{r default-ui, message = F}
 # Define the UI
-layout_ui <- fluidPage(
+default_ui <- fluidPage(
   
   # Add a top-level header
   htmltools::h1("Square Root Calculator"),
   
   # Add an app explanation as a small(ish) header
   htmltools::h4(
-    ## Put "Welcome" in bold
   htmltools::strong("Welcome!"),
-  ## Keep plain text in the label
   "This app takes the square root of any number that you type into the box below (by using the R function ",
-  ## Make the function name "code formatted"
-  htmltools::code("sqrt"),
-  ## Close the sentence's parentheses in plain text
-  ")."
-  ),
+  htmltools::code("sqrt"), ")." ),
   
   # Add two line breaks
   htmltools::hr(),
@@ -84,8 +78,8 @@ Finally, create the app!
 
 :::callout-note
 #### 
-```{r layout-app-v1, message = F}
-shinyApp(ui = layout_ui, server = layout_server)
+```{r basic-layout-app, message = F}
+shinyApp(ui = default_ui, server = layout_server)
 ```
 :::
 
@@ -93,9 +87,156 @@ The layout we have used so far is the default for Shiny: a single fluid page whe
 
 ## Layout - Sidebar
 
-...[Under Construction]...
+A classic template for apps is to have a vertical sidebar (usually ~20-25% the width of the screen) and a main panel (the remaining width of the screen). This is a great layout if you want to include several user inputs in the sidebar and a single output that is modified by most or all of these inputs.
+
+This is often used when a plot is generated in the main panel and the user can tweak several aspects of that plot in the sidebar. Let's create a new UI using this layout to showcase this.
+
+We need to use two new `shiny` functions to tell our app which UI content should be in the sidebar and which should be in the main panel: `sidebarPanel` and `mainPanel`.
+
+:::callout-note
+####
+```{r sidebar-ui, message = F}
+# Define the UI
+sidebar_ui <- fluidPage(
+  
+  # Add a top-level header
+  htmltools::h1("Square Root Calculator"),
+  
+  # Add an app explanation as a small(ish) header
+  htmltools::h4(
+  htmltools::strong("Welcome!"),
+  "This app takes the square root of any number that you type into the box below (by using the R function ",
+  htmltools::code("sqrt"), ")." ),
+  
+  # Add two line breaks
+  htmltools::hr(),
+  htmltools::hr(),
+
+  # Let's start the sidebar here
+  sidebarPanel(
+  
+  # Now add a smaller header for the input
+  htmltools::h3("Enter a Number Below"),
+  
+  # Create the radio buttons
+  numericInput(inputId = "my_input",
+               label = "Type a number",
+               value = 25),
+  
+  # Add a line break
+  htmltools::hr(),
+  
+  # And end the sidebar here
+  ),
+  
+  # Now start the main panel
+  mainPanel(
+  
+  # Also include a smaller header for the output
+  htmltools::h3("See Answer Below"),
+  
+  # And print the output
+  "Square root is: ",
+  textOutput(outputId = "my_output")
+  
+  # And end the main panel here
+  )
+  
+  # Then close the whole `fluidPage` parentheses
+  )
+```
+:::
+
+Note that all UI elements within the `sidebarPanel(...)` parentheses will be in the sidebar and all elements in the `mainPanel(...)` parentheses will be in the main panel. By leaving our main header and explanation outside of both we guarantee that they can use the whole width of the screen and will be above the division between sidebar and main panel.
+
+Now that the UI has been defined, we can use the same server function and create our app with a new user interface.
+
+:::callout-note
+#### 
+```{r sidebar-app, message = F}
+shinyApp(ui = sidebar_ui, server = layout_server)
+```
+:::
+
+If you run the above code on your computer you should see the sidebar to the left and the main panel to the right. They are stacked vertically when embedded in this web page because they sense the width of the screen is insufficient for side-by-side display.
 
 ## Layout - Tabs
 
-...[Under Construction]...
+Another viable layout is to place content in separate tabs that a user can navigate between. This is similar to the navbar of this website as all tab labels will be visible but only the content of the selected tab will be displayed.
 
+Note that because this is a layout change, the server function is still capable of using inputs from one or more tabs and creating outputs in other tabs entirely if desired. In our experience, multiple tabs are more frequently used to display separate datasets that are under a common umbrella (e.g., the data from several experiments conducted at the same site, etc.).
+
+In order to use the tabs layout we need two new `shiny` functions: `tabsetPanel` and one use of `tabPanel` per tab you'd like in your app. See below for an example
+
+:::callout-note
+####
+```{r tab-ui, message = F}
+# Define the UI
+tab_ui <- fluidPage(
+  
+  # Add a top-level header
+  htmltools::h1("Square Root Calculator"),
+  
+  # Let's start the tabs here
+  tabsetPanel(
+  
+  # Now we need to tell the app where each tab starts and stops
+  tabPanel(title = "Welcome",
+  
+  # Add an app explanation as a small(ish) header
+  htmltools::h4(
+  htmltools::strong("Welcome!"),
+  "This app takes the square root of any number that you type into the box below (by using the R function ",
+  htmltools::code("sqrt"), ")." ),
+  
+  # Add two line breaks
+  htmltools::hr(),
+  htmltools::hr(),
+  
+  # Close this tabPanel and start the next
+  ), tabPanel(title = "Starting Number",
+
+  # Now add a smaller header for the input
+  htmltools::h3("Enter a Number Below"),
+  
+  # Create the radio buttons
+  numericInput(inputId = "my_input",
+               label = "Type a number",
+               value = 25),
+  
+  # Add a line break
+  htmltools::hr(),
+  
+  # Close this tabPanel and start the next
+  ), tabPanel(title = "Square Root",
+  
+  # Also include a smaller header for the output
+  htmltools::h3("See Answer Below"),
+  
+  # And print the output
+  "Square root is: ",
+  textOutput(outputId = "my_output")
+  
+  # Close the current tab panel
+  )
+  
+  # Now close the `tabsetPanel(...` parentheses
+  )
+  
+  # Then close the whole `fluidPage` parentheses
+  )
+```
+:::
+
+Note that the `title` argument defined in each `tabPanel` call becomes the words on the tab.
+
+Once the layout has been defined in the UI, we can create another app using the tab layout but with the same server function as the other two apps.
+
+:::callout-note
+#### 
+```{r tab-app, message = F}
+shinyApp(ui = tab_ui, server = layout_server)
+```
+:::
+
+An advantage of using `tabPanel`s is that you can have essentially as many tabs as you desire. This allows for an app with a huge amount of data that users can still easily navigate.
