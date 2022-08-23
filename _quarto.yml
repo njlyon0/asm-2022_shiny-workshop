@@ -19,6 +19,7 @@ website:
         text: Home
       - data.qmd
       - core_shiny.qmd
+      - labels.qmd
       - about.qmd
     right:
       - icon: github
