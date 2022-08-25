@@ -14,9 +14,9 @@ title: "Overview"
 
 We will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you [download R](https://www.r-project.org/) and [download RStudio](https://www.rstudio.com/products/rstudio/download/) **before the workshop.**
 
-**If your RStudio version begins with anything earlier than "2020..."**, we recommend updating RStudio (see "About RStudio" in the top menu bar).
+- **If your RStudio version begins with anything earlier than "2020..."**, we recommend updating RStudio (see "About RStudio" in the top menu bar).
 
-**If your R version begins with anything other than "4..."** we recommend you [update R](https://www.r-project.org/). 
+- **If your R version begins with anything other than "4..."** we recommend you [update R](https://www.r-project.org/). 
 
 Updating RStudio and R ensures that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.
 

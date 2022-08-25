@@ -16,8 +16,7 @@ In order to make sure we are all working with the same tools, be sure that you h
 #### 
 ```{r libraries-byo, message = F}
 # install.packages("librarian")
-librarian::shelf(shiny, htmltools, tidyverse,
-                 leaflet, lter/lterdatasampler)
+librarian::shelf(shiny, htmltools, tidyverse, leaflet, lter/lterdatasampler)
 ```
 :::
 
