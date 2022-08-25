@@ -12,7 +12,27 @@ title: "Overview"
 
 <img src="images/r-shiny-hex.png" align="right" width="15%"/>
 
-We will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you [download R](https://www.r-project.org/) and [download RStudio](https://www.rstudio.com/products/rstudio/download/) **before the workshop.** If your current RStudio version (see "About RStudio" in the top menubar) begins with anything earlier than "2020...", we recommend updating RStudio. If your R version begins with anything other than "4..." we recommend you [update R](https://www.r-project.org/). These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.
+We will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you [download R](https://www.r-project.org/) and [download RStudio](https://www.rstudio.com/products/rstudio/download/) **before the workshop.**
+
+**If your RStudio version begins with anything earlier than "2020..."**, we recommend updating RStudio (see "About RStudio" in the top menu bar).
+
+**If your R version begins with anything other than "4..."** we recommend you [update R](https://www.r-project.org/). 
+
+Updating RStudio and R ensures that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.
+
+Also, run the following code chunk to guarantee that you have all of the packages that you need.
+
+:::callout-note
+#### 
+```{r libraries-home, eval = F}
+# Install the librarian package for easy package downloading
+install.packages("librarian")
+
+# Use librarian to install the other packages that you need!
+librarian::shelf(shiny, htmltools, tidyverse,
+                 leaflet, lter/lterdatasampler)
+```
+:::
 
 ### Let's Get To It!
 
