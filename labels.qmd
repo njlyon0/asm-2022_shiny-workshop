@@ -20,11 +20,10 @@ librarian::shelf(shiny, htmltools)
 
 Let's re-create our reactive app from the previous chapter of the workshop so that we can see how it must be modified to include labels or headers.
 
-:::callout-note
-####
-
 First, create the UI:
 
+:::callout-note
+####
 ```{r label-ui-v1}
 # Define the UI
 label_ui <- fluidPage(

@@ -145,10 +145,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./data.html">Example Data</a>
+    <a class="nav-link" href="./core_shiny.html">Shiny Architecture</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./core_shiny.html">Shiny Architecture</a>
+    <a class="nav-link" href="./byo.html">Build Your Own!</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./data.html">Example Data</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./labels.html" aria-current="page">Labels &amp; Headers</a>
@@ -238,6 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Let’s re-create our reactive app from the previous chapter of the workshop so that we can see how it must be modified to include labels or headers.</p>
+<p>First, create the UI:</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -248,7 +252,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>First, create the UI:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the UI</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>label_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>

@@ -17,8 +17,9 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - data.qmd
       - core_shiny.qmd
+      - byo.qmd
+      - data.qmd
       - labels.qmd
       - layouts.qmd
       - about.qmd

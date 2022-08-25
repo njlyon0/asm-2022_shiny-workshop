@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ASM 2022 Workshop - R Shiny - Overview</title>
+<title>ASM 2022 Workshop - R Shiny - Build Your Own!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,8 +59,7 @@ ul.task-list{list-style: none;}
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Overview">
-<meta name="twitter:description" content="Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”!">
+<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Build Your Own!">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -79,13 +78,13 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./core_shiny.html">Shiny Architecture</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./byo.html">Build Your Own!</a>
+    <a class="nav-link active" href="./byo.html" aria-current="page">Build Your Own!</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./data.html">Example Data</a>
@@ -120,17 +119,7 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a>
-  <ul class="collapse">
-  <li><a href="#lets-get-to-it" id="toc-lets-get-to-it" class="nav-link" data-scroll-target="#lets-get-to-it">Let’s Get To It!</a></li>
-  </ul></li>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda*</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/asm-2022_shiny-workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <p><img src="images/nceas-logo.png" width="40%"> <img src="images/lter-logo.png" width="40%"></p>
 </div></div></div>
@@ -139,7 +128,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Overview</h1>
+<h1 class="title">Build Your Own!</h1>
 </div>
 
 
@@ -153,40 +142,8 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p><img src="images/lter-logo-wide.png" align="right" width="50%"></p>
-<p><img src="images/nceas-logo-wide.png" align="right" width="50%"></p>
-<p><strong>Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”!</strong> We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included <a href="https://2022lterasm.sched.com/event/13kyO/22x053-shiny-app-for-sharing-science">here</a>.</p>
-<p><img src="images/r-shiny-hex.png" align="right" width="15%"></p>
-<p>We will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you <a href="https://www.r-project.org/">download R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">download RStudio</a> <strong>before the workshop.</strong> If your current RStudio version (see “About RStudio” in the top menubar) begins with anything earlier than “2020…”, we recommend updating RStudio. If your R version begins with anything other than “4…” we recommend you <a href="https://www.r-project.org/">update R</a>. These steps ensure that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.</p>
-<section id="lets-get-to-it" class="level3">
-<h3 class="anchored" data-anchor-id="lets-get-to-it">Let’s Get To It!</h3>
-<p>We aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:</p>
-<p><strong>Gabe De La Rosa</strong>: <a href="mailto:delarosa@nceas.ucsb.edu" class="email">delarosa@nceas.ucsb.edu</a></p>
-<p><strong>Francisco J. Guerrero</strong>: <a href="mailto:francisco.guerrero@pnnl.gov" class="email">francisco.guerrero@pnnl.gov</a></p>
-<p><strong>Nick J. Lyon</strong>: <a href="mailto:lyon@nceas.ucsb.edu" class="email">lyon@nceas.ucsb.edu</a></p>
-<hr>
-</section>
-</section>
-<section id="agenda" class="level2">
-<h2 class="anchored" data-anchor-id="agenda">Agenda*</h2>
-<p>*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.</p>
-<p>10:30a (PT) - Introductions &amp; Workshop Overview</p>
-<p>10:40a - Welcome to the Wonderland of R Shiny</p>
-<p>10:50a - Core Shiny Structure (User Interface vs.&nbsp;Server)</p>
-<p>11:15a - Labels &amp; Headers</p>
-<p>11:30a - Shiny App Layouts</p>
-<p>11:45a - Debrief</p>
-<p>11:55a - Evaluation</p>
-<p><strong>12:00p - Done!</strong></p>
-<hr>
-<ul>
-<li>Feel free to grab us after the workshop if you have questions or just want to keep the conversation going!</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

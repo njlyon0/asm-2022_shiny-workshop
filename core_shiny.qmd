@@ -176,7 +176,7 @@ Notes on server code:
 2.  Notice how the `input$...` and `output$...` names are exact matches for what we put as the `inputId` and `outputId` in the UI
     -   This is no accident! In the UI, in/outputs are given IDs, in the server they are placed into intermediary in/output objects
 
-### Run this final app!
+### Create the Reactive App
 
 Double check that your Environment includes both the `reactive_ui` and `reactive_server` objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.
 
