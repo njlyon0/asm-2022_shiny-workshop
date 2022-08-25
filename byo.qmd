@@ -2,3 +2,33 @@
 title: "Build Your Own!"
 ---
 
+## Creating a Reactive, Data-Driven App
+
+Now that we've covered the fundamental architecture of a Shiny app, let's tackle creating an app together during this workshop. **We will work together on this app** but there a few core resources you may find useful later on or if you get ahead of the group. In particular:
+
+- We'll use Andrews Forest data in our app so check out our description of those data in the "[Example Data](https://njlyon0.github.io/asm-2022_shiny-workshop/data.html)" tab
+- If you want to learn about headers and text formatting in a Shiny app, check out the "[Labels & Headers](https://njlyon0.github.io/asm-2022_shiny-workshop/labels.html)" tab
+- If you'd like to experiment with Shiny's UI built-in layout options, see the "[Layouts](https://njlyon0.github.io/asm-2022_shiny-workshop/layouts.html)" tab
+
+In order to make sure we are all working with the same tools, be sure that you have the necessary R packages installed!
+
+:::callout-note
+#### 
+```{r libraries-byo, message = F}
+# install.packages("librarian")
+librarian::shelf(shiny, htmltools, tidyverse,
+                 leaflet, lter/lterdatasampler)
+```
+:::
+
+## Creating an Overview Tab
+
+
+
+
+
+## Creating a Reactive Tab
+
+
+
+
