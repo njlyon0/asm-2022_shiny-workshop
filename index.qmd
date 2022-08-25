@@ -29,8 +29,7 @@ Also, run the following code chunk to guarantee that you have all of the package
 install.packages("librarian")
 
 # Use librarian to install the other packages that you need!
-librarian::shelf(shiny, htmltools, tidyverse,
-                 leaflet, lter/lterdatasampler)
+librarian::shelf(shiny, htmltools, tidyverse, leaflet, lter/lterdatasampler)
 ```
 :::
 
