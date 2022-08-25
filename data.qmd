@@ -18,7 +18,7 @@ To access this data, we'll need to install the `lterdatasampler` dataset and we'
 
 :::callout-note
 #### 
-```{r libraries, message = F}
+```{r libraries-data, message = F}
 # install.packages("librarian")
 librarian::shelf(lter/lterdatasampler, tidyverse)
 ```
