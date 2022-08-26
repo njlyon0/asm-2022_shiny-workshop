@@ -51,13 +51,13 @@ We aim to make this training fun and interactive so please reach out if you have
 
 10:30a (PT) - Introductions & Workshop Overview
 
-10:40a - Welcome to the Wonderland of R Shiny
+10:40a - Welcome to Shiny
 
 10:50a - Core Shiny Structure (User Interface vs. Server)
 
-11:15a - Labels & Headers
+11:15a - Build Your Own Shiny App I: Creating an Overview Tab
 
-11:30a - Shiny App Layouts
+11:30a - Build Your Own Shiny App II: Creating a Reactive Tab
 
 11:45a - Debrief
 
