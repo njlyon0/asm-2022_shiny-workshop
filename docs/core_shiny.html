@@ -193,8 +193,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a>
   <ul class="collapse">
   <li><a href="#server-example" id="toc-server-example" class="nav-link" data-scroll-target="#server-example">Server Example</a></li>
-  <li><a href="#create-the-reactive-app" id="toc-create-the-reactive-app" class="nav-link" data-scroll-target="#create-the-reactive-app">Create the Reactive App</a></li>
   </ul></li>
+  <li><a href="#create-the-reactive-app" id="toc-create-the-reactive-app" class="nav-link" data-scroll-target="#create-the-reactive-app">Create the Reactive App</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/asm-2022_shiny-workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -416,16 +416,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the server</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the numeric input and take the square root</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>( <span class="fu">sqrt</span>(input<span class="sc">$</span>my_input) )</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Reactively receive the input and take the square root</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  square_root <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(input<span class="sc">$</span>my_input)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the numeric input and take the square root</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>( <span class="fu">square_root</span>() )</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<p>The syntax is a bit unique compared to other R code, so let’s break it down.</p>
+<p>The syntax differs from non-Shiny R code, so let’s break it down.</p>
 <p>We first need to define where we want the output to display. Remember those names we gave the inputs and outputs in the UI? Here’s where they come in handy.</p>
-<p>We know we want to create our output called <code>my_output</code>. Every output in the server starts with <code>output$</code>, and the ID of the output widget follows the dollar sign. Think of this like a named object in R, which we can assign to something. So, we start with <code>output$my_output</code>, followed by the assignment operator <code>&lt;-</code>.</p>
+<p>To start, we actually have to calculate the square root of whatever number the user inputs. Crucially, <strong>we want to take the square root every time the user changes that number</strong>. In Shiny’s terms, we want to <em>reactively</em> take the square root. In order to do this, we place the <code>input$my_input</code> inside of a “reactive consumer” (<code>reactive({ ... })</code>). This reactive consumer will automatically detect changes to whatever is inside of the nest parentheses/curly braces and will re-run itself as needed. <strong>Objects created by reactive consumers are very similar to functions</strong> so they need empty parentheses next to them in subsequent reference. See the <code>square_root()</code> syntax inside of the <code>renderText</code> parentheses?</p>
+<p>Next, we know that we want to create our output called <code>my_output</code>. Every output in the server starts with <code>output$</code>, and the ID of the output widget follows the dollar sign. Think of this like a named object in R, to which we can assign to something. So, we start with <code>output$my_output</code>, followed by the assignment operator <code>&lt;-</code>.</p>
 <p>Most often, you want to assign the output object to a bit of code that generates something. Shiny has it’s own set of functions that prepare objects for display in the UI, which all start with <code>render*</code> and usually finish with a descriptive term of the output. In this case, we’re just asking the app to render some text that tells us if the checkbox is checked, so we use… <code>renderText</code>! And in those parentheses, we know we want the output generated by our numeric input, so we refer to it using its name: <code>input$my_input</code>.</p>
 <p>Notes on server code:</p>
 <ol type="1">
@@ -439,8 +445,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </section>
-<section id="create-the-reactive-app" class="level3">
-<h3 class="anchored" data-anchor-id="create-the-reactive-app">Create the Reactive App</h3>
+</section>
+<section id="create-the-reactive-app" class="level2">
+<h2 class="anchored" data-anchor-id="create-the-reactive-app">Create the Reactive App</h2>
 <p>Double check that your Environment includes both the <code>reactive_ui</code> and <code>reactive_server</code> objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -464,7 +471,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Congratulations!</strong> You’ve successfully completed a Shiny app!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
