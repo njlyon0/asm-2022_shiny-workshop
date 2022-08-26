@@ -188,13 +188,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#shiny-structure" id="toc-shiny-structure" class="nav-link active" data-scroll-target="#shiny-structure">Shiny Structure</a></li>
-  <li><a href="#user-interface" id="toc-user-interface" class="nav-link" data-scroll-target="#user-interface">User Interface</a></li>
+  <li><a href="#user-interface-overview" id="toc-user-interface-overview" class="nav-link" data-scroll-target="#user-interface-overview">User Interface Overview</a></li>
+  <li><a href="#non-reactive-server-app" id="toc-non-reactive-server-app" class="nav-link" data-scroll-target="#non-reactive-server-app">Non-Reactive Server &amp; App</a></li>
   <li><a href="#creating-a-reactive-ui" id="toc-creating-a-reactive-ui" class="nav-link" data-scroll-target="#creating-a-reactive-ui">Creating a Reactive UI</a></li>
-  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server">Server</a>
+  <li><a href="#creating-a-reactive-server" id="toc-creating-a-reactive-server" class="nav-link" data-scroll-target="#creating-a-reactive-server">Creating a Reactive Server</a>
   <ul class="collapse">
   <li><a href="#server-example" id="toc-server-example" class="nav-link" data-scroll-target="#server-example">Server Example</a></li>
   </ul></li>
-  <li><a href="#create-the-reactive-app" id="toc-create-the-reactive-app" class="nav-link" data-scroll-target="#create-the-reactive-app">Create the Reactive App</a></li>
+  <li><a href="#assemble-the-reactive-app" id="toc-assemble-the-reactive-app" class="nav-link" data-scroll-target="#assemble-the-reactive-app">Assemble the Reactive App</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/asm-2022_shiny-workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -247,8 +248,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>With that package installed, we can continue.</p>
 </section>
-<section id="user-interface" class="level2">
-<h2 class="anchored" data-anchor-id="user-interface">User Interface</h2>
+<section id="user-interface-overview" class="level2">
+<h2 class="anchored" data-anchor-id="user-interface-overview">User Interface Overview</h2>
 <p>The User Interface (“UI”) is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app <strong>only</strong> in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a wsywyg editor like wordpress or drupal might generate.</p>
 <p>The power of shiny comes when you let users interact with the data, and the app responds to their selections. This requires making <strong>reactive</strong> objects in the server, the key to unlocking the full power of shiny. We’ll dive into this connection later. For now, we focus on the UI.</p>
 <p>Let’s take a very basic example:</p>
@@ -292,6 +293,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The shiny package contains some convenient functions for formatting and placement. In this case, we used <code>titlePanel</code> to format some text as a title, and the <code>img</code> function to render an image from a source on the internet. If you want something to display, there’s likely a <code>shiny</code> function that let’s you do it easily.</p>
+</section>
+<section id="non-reactive-server-app" class="level2">
+<h2 class="anchored" data-anchor-id="non-reactive-server-app">Non-Reactive Server &amp; App</h2>
 <p>If we want to run the app, we need to define both the server, and then run the <code>shinyApp</code> function that tells R to stitch it all together. In this case, our server is empty, because we don’t actually need the app to do anything behind the hood yet. Note that the server is just a user defined function with the variables <code>input</code> and <code>output</code> — not a pre defined function.</p>
 <p>At the end, we use the <code>shinyApp</code> function to tell R to compile our server and ui into an app.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -394,8 +398,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </section>
-<section id="server" class="level2">
-<h2 class="anchored" data-anchor-id="server">Server</h2>
+<section id="creating-a-reactive-server" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-reactive-server">Creating a Reactive Server</h2>
 <p>Our new app is interactive, so we now actually have to put something in the server function!</p>
 <p>The server is the “behind the curtain” part of a Shiny app. The server receives all inputs from the User Interface, then uses the code that you write in the server to create the outputs based on the inputs. These outputs are then returned to the UI so that the user can see the result of their selection.</p>
 <p>In terms of code, the server is actually one big function that accepts UI inputs and performs whatever operation(s) you specify. If you don’t usually write your own functions, don’t worry! See the example below to help clarify these ideas:</p>
@@ -421,7 +425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>(input<span class="sc">$</span>my_input)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Let's take the numeric input and take the square root</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now render that square root as an output</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>my_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>( <span class="fu">square_root</span>() )</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -446,8 +450,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </section>
 </section>
-<section id="create-the-reactive-app" class="level2">
-<h2 class="anchored" data-anchor-id="create-the-reactive-app">Create the Reactive App</h2>
+<section id="assemble-the-reactive-app" class="level2">
+<h2 class="anchored" data-anchor-id="assemble-the-reactive-app">Assemble the Reactive App</h2>
 <p>Double check that your Environment includes both the <code>reactive_ui</code> and <code>reactive_server</code> objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">

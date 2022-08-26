@@ -24,7 +24,7 @@ librarian::shelf(shiny)
 
 With that package installed, we can continue.
 
-## User Interface
+## User Interface Overview
 
 The User Interface ("UI") is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app **only** in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a wsywyg editor like wordpress or drupal might generate.
 
@@ -58,6 +58,8 @@ basic_ui <- fluidPage(
 :::
 
 The shiny package contains some convenient functions for formatting and placement. In this case, we used `titlePanel` to format some text as a title, and the `img` function to render an image from a source on the internet. If you want something to display, there's likely a `shiny` function that let's you do it easily.
+
+## Non-Reactive Server & App
 
 If we want to run the app, we need to define both the server, and then run the `shinyApp` function that tells R to stitch it all together. In this case, our server is empty, because we don't actually need the app to do anything behind the hood yet. Note that the server is just a user defined function with the variables `input` and `output` --- not a pre defined function.
 
@@ -136,7 +138,7 @@ Three quick notes on the UI code:
     -   Shiny apps (particularly the UI) can be many lines and it is easy to forget to close all the parentheses. We recommend turning on "Rainbow parentheses" in RStudio's preferences to help make this easier
     -   RStudio -\> Preferences -\> Code -\> Display -\> Rainbow parentheses (check the checkbox)
 
-## Server
+## Creating a Reactive Server
 
 Our new app is interactive, so we now actually have to put something in the server function!
 
@@ -159,7 +161,7 @@ reactive_server <- function(input, output){
     sqrt(input$my_input)
   })
   
-  # Let's take the numeric input and take the square root
+  # Now render that square root as an output
   output$my_output <- renderText( square_root() )
   
 }
@@ -183,7 +185,7 @@ Notes on server code:
 2.  Notice how the `input$...` and `output$...` names are exact matches for what we put as the `inputId` and `outputId` in the UI
     -   This is no accident! In the UI, in/outputs are given IDs, in the server they are placed into intermediary in/output objects
 
-## Create the Reactive App
+## Assemble the Reactive App
 
 Double check that your Environment includes both the `reactive_ui` and `reactive_server` objects. If you are missing one or both, re-run the corresponding code chunk above. Once you have both objects, run the following code.
 
