@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.0.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -236,23 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(shiny, htmltools, tidyverse, leaflet, lter<span class="sc">/</span>lterdatasampler)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>package 'terra' successfully unpacked and MD5 sums checked
-package 'crosstalk' successfully unpacked and MD5 sums checked
-package 'raster' successfully unpacked and MD5 sums checked
-package 'leaflet.providers' successfully unpacked and MD5 sums checked
-package 'leaflet' successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in
-    C:\Users\guer310\AppData\Local\Temp\RtmpWQYb6P\downloaded_packages
-* checking for file 'C:\Users\guer310\AppData\Local\Temp\RtmpWQYb6P\remotes3a5c39e75aac\lter-lterdatasampler-b268386/DESCRIPTION' ... OK
-* preparing 'lterdatasampler':
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building 'lterdatasampler_0.1.0.tar.gz'
-</code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -262,6 +245,111 @@ The downloaded binary packages are in
 </section>
 <section id="creating-a-reactive-tab" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-reactive-tab">Creating a Reactive Tab</h2>
+<p>Now that we’ve covered some components of an informative overview tab, let’s turn our attention to creating a <em>reactive</em> tab! Reactivity is what makes Shiny app outputs change (reactively) as a user modifies their inputs. In short, reactivity is much of the reason for the excitement people have for learning and using R Shiny apps.</p>
+<p>Let’s begin with a user interface.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dropdown for watershed</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"dropdown_site"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">"Site"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Choices are "All" or `sitecode` values in data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"All"</span>, <span class="fu">unique</span>(and_vertebrates<span class="sc">$</span>sitecode))),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Radio buttons for species</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"button_spp"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">label =</span> <span class="st">"Species"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>               <span class="co"># The `setdiff(...)` is just to remove NAs</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">choices =</span> <span class="fu">setdiff</span>(<span class="at">x =</span> <span class="fu">unique</span>(and_vertebrates<span class="sc">$</span>species), <span class="at">y =</span> <span class="cn">NA</span>)),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create histogram output</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"hist_out"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Create the server to take those inputs and use them to create the desired histogram.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to selected species</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Must be done inside of "reactive consumer"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  and_v2 <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    lterdatasampler<span class="sc">::</span>and_vertebrates <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> input<span class="sc">$</span>button_spp)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to desired site</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Also done in reactive consumer</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  and_actual <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If site is "All" don't subset</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(input<span class="sc">$</span>dropdown_site <span class="sc">==</span> <span class="st">"All"</span>){ </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">and_v2</span>()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Otherwise, subset to selected site</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> { </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">and_v2</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(sitecode <span class="sc">==</span> input<span class="sc">$</span>dropdown_site) }</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assemble title from inputs to be more informative</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  hist_title <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">"Histogram of "</span>, <span class="fu">tolower</span>(input<span class="sc">$</span>button_spp),</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>           <span class="st">" weight at site: "</span>, input<span class="sc">$</span>dropdown_site)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a histogram of this content</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>hist_out <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Uses the reactively-created weight</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">x =</span> <span class="fu">and_actual</span>()<span class="sc">$</span>weight_g,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>         <span class="do">## And the reactively-created title!</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="fu">hist_title</span>(),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">"Weight (g)"</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Generate the app from the UI and server!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> reactive_ui, <span class="at">server =</span> reactive_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="byo_files/figure-html/byo-reactive-app-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
