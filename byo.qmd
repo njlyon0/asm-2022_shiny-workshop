@@ -84,9 +84,9 @@ reactive_server <- function(input, output){
   
   # Assemble title from inputs to be more informative
   hist_title <- reactive({
-    paste0("Histogram of ", tolower(input$button_spp),
-           " weight at site: ", input$dropdown_site)
-  })
+      paste0("Histogram of ", tolower(input$button_spp),
+             " weight","\n", "Site: ", input$dropdown_site)
+    })
   
   # Create a histogram of this content
   output$hist_out <- renderPlot({
