@@ -1,0 +1,25 @@
+---
+title: "Resources"
+---
+
+## Explanation
+
+Much as we would love to cover everything to do with R Shiny, it is simply not possible given the time we have today. However, if this workshop inspired you to delve further into Shiny, we hope that the resources and readings below are helpful to you.
+
+Thanks for coming to our workshop!
+
+-- Gabe, Francisco, & Nick
+
+## Further Reading
+
+- 
+
+- 
+
+#### This section is being developed so stay tuned!
+
+- 
+
+- 
+
+---

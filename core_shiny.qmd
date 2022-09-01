@@ -1,8 +1,8 @@
 ---
-title: "Shiny Architecture"
+title: "Shiny 101"
 ---
 
-## Shiny Structure
+## Fundamental Structure
 
 Every R Shiny app--no matter how nuanced and visually appealing--is composed of three components:
 

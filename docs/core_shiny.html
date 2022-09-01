@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ASM 2022 Workshop - R Shiny - Shiny Architecture</title>
+<title>ASM 2022 - Shiny Workshop - Shiny 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="ASM 2022 Workshop - R Shiny - Shiny Architecture">
+<meta name="twitter:title" content="ASM 2022 - Shiny Workshop - Shiny 101">
 <meta name="twitter:description" content="Every R Shiny app–no matter how nuanced and visually appealing–is composed of three components:">
 <meta name="twitter:card" content="summary">
 </head>
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">ASM 2022 Workshop - R Shiny</span>
+    <span class="navbar-title">ASM 2022 - Shiny Workshop</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./core_shiny.html" aria-current="page">Shiny Architecture</a>
+    <a class="nav-link active" href="./core_shiny.html" aria-current="page">Shiny 101</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./byo.html">Build Your Own!</a>
@@ -158,6 +158,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./layouts.html">Layouts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./supp_mat.html">Resources</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">Content Creators</a>
@@ -187,7 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#shiny-structure" id="toc-shiny-structure" class="nav-link active" data-scroll-target="#shiny-structure">Shiny Structure</a></li>
+  <li><a href="#fundamental-structure" id="toc-fundamental-structure" class="nav-link active" data-scroll-target="#fundamental-structure">Fundamental Structure</a></li>
   <li><a href="#user-interface-overview" id="toc-user-interface-overview" class="nav-link" data-scroll-target="#user-interface-overview">User Interface Overview</a></li>
   <li><a href="#non-reactive-server-app" id="toc-non-reactive-server-app" class="nav-link" data-scroll-target="#non-reactive-server-app">Non-Reactive Server &amp; App</a></li>
   <li><a href="#creating-a-reactive-ui" id="toc-creating-a-reactive-ui" class="nav-link" data-scroll-target="#creating-a-reactive-ui">Creating a Reactive UI</a></li>
@@ -206,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Shiny Architecture</h1>
+<h1 class="title">Shiny 101</h1>
 </div>
 
 
@@ -220,8 +223,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="shiny-structure" class="level2">
-<h2 class="anchored" data-anchor-id="shiny-structure">Shiny Structure</h2>
+<section id="fundamental-structure" class="level2">
+<h2 class="anchored" data-anchor-id="fundamental-structure">Fundamental Structure</h2>
 <p>Every R Shiny app–no matter how nuanced and visually appealing–is composed of three components:</p>
 <ol type="1">
 <li>User Interface (“UI”)</li>

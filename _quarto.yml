@@ -7,7 +7,7 @@ execute:
   freeze: false
 
 website:
-  title: "ASM 2022 Workshop - R Shiny"
+  title: "ASM 2022 - Shiny Workshop"
   favicon: images/lter-logo.png
   repo-url: https://github.com/njlyon0/asm-2022_shiny-workshop
   repo-actions: [issue]
@@ -22,6 +22,7 @@ website:
       - data.qmd
       - labels.qmd
       - layouts.qmd
+      - supp_mat.qmd
       - about.qmd
     right:
       - icon: github
