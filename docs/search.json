@@ -74,7 +74,7 @@
     "href": "index.html#agenda",
     "title": "Overview",
     "section": "Agenda*",
-    "text": "Agenda*\n*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.\n10:30a (PT) - Introductions & Workshop Overview\n10:40a - Welcome to Shiny\n10:50a - Core Shiny Structure (User Interface vs. Server)\n11:15a - Build Your Own Shiny App I: Creating an Overview Tab\n11:30a - Build Your Own Shiny App II: Creating a Reactive Tab\n11:45a - Debrief\n11:55a - Evaluation\n12:00p - Done!\n\n\nFeel free to grab us after the workshop if you have questions or just want to keep the conversation going!"
+    "text": "Agenda*\n*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.\n10:30a (PT) - Introductions & Workshop Overview\n10:40a - Welcome to Shiny\n10:50a - Shiny 101\n11:15a - Build Your Own Shiny App I: Creating an Overview Tab\n11:30a - Build Your Own Shiny App II: Creating a Reactive Tab\n11:45a - Debrief\n11:55a - Evaluation\n12:00p - Done!\n\n\nFeel free to grab us after the workshop if you have questions or just want to keep the conversation going!"
   },
   {
     "objectID": "about.html",
