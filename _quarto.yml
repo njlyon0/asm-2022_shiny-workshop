@@ -14,19 +14,27 @@ website:
   twitter-card: true
   navbar:
     background: primary
-    left:
-      - href: index.qmd
-        text: Home
-      - core_shiny.qmd
-      - byo.qmd
-      - data.qmd
-      - labels.qmd
-      - layouts.qmd
+    right:
       - supp_mat.qmd
       - about.qmd
-    right:
       - icon: github
         href: https://github.com/njlyon0/asm-2022_shiny-workshop
+  sidebar: 
+    style: "docked"
+    background: "secondary"
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "Core Content"
+        contents:
+          - core_shiny.qmd
+          - byo.qmd
+      - section: "Bonus Content"
+        contents:
+          - data.qmd
+          - labels.qmd
+          - layouts.qmd
   page-footer:
     center: "Copyright 2022, NCEAS"
     background: secondary
