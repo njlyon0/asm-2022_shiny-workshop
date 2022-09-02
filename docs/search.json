@@ -179,7 +179,14 @@
     "href": "supp_mat.html#further-reading",
     "title": "Supplementary Resources",
     "section": "Further Reading",
-    "text": "Further Reading\n\n\n\n\n\nThis section is being developed so stay tuned!"
+    "text": "Further Reading\n\nMastering Shiny by Hadley Wickham\nDeploying a Shiny App FAQ"
+  },
+  {
+    "objectID": "supp_mat.html#deployed-shiny-apps",
+    "href": "supp_mat.html#deployed-shiny-apps",
+    "title": "Supplementary Resources",
+    "section": "Deployed Shiny Apps",
+    "text": "Deployed Shiny Apps\n\nData submission portal for the Herbivory Variability Network\nlterpalettefinder demo app"
   },
   {
     "objectID": "data.html",

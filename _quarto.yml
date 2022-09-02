@@ -37,7 +37,7 @@ website:
           - layouts.qmd
   page-footer:
     center: "Copyright 2022, NCEAS"
-    background: secondary
+    background: primary
   margin-footer: |
     <img src="images/nceas-logo.png" width="40%"/>
     <img src="images/lter-logo.png" width="40%"/>

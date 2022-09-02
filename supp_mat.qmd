@@ -12,14 +12,13 @@ Thanks for coming to our workshop!
 
 ## Further Reading
 
-- 
+- [Mastering Shiny](https://mastering-shiny.org/basic-app.html) by Hadley Wickham
 
-- 
+- [Deploying a Shiny App](https://shiny.rstudio.com/deploy/) FAQ
 
-#### This section is being developed so stay tuned!
+## Deployed Shiny Apps
 
-- 
+- [Data submission portal](https://herbvar.shinyapps.io/data_portal_actual/) for the Herbivory Variability Network
 
-- 
+- `lterpalettefinder` [demo app](https://cosima.nceas.ucsb.edu/lterpalettefinder-shiny/)
 
----
