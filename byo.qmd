@@ -298,7 +298,9 @@ Generate the app from the UI and server!
 
 ::: callout-note
 #### 
-```{r byo-reactive-app, message = F}
+```{r byo-reactive-app, message = F, eval = F}
 shinyApp(ui = reactive_ui, server = reactive_server)
 ```
+
+<img src="images/reactive-app-still.png"/>
 :::
