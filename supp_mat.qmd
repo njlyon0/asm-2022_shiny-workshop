@@ -22,3 +22,7 @@ Thanks for coming to our workshop!
 
 - `lterpalettefinder` [demo app](https://cosima.nceas.ucsb.edu/lterpalettefinder-shiny/)
 
+-[WeatherSpark](https://weatherspark.com/) The Weather Year Round Anywhere on Earth:
+Climate reports with the weather by month, day, even hour. Great for event and trip planning!
+
+-[Wisconsin's Long-Term Water Quality Trends](https://wisconsindnr.shinyapps.io/riverwq/). How government agencies take advantage of the functionality of Shiny Apps to offer an interactive view of their long-term data sets. 

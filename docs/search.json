@@ -186,7 +186,7 @@
     "href": "supp_mat.html#deployed-shiny-apps",
     "title": "Supplementary Resources",
     "section": "Deployed Shiny Apps",
-    "text": "Deployed Shiny Apps\n\nData submission portal for the Herbivory Variability Network\nlterpalettefinder demo app"
+    "text": "Deployed Shiny Apps\n\nData submission portal for the Herbivory Variability Network\nlterpalettefinder demo app\n\n-WeatherSpark The Weather Year Round Anywhere on Earth: Climate reports with the weather by month, day, even hour. Great for event and trip planning!\n-Wisconsin’s Long-Term Water Quality Trends. How government agencies take advantage of the functionality of Shiny Apps to offer an interactive view of their long-term data sets."
   },
   {
     "objectID": "data.html",
