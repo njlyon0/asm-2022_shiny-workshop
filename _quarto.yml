@@ -46,7 +46,7 @@ format:
   html:
     theme:
        light: yeti
-       dark: cyborg
+       dark: darkly
     css: styles.css
     toc: true
     link-external-newwindow: true
