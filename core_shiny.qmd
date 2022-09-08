@@ -2,6 +2,10 @@
 title: "Shiny 101"
 ---
 
+## Why Shiny?
+
+R Shiny allows users to create interactive websites using the syntax of R rather than needing to learn additional programming languages or software. Shiny apps can also be a nice way of enabling people to visualize data themselves instead of trying to provide them with an exhaustive pre-built set of all of the possible ways of visualizing those same data.
+
 ## Fundamental Structure
 
 Every R Shiny app--no matter how nuanced and visually appealing--is composed of three components:
@@ -26,7 +30,7 @@ With that package installed, we can continue.
 
 ## User Interface Overview
 
-The User Interface ("UI") is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app **only** in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a wsywyg editor like wordpress or drupal might generate.
+The User Interface ("UI") is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app **only** in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a "WYSWYG" editor ("<u>W</u>hat <u>Y</u>ou <u>S</u>ee is <u>W</u>hat <u>Y</u>ou <u>G</u>et") like wordpress or drupal might generate.
 
 The power of shiny comes when you let users interact with the data, and the app responds to their selections. This requires making **reactive** objects in the server, the key to unlocking the full power of shiny. We'll dive into this connection later. For now, we focus on the UI.
 
@@ -80,7 +84,7 @@ If you know a bit of web development, the app you create might look like what yo
 
 ## Creating a Reactive UI
 
-So far, we haven't made Shiny do anything very useful---and it's certainly more convoluted than a "wsywyg" editor ("<u>W</u>hat <u>Y</u>ou <u>S</u>ee is <u>W</u>hat <u>Y</u>ou <u>G</u>et"). But say we had a goal of creating an interactive app? Maybe radio buttons where a user can select an option, then see a different output based on that selection?
+So far, we haven't made Shiny do anything very useful---and it's certainly more convoluted than a WYSWYG editor. But say we had a goal of creating an interactive app? Maybe radio buttons where a user can select an option, then see a different output based on that selection?
 
 If the UI defines what a user sees, we want them to see two things: the radio buttons, but also the output---maybe some text in this case---that the buttons generate.
 

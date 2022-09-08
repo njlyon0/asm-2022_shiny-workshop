@@ -98,13 +98,13 @@ We can add text and style it with other useful functions from `htmltools`. Let's
 ::: callout-note
 ####
 ```{r heading-example, eval = FALSE}
-h2("About The Forest"),
+htmltools::h2("About The Forest"),
 
-p("The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."),
+htmltools::p("The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."),
 
-h2("About This Project"),
+htmltools::h2("About This Project"),
 
-p("This project demonstrates how a site might use Shiny apps to communicate results from their research")),
+htmltools::p("This project demonstrates how a site might use Shiny apps to communicate results from their research")),
 ```
 :::
 
@@ -302,5 +302,5 @@ Generate the app from the UI and server!
 shinyApp(ui = reactive_ui, server = reactive_server)
 ```
 
-<img src="images/reactive-app-still.png"/>
+<img src="images/reactive-app-still.png" width="100%"/>
 :::

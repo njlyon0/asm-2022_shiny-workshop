@@ -123,7 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <link rel="stylesheet" href="styles.css">
 <meta name="twitter:title" content="ASM 2022 - Shiny Workshop - Shiny 101">
-<meta name="twitter:description" content="Every R Shiny app–no matter how nuanced and visually appealing–is composed of three components:">
+<meta name="twitter:description" content="R Shiny allows users to create interactive websites using the syntax of R rather than needing to learn additional programming languages or software.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -239,7 +239,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fundamental-structure" id="toc-fundamental-structure" class="nav-link active" data-scroll-target="#fundamental-structure">Fundamental Structure</a></li>
+  <li><a href="#why-shiny" id="toc-why-shiny" class="nav-link active" data-scroll-target="#why-shiny">Why Shiny?</a></li>
+  <li><a href="#fundamental-structure" id="toc-fundamental-structure" class="nav-link" data-scroll-target="#fundamental-structure">Fundamental Structure</a></li>
   <li><a href="#user-interface-overview" id="toc-user-interface-overview" class="nav-link" data-scroll-target="#user-interface-overview">User Interface Overview</a></li>
   <li><a href="#non-reactive-server-app" id="toc-non-reactive-server-app" class="nav-link" data-scroll-target="#non-reactive-server-app">Non-Reactive Server &amp; App</a></li>
   <li><a href="#creating-a-reactive-ui" id="toc-creating-a-reactive-ui" class="nav-link" data-scroll-target="#creating-a-reactive-ui">Creating a Reactive UI</a></li>
@@ -272,6 +273,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="why-shiny" class="level2">
+<h2 class="anchored" data-anchor-id="why-shiny">Why Shiny?</h2>
+<p>R Shiny allows users to create interactive websites using the syntax of R rather than needing to learn additional programming languages or software. Shiny apps can also be a nice way of enabling people to visualize data themselves instead of trying to provide them with an exhaustive pre-built set of all of the possible ways of visualizing those same data.</p>
+</section>
 <section id="fundamental-structure" class="level2">
 <h2 class="anchored" data-anchor-id="fundamental-structure">Fundamental Structure</h2>
 <p>Every R Shiny app–no matter how nuanced and visually appealing–is composed of three components:</p>
@@ -302,7 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="user-interface-overview" class="level2">
 <h2 class="anchored" data-anchor-id="user-interface-overview">User Interface Overview</h2>
-<p>The User Interface (“UI”) is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app <strong>only</strong> in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a wsywyg editor like wordpress or drupal might generate.</p>
+<p>The User Interface (“UI”) is everything that you see in a functioning R Shiny app. In fact, you can create an entire, functioning shiny app <strong>only</strong> in the UI, with formatted text, images, links, et cetera. If you only code in the UI, you end up making a static web page, much like a “WYSWYG” editor (“<u>W</u>hat <u>Y</u>ou <u>S</u>ee is <u>W</u>hat <u>Y</u>ou <u>G</u>et”) like wordpress or drupal might generate.</p>
 <p>The power of shiny comes when you let users interact with the data, and the app responds to their selections. This requires making <strong>reactive</strong> objects in the server, the key to unlocking the full power of shiny. We’ll dive into this connection later. For now, we focus on the UI.</p>
 <p>Let’s take a very basic example:</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -376,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="creating-a-reactive-ui" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-reactive-ui">Creating a Reactive UI</h2>
-<p>So far, we haven’t made Shiny do anything very useful—and it’s certainly more convoluted than a “wsywyg” editor (“<u>W</u>hat <u>Y</u>ou <u>S</u>ee is <u>W</u>hat <u>Y</u>ou <u>G</u>et”). But say we had a goal of creating an interactive app? Maybe radio buttons where a user can select an option, then see a different output based on that selection?</p>
+<p>So far, we haven’t made Shiny do anything very useful—and it’s certainly more convoluted than a WYSWYG editor. But say we had a goal of creating an interactive app? Maybe radio buttons where a user can select an option, then see a different output based on that selection?</p>
 <p>If the UI defines what a user sees, we want them to see two things: the radio buttons, but also the output—maybe some text in this case—that the buttons generate.</p>
 <p>This concept is key: the UI includes both the things that users can interact with (check boxes, text fields, etc.) <em>and</em> the things that user’s inputs create or modify (plots, printed messages, etc.).</p>
 <p>Let’s start coding this up, starting with adding the buttons:</p>
