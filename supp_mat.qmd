@@ -12,9 +12,23 @@ Thanks for coming to our workshop!
 
 ## Further Reading
 
+There are tons of incredibly helpful resources on Shiny floating around. Here's a selection of our favorites.
+
 - [Mastering Shiny](https://mastering-shiny.org/basic-app.html) by Hadley Wickham
 
 - [Deploying a Shiny App](https://shiny.rstudio.com/deploy/) FAQ
+
+- Sam Csik's [Intro to Shiny workshop](https://samanthacsik.github.io/talks_workshops/2022-02-18-intro-to-shiny/)
+
+- Allison Horst's [The Basics of Building Shiny Apps in R](https://github.com/allisonhorst/shiny-basics-sb-r-ladies) workshop
+
+- Garrett Grolemund's [Building Web Applications with Shiny](https://shiny.rstudio.com/tutorial/) tutorial ([GitHub repo here](https://github.com/rstudio-education/shiny.rstudio.com-tutorial))
+
+- Dean Attali's [Building Shiny Apps, an Interactive Tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/)
+
+- [Shiny User Showcase](https://shiny.rstudio.com/gallery/#user-showcase)
+
+- [Shiny Demos](https://shiny.rstudio.com/gallery/#demos)
 
 ## Deployed Shiny Apps
 
@@ -22,7 +36,7 @@ Thanks for coming to our workshop!
 
 - `lterpalettefinder` [demo app](https://cosima.nceas.ucsb.edu/lterpalettefinder-shiny/)
 
--[WeatherSpark](https://weatherspark.com/) The Weather Year Round Anywhere on Earth:
+- [WeatherSpark](https://weatherspark.com/) The Weather Year Round Anywhere on Earth:
 Climate reports with the weather by month, day, even hour. Great for event and trip planning!
 
--[Wisconsin's Long-Term Water Quality Trends](https://wisconsindnr.shinyapps.io/riverwq/). How government agencies take advantage of the functionality of Shiny Apps to offer an interactive view of their long-term data sets. 
+- [Wisconsin's Long-Term Water Quality Trends](https://wisconsindnr.shinyapps.io/riverwq/). How government agencies take advantage of the functionality of Shiny Apps to offer an interactive view of their long-term data sets. 
