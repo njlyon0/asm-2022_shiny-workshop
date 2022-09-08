@@ -11,6 +11,7 @@ library(shiny)
 library(leaflet)
 library(sf)
 library(lterdatasampler)
+library(tidyverse)
 
 ##### Wrangling (Eventually, move to global.R)
 
@@ -86,7 +87,24 @@ ui <- navbarPage(
                    )
                  )
                ),
-      tabPanel("Something Else"),
+      tabPanel("Channel abundance",
+               fluidPage(
+                 titlePanel("Channel abundance"),
+                 fluidRow(
+                   sidebarPanel(width = 4,
+                                # Radio buttons for species
+                                radioButtons(inputId = "species",
+                                             label = "Species",
+                                             # The `setdiff(...)` is just to remove NAs
+                                             choices = setdiff(x = unique(and_vertebrates$species), y = NA)),
+                                verbatimTextOutput(outputId = "channel_text")
+                   ),
+                   column(6,
+                          # Create plot output
+                          plotOutput(outputId = "channel_out")
+                   )
+                 )
+               )),
 
 )
 
@@ -191,6 +209,28 @@ server <- function(input, output) {
            xlab = "Weight (g)")
     })
     
+    
+    ##-----------
+    ## Channel Abundance
+    ##-----------
+    and_channel <- reactive({
+      lterdatasampler::and_vertebrates %>% 
+        filter(species == input$species) %>% 
+        drop_na(unittype) %>% 
+        count(unittype) %>% 
+        mutate(unittype = fct_reorder(unittype, n))
+    })
+    
+    output$channel_out <- renderPlot({
+      ggplot(data =and_channel(), aes(y = unittype, x = n)) +
+        geom_col() +
+        theme_minimal() +
+        labs(x = "Count", y = "Channel Type")
+    })
+    
+    output$channel_text <- renderText({
+      "C = Cascade\nP = Pool\nSC = Side Channel\nR = Rapid\nIP = Isolated Pools\nS = Step\nI = Riffle"
+    })
     
     
 }
