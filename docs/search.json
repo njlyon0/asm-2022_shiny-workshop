@@ -1,82 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Content Creators",
-    "section": "",
-    "text": "This workshop was created and facilitated by a dynamic team that is here to assist you before, during, and after your attendance at the workshop! To learn a bit more about us, see our bios and relevant links below."
-  },
-  {
-    "objectID": "about.html#gabe-de-la-rosa",
-    "href": "about.html#gabe-de-la-rosa",
-    "title": "Content Creators",
-    "section": "Gabe De La Rosa",
-    "text": "Gabe De La Rosa\ngabrieldelarosa.com –  gdlr.github.io –  @gabe_de_la – delarosa@nceas.ucsb.edu\n\nGabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB’s Bren School of Environmental Science and Management, and most recently built a shiny app that displays an interactive map of LTER sites."
-  },
-  {
-    "objectID": "about.html#francisco-j.-guerrero",
-    "href": "about.html#francisco-j.-guerrero",
-    "title": "Content Creators",
-    "section": "Francisco J. Guerrero",
-    "text": "Francisco J. Guerrero\nguerrero-fg.github.io –  guerrero-fj –  @fjguerrerob – francisco.guerrero@pnnl.gov\n\nFrancisco J. Guerrero is the Science and Communication Research Associate for the Integrated, Coordinated, Open, and Networked-ICON Science Cooperative at PNNL. He is a watershed ecologist and a science communicator. since 2004, Francisco has been studying land to ocean carbon fluxes in small mountainous river systems. In his parallel role as communicator (since 2014), he has designed and implemented communication infrastructure (workshops, panels, working groups facilitation, etc.) at research-driven organizations from regional to national levels (e.g. universities, state agencies, and national research centers). Currently, Francisco is creating workflows for scientists and knowledge workers to integrate strategic communication tools along the scientific production lifecycle (from ideation to publication)."
-  },
-  {
-    "objectID": "about.html#nick-j.-lyon",
-    "href": "about.html#nick-j.-lyon",
-    "title": "Content Creators",
-    "section": "Nick J. Lyon",
-    "text": "Nick J. Lyon\nnjlyon0.github.io –  njlyon0 –  @scilyon – lyon@nceas.ucsb.edu\n\nNick is a member of the Scientific Computing Support Team at NCEAS. He learned R Shiny in order to build the Herbivory Variability Network’s data submission portal ( repository linked here) but has since gained a broader appreciation for the value of Shiny apps in supporting many aspects of data visualization and wrangling. In particular, Nick recently developed a Shiny app to allow non-R users to explore his lterpalettefinder R package without needing to “speak” R ( repository linked here). Nick completed his M.Sc. in Ecology and Evolutionary Biology at Iowa State University."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”! We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included here.\n\nWe will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you download R and download RStudio before the workshop.\n\nIf your RStudio version begins with anything earlier than “2020…”, we recommend updating RStudio (see “About RStudio” in the top menu bar).\nIf your R version begins with anything other than “4…” we recommend you update R.\n\nUpdating RStudio and R ensures that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.\nAlso, run the following code chunk to guarantee that you have all of the packages that you need.\n\n\n\n\n\n\n\n\n\n\n\n# Install the librarian package for easy package downloading\ninstall.packages(\"librarian\")\n\n# Use librarian to install the other packages that you need!\nlibrarian::shelf(shiny, htmltools, tidyverse, leaflet, lter/lterdatasampler)\n\n\n\n\n\nWe aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:\nGabe De La Rosa: delarosa@nceas.ucsb.edu\nFrancisco J. Guerrero: francisco.guerrero@pnnl.gov\nNick J. Lyon: lyon@nceas.ucsb.edu"
-  },
-  {
-    "objectID": "index.html#agenda",
-    "href": "index.html#agenda",
-    "title": "Overview",
-    "section": "Agenda*",
-    "text": "Agenda*\n*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.\n10:30a (PT) - Introductions & Workshop Overview\n10:40a - Welcome to Shiny\n10:50a - Shiny 101\n11:15a - Build Your Own Shiny App I: Creating an Overview Tab\n11:30a - Build Your Own Shiny App II: Creating a Reactive Tab\n11:45a - Debrief\n11:55a - Evaluation\n12:00p - Done!\n\n\nFeel free to grab us after the workshop if you have questions or just want to keep the conversation going!"
-  },
-  {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Example Data",
-    "section": "",
-    "text": "The Long Term Ecological Research program (LTER) Network has recently created an R package containing example datasets from some of the LTER sites called lterdatasampler. The goal of lterdatasampler is to provide tidy versions of datasets from LTER sites for use in teaching and training contexts (like this workshop!). Eventually this package will contain datasets from each of the 28 extant LTER sites so be sure to check back often for updates as those data are integrated.\nFor this workshop, we’ll be using one of the datasets in this package to give our apps something to work with. Let’s explore that more fully below."
-  },
-  {
-    "objectID": "data.html#andrews-forest-data",
-    "href": "data.html#andrews-forest-data",
-    "title": "Example Data",
-    "section": "Andrews Forest Data",
-    "text": "Andrews Forest Data\nSpecifically, we’ll be using the Andrews Forest (“AND”) LTER data. This dataset contains the length and width measurements of Cutthroat trout and salamanders found in Mack Creek at Andrews Forest.\nTo access this data, we’ll need to install the lterdatasampler dataset and we’ll also want both the tidyverse and librarian packages as well (for data wrangling and package installation convenience respectively).\n\n\n\n\n\n\n\n\n\n\n\n# install.packages(\"librarian\")\nlibrarian::shelf(lter/lterdatasampler, tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.1.2\n\n\nWarning: package 'tibble' was built under R version 4.1.2\n\n\nWarning: package 'tidyr' was built under R version 4.1.2\n\n\nWarning: package 'dplyr' was built under R version 4.1.2\n\n\n\n\nOnce we have the packages that we need, we can retrieve the data and take a look at it.\n\n\n\n\n\n\n\n\n\n\n\n# Load the data from AND\nand_data <- lterdatasampler::and_vertebrates\n\n# Take a quick look at it\ndplyr::glimpse(and_data)\n\nRows: 32,209\nColumns: 16\n$ year        <dbl> 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987…\n$ sitecode    <chr> \"MACKCC-L\", \"MACKCC-L\", \"MACKCC-L\", \"MACKCC-L\", \"MACKCC-L\"…\n$ section     <chr> \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\"…\n$ reach       <chr> \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\"…\n$ pass        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ unitnum     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2…\n$ unittype    <chr> \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\"…\n$ vert_index  <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, …\n$ pitnumber   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ species     <chr> \"Cutthroat trout\", \"Cutthroat trout\", \"Cutthroat trout\", \"…\n$ length_1_mm <dbl> 58, 61, 89, 58, 93, 86, 107, 131, 103, 117, 100, 127, 99, …\n$ length_2_mm <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ weight_g    <dbl> 1.75, 1.95, 5.60, 2.15, 6.90, 5.90, 10.50, 20.60, 9.55, 13…\n$ clip        <chr> \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"N…\n$ sampledate  <date> 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-0…\n$ notes       <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n\n\n\n\n\nAND Data Dictionary\nInformation about the data in AND can be accessed by running ?and_vertebrates but for simplicity’s sake, the columns and their meanings are recapitulated here as well.\n\nyear – number – observation year\nsitecode – character – abbreviated name of sample area\nsection – character – section of Mack Creek CC = clear cut forest, OG = old growth forest upstream\nreach – character – reach sampled from each section; L = lower reach (0 - 50 meters), M = middle reach (50 - 100 meters), U = upper reach (100 - 150 meters))\npass – number – electroshocking pass number, either 1 or 2\nunitnum – number – channel unit number\nunittype – character – channel unit classification type (C = cascade, I = riffle, IP = isolated pool (not connected to channel), P = pool, R = rapid, S = step (small falls), SC = side channel, NA = not sampled by unit)\nvert_index – number – unique index for each vertebrate\npitnumber – number – unique tag number embedded into vertebrate (tagging started in 2007)\nspecies – character – species measured\nlength_1_mm – number – vertebrate length in millimeters; total or snout-fork length for trout, and snout-vent length for salamanders\nlength_2_mm – number – snout-tail length in millimeters (for Coastal giant salamander only)\nweight_g – number – vertebrate mass in grams\nclip – character – fin clip type for cutthroat trout, ended in 2006 (LV = left ventral fin; LVRV = left and right ventral fins; RV = right ventral fin; NONE = no ventral fin clip)\nsampledate – date – date of observation\nnotes – character – additional comments\n\nWe may not use all of these columns today but your app could rely on any of them that you so choose!"
-  },
-  {
-    "objectID": "supp_mat.html",
-    "href": "supp_mat.html",
-    "title": "Supplementary Resources",
-    "section": "",
-    "text": "Much as we would love to cover everything to do with R Shiny, it is simply not possible given the time we have today. However, if this workshop inspired you to delve further into Shiny, we hope that the resources and readings below are helpful to you.\nThanks for coming to our workshop!\n– Gabe, Francisco, & Nick"
-  },
-  {
-    "objectID": "supp_mat.html#further-reading",
-    "href": "supp_mat.html#further-reading",
-    "title": "Supplementary Resources",
-    "section": "Further Reading",
-    "text": "Further Reading\n\nMastering Shiny by Hadley Wickham\nDeploying a Shiny App FAQ"
-  },
-  {
-    "objectID": "supp_mat.html#deployed-shiny-apps",
-    "href": "supp_mat.html#deployed-shiny-apps",
-    "title": "Supplementary Resources",
-    "section": "Deployed Shiny Apps",
-    "text": "Deployed Shiny Apps\n\nData submission portal for the Herbivory Variability Network\nlterpalettefinder demo app\n\n-WeatherSpark The Weather Year Round Anywhere on Earth: Climate reports with the weather by month, day, even hour. Great for event and trip planning!\n-Wisconsin’s Long-Term Water Quality Trends. How government agencies take advantage of the functionality of Shiny Apps to offer an interactive view of their long-term data sets."
-  },
-  {
     "objectID": "core_shiny.html",
     "href": "core_shiny.html",
     "title": "Shiny 101",
@@ -138,6 +61,48 @@
     "title": "Build Your Own!",
     "section": "Creating a Reactive Histogram",
     "text": "Creating a Reactive Histogram\nHonestly, creating an overview page was nothing fancy—we just placed a few items on a page.\nShiny’s real power is letting users interact with data in real time. This is called reactivity in shiny lingo, and is the main reason most people learn and use R Shiny.\n\nReactive Tab - UI\nLet’s begin with a user interface. Reactivity happens completely in the server, so nothing tricky here. We just place our inputs in the Shiny scaffolding. In this case, we’re adding a dropdown menu, some selectable (radio) buttons, and our plot output.\n\n\n\n\n\n\n\n\n\n\n\nreactive_ui <- fluidPage(\n  \n  # Dropdown for watershed\n  selectInput(inputId = \"dropdown_site\",\n              label = \"Site\",\n              # Choices are \"All\" or `sitecode` values in data\n              choices = c(\"All\", unique(and_vertebrates$sitecode))),\n  \n  # Radio buttons for species\n  radioButtons(inputId = \"button_spp\",\n               label = \"Species\",\n               # The `setdiff(...)` is just to remove NAs\n               choices = setdiff(x = unique(and_vertebrates$species), y = NA)),\n  \n  # Create histogram output\n  plotOutput(outputId = \"hist_out\")\n  \n)\n\n\n\n\n\nReactive Tab - Server\nCreating the server is the tricky part. We want to take those inputs and use them to create a histogram.\nEnter reactivity, and reactive objects. Reactive objects are like empty boxes: we create them once, and then can fill them with a user’s selection when the time is right. Fortunately, Shiny takes care of much of the dirty work.\nReactive objects can contain anything–a plot, text, an image, a data frame, you name it. We just define it using the reactive({}) function.\nLet’s take our first example: we want an object to be the and_vertebrates data frame filtered by whatever the user selects via the radio buttons.\nThis looks like this:\n\n\n\n\n\n\n\n\n\n\n\nreactive_server <- function(input, output){\n  \n  # Subset dataframe to selected species\n  ## Must be done inside of \"reactive consumer\"\n  and_v2 <- reactive({\n    lterdatasampler::and_vertebrates %>%\n      dplyr::filter(species == input$button_spp)\n  })\n}\n\n\n\nRemember how we can refer to widget inputs using special syntax? We do that with input$button_spp in the above example to filter our data frame by our original example. input$button_spp seems like it should be a reactive object, right? Well, it kind of is—but Shiny has built in syntax that makes it intuitive to refer to.\nWe can add other reactivity based on the other inputs. See if you can figure out what’s going on below:\nOh, and when you want to use those reactive inputs in a plot, say? You need to refer to them in function syntax, such as and_v2. Without the tailing parentheses, Shiny won’t know what you’re referring to!\n\n\n\n\n\n\n\n\n\n\n\nreactive_server <- function(input, output){\n  \n  # Subset dataframe to selected species\n  and_v2 <- reactive({\n    lterdatasampler::and_vertebrates %>%\n      dplyr::filter(species == input$button_spp)\n  })\n  \n  # Subset dataframe to desired site\n  ## Also done in reactive consumer\n  and_actual <- reactive({\n    ## If site is \"All\" don't subset\n    if(input$dropdown_site == \"All\"){ \n      and_v2()\n      ## Otherwise, subset to selected site\n    } else { \n      and_v2() %>%\n        dplyr::filter(sitecode == input$dropdown_site) }\n  })\n  \n  # Assemble title from inputs to be more informative\n  hist_title <- reactive({\n      paste0(\"Histogram of \", tolower(input$button_spp),\n             \" weight\", \"\\n\", \"Site: \", input$dropdown_site)\n    })\n  \n  # Create a histogram of this content\n  output$hist_out <- renderPlot({\n    ## Uses the reactively-created weight\n    hist(x = and_actual()$weight_g,\n         ## And the reactively-created title!\n         main = hist_title(),\n         xlab = \"Weight (g)\")\n  })\n  \n}\n\n\n\nGenerate the app from the UI and server!\n\n\n\n\n\n\n\n\n\n\n\nshinyApp(ui = reactive_ui, server = reactive_server)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Welcome to the 2022 All Scientists’ Meeting workshop “Shiny Apps for Sharing Science”! We are excited to have you with us for this training whether you are a veteran R Shiny user or this is your first foray into the world of Shiny! The link to the workshop schedule in Sched (ASM’s scheduling site) is included here.\n\nWe will be demonstrating the fundamentals of R Shiny using RStudio today so we suggest that you download R and download RStudio before the workshop.\n\nIf your RStudio version begins with anything earlier than “2020…”, we recommend updating RStudio (see “About RStudio” in the top menu bar).\nIf your R version begins with anything other than “4…” we recommend you update R.\n\nUpdating RStudio and R ensures that all R packages will behave as expected and we know where any needed RStudio buttons are on your machine if you require assistance.\nAlso, run the following code chunk to guarantee that you have all of the packages that you need.\n\n\n\n\n\n\n\n\n\n\n\n# Install the librarian package for easy package downloading\ninstall.packages(\"librarian\")\n\n# Use librarian to install the other packages that you need!\nlibrarian::shelf(shiny, htmltools, tidyverse, leaflet, lter/lterdatasampler)\n\n\n\n\n\nWe aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:\nGabe De La Rosa: delarosa@nceas.ucsb.edu\nFrancisco J. Guerrero: francisco.guerrero@pnnl.gov\nNick J. Lyon: lyon@nceas.ucsb.edu"
+  },
+  {
+    "objectID": "index.html#agenda",
+    "href": "index.html#agenda",
+    "title": "Overview",
+    "section": "Agenda*",
+    "text": "Agenda*\n*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.\n10:30a (PT) - Introductions & Workshop Overview\n10:40a - Welcome to Shiny\n10:50a - Shiny 101\n11:15a - Build Your Own Shiny App I: Creating an Overview Tab\n11:30a - Build Your Own Shiny App II: Creating a Reactive Tab\n11:45a - Debrief\n11:55a - Evaluation\n12:00p - Done!\n\n\nFeel free to grab us after the workshop if you have questions or just want to keep the conversation going!"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Content Creators",
+    "section": "",
+    "text": "This workshop was created and facilitated by a dynamic team that is here to assist you before, during, and after your attendance at the workshop! To learn a bit more about us, see our bios and relevant links below."
+  },
+  {
+    "objectID": "about.html#gabe-de-la-rosa",
+    "href": "about.html#gabe-de-la-rosa",
+    "title": "Content Creators",
+    "section": "Gabe De La Rosa",
+    "text": "Gabe De La Rosa\ngabrieldelarosa.com –  gdlr.github.io –  @gabe_de_la – delarosa@nceas.ucsb.edu\n\nGabe is the Digital Communications Coordinator for the Long-Term Ecological Research Network. He learned R Shiny as a masters student at UCSB’s Bren School of Environmental Science and Management, and most recently built a shiny app that displays an interactive map of LTER sites."
+  },
+  {
+    "objectID": "about.html#francisco-j.-guerrero",
+    "href": "about.html#francisco-j.-guerrero",
+    "title": "Content Creators",
+    "section": "Francisco J. Guerrero",
+    "text": "Francisco J. Guerrero\nguerrero-fg.github.io –  guerrero-fj –  @fjguerrerob – francisco.guerrero@pnnl.gov\n\nFrancisco J. Guerrero is the Science and Communication Research Associate for the Integrated, Coordinated, Open, and Networked-ICON Science Cooperative at PNNL. He is a watershed ecologist and a science communicator. since 2004, Francisco has been studying land to ocean carbon fluxes in small mountainous river systems. In his parallel role as communicator (since 2014), he has designed and implemented communication infrastructure (workshops, panels, working groups facilitation, etc.) at research-driven organizations from regional to national levels (e.g. universities, state agencies, and national research centers). Currently, Francisco is creating workflows for scientists and knowledge workers to integrate strategic communication tools along the scientific production lifecycle (from ideation to publication)."
+  },
+  {
+    "objectID": "about.html#nick-j.-lyon",
+    "href": "about.html#nick-j.-lyon",
+    "title": "Content Creators",
+    "section": "Nick J. Lyon",
+    "text": "Nick J. Lyon\nnjlyon0.github.io –  njlyon0 –  @scilyon – lyon@nceas.ucsb.edu\n\nNick is a member of the Scientific Computing Support Team at NCEAS. He learned R Shiny in order to build the Herbivory Variability Network’s data submission portal ( repository linked here) but has since gained a broader appreciation for the value of Shiny apps in supporting many aspects of data visualization and wrangling. In particular, Nick recently developed a Shiny app to allow non-R users to explore his lterpalettefinder R package without needing to “speak” R ( repository linked here). Nick completed his M.Sc. in Ecology and Evolutionary Biology at Iowa State University."
   },
   {
     "objectID": "labels.html",
@@ -208,5 +173,40 @@
     "title": "Helpful Resources",
     "section": "",
     "text": "Sam Csik’s Intro to Shiny workshop\nAllison Horst’s The Basics of Building Shiny Apps in R workshop\nGarrett Grolemund’s Building Web Applications with Shiny tutorial (find the GitHub Repo here)\nMastering Shiny, by Hadley Wickham\nDean Attali’s Building Shiny Apps, an Interactive Tutorial\nShiny User Showcase\nShiny Demos"
+  },
+  {
+    "objectID": "supp_mat.html",
+    "href": "supp_mat.html",
+    "title": "Supplementary Resources",
+    "section": "",
+    "text": "Much as we would love to cover everything to do with R Shiny, it is simply not possible given the time we have today. However, if this workshop inspired you to delve further into Shiny, we hope that the resources and readings below are helpful to you.\nThanks for coming to our workshop!\n– Gabe, Francisco, & Nick"
+  },
+  {
+    "objectID": "supp_mat.html#further-reading",
+    "href": "supp_mat.html#further-reading",
+    "title": "Supplementary Resources",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nMastering Shiny by Hadley Wickham\nDeploying a Shiny App FAQ"
+  },
+  {
+    "objectID": "supp_mat.html#deployed-shiny-apps",
+    "href": "supp_mat.html#deployed-shiny-apps",
+    "title": "Supplementary Resources",
+    "section": "Deployed Shiny Apps",
+    "text": "Deployed Shiny Apps\n\nData submission portal for the Herbivory Variability Network\nlterpalettefinder demo app\n\n-WeatherSpark The Weather Year Round Anywhere on Earth: Climate reports with the weather by month, day, even hour. Great for event and trip planning!\n-Wisconsin’s Long-Term Water Quality Trends. How government agencies take advantage of the functionality of Shiny Apps to offer an interactive view of their long-term data sets."
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Example Data",
+    "section": "",
+    "text": "The Long Term Ecological Research program (LTER) Network has recently created an R package containing example datasets from some of the LTER sites called lterdatasampler. The goal of lterdatasampler is to provide tidy versions of datasets from LTER sites for use in teaching and training contexts (like this workshop!). Eventually this package will contain datasets from each of the 28 extant LTER sites so be sure to check back often for updates as those data are integrated.\nFor this workshop, we’ll be using one of the datasets in this package to give our apps something to work with. Let’s explore that more fully below."
+  },
+  {
+    "objectID": "data.html#andrews-forest-data",
+    "href": "data.html#andrews-forest-data",
+    "title": "Example Data",
+    "section": "Andrews Forest Data",
+    "text": "Andrews Forest Data\nSpecifically, we’ll be using the Andrews Forest (“AND”) LTER data. This dataset contains the length and width measurements of Cutthroat trout and salamanders found in Mack Creek at Andrews Forest.\nTo access this data, we’ll need to install the lterdatasampler dataset and we’ll also want both the tidyverse and librarian packages as well (for data wrangling and package installation convenience respectively).\n\n\n\n\n\n\n\n\n\n\n\n# install.packages(\"librarian\")\nlibrarian::shelf(lter/lterdatasampler, tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.1.2\n\n\nWarning: package 'tibble' was built under R version 4.1.2\n\n\nWarning: package 'tidyr' was built under R version 4.1.2\n\n\nWarning: package 'dplyr' was built under R version 4.1.2\n\n\n\n\nOnce we have the packages that we need, we can retrieve the data and take a look at it.\n\n\n\n\n\n\n\n\n\n\n\n# Load the data from AND\nand_data <- lterdatasampler::and_vertebrates\n\n# Take a quick look at it\ndplyr::glimpse(and_data)\n\nRows: 32,209\nColumns: 16\n$ year        <dbl> 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987…\n$ sitecode    <chr> \"MACKCC-L\", \"MACKCC-L\", \"MACKCC-L\", \"MACKCC-L\", \"MACKCC-L\"…\n$ section     <chr> \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\", \"CC\"…\n$ reach       <chr> \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\", \"L\"…\n$ pass        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ unitnum     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2…\n$ unittype    <chr> \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\", \"R\"…\n$ vert_index  <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, …\n$ pitnumber   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ species     <chr> \"Cutthroat trout\", \"Cutthroat trout\", \"Cutthroat trout\", \"…\n$ length_1_mm <dbl> 58, 61, 89, 58, 93, 86, 107, 131, 103, 117, 100, 127, 99, …\n$ length_2_mm <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ weight_g    <dbl> 1.75, 1.95, 5.60, 2.15, 6.90, 5.90, 10.50, 20.60, 9.55, 13…\n$ clip        <chr> \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"N…\n$ sampledate  <date> 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-07, 1987-10-0…\n$ notes       <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n\n\n\n\n\nAND Data Dictionary\nInformation about the data in AND can be accessed by running ?and_vertebrates but for simplicity’s sake, the columns and their meanings are recapitulated here as well.\n\nyear – number – observation year\nsitecode – character – abbreviated name of sample area\nsection – character – section of Mack Creek CC = clear cut forest, OG = old growth forest upstream\nreach – character – reach sampled from each section; L = lower reach (0 - 50 meters), M = middle reach (50 - 100 meters), U = upper reach (100 - 150 meters))\npass – number – electroshocking pass number, either 1 or 2\nunitnum – number – channel unit number\nunittype – character – channel unit classification type (C = cascade, I = riffle, IP = isolated pool (not connected to channel), P = pool, R = rapid, S = step (small falls), SC = side channel, NA = not sampled by unit)\nvert_index – number – unique index for each vertebrate\npitnumber – number – unique tag number embedded into vertebrate (tagging started in 2007)\nspecies – character – species measured\nlength_1_mm – number – vertebrate length in millimeters; total or snout-fork length for trout, and snout-vent length for salamanders\nlength_2_mm – number – snout-tail length in millimeters (for Coastal giant salamander only)\nweight_g – number – vertebrate mass in grams\nclip – character – fin clip type for cutthroat trout, ended in 2006 (LV = left ventral fin; LVRV = left and right ventral fins; RV = right ventral fin; NONE = no ventral fin clip)\nsampledate – date – date of observation\nnotes – character – additional comments\n\nWe may not use all of these columns today but your app could rely on any of them that you so choose!"
   }
 ]
