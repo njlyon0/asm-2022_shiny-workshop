@@ -33,6 +33,13 @@ librarian::shelf(shiny, htmltools, tidyverse, leaflet, lter/lterdatasampler)
 ```
 :::
 
+
+### Example Apps
+
+We have also created a handful of standalone scripts that create the apps we have embedded in this workshop website. You can access them via a [dedicated GitHub repository](https://github.com/njlyon0/asm-2022_shiny-workshop-examples) and short descriptions of each app have been included in the [README file at the bottom of that page](https://github.com/njlyon0/asm-2022_shiny-workshop-examples#readme).
+
+Or, if you are not an avid GitHub user (don't worry if that is the case!) You can download all of those example app files by [clicking here](https://github.com/njlyon0/asm-2022_shiny-workshop-examples/archive/refs/heads/main.zip).
+
 ### Let's Get To It!
 
 We aim to make this training fun and interactive so please reach out if you have any questions before, during, or after this workshop! Our contact information is listed below:
