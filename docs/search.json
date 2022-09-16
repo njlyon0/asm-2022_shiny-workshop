@@ -2,9 +2,9 @@
   {
     "objectID": "deploy.html",
     "href": "deploy.html",
-    "title": "deploy",
+    "title": "Deploying your app",
     "section": "",
-    "text": "We won’t cover deploying a shiny app in this session—it’s a bit of a convoluted process, and the risk of everyone getting derailed at some point in the process is too high. That being said, deploying is incredibly straightforward once you set everything up right.\nThe most common way to deploy apps is via (shinyapps.io)[shinyapps.io]. Shiny lets users host apps for free, but there some limits on size, server allocation, etc. This method works wonders for most users. Most won’t want to look into other options, unless they’re creating an app for deployment in a very professional or high-user environment.\nA somewhat comprehensive guide to deployment is available here: https://shiny.rstudio.com/articles/shinyapps.html\nYou can see demo apps deployed on shinyapps.io here: Workshop Example App LTER Map"
+    "text": "We won’t cover deploying a shiny app in this session—it’s a bit of a convoluted process, and the risk of everyone in the workshop hitting problems is too high. That being said, deploying is incredibly straightforward once you set everything up right.\nThe most common way to deploy apps is via shinyapps.io. Shiny lets users host apps for free, but there some limits on size, server allocation, etc. This method works wonders for most users. Most won’t want to look into other options, unless they’re creating an app for deployment in a very professional or high-user environment.\nA somewhat comprehensive guide to deployment is available here: https://shiny.rstudio.com/articles/shinyapps.html\nYou can see demo apps deployed on shinyapps.io here: Workshop Example App LTER Map"
   },
   {
     "objectID": "core_shiny.html",
