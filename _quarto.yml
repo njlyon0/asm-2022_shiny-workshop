@@ -35,6 +35,7 @@ website:
           - data.qmd
           - labels.qmd
           - layouts.qmd
+          - deploy.qmd
   page-footer:
     center: "Copyright 2022, NCEAS"
     background: primary

@@ -33,8 +33,9 @@ librarian::shelf(shiny, htmltools, tidyverse, leaflet, lter/lterdatasampler)
 ```
 :::
 
-
 ### Example Apps
+
+The workshop guides participants through building their own Shiny App, modeled off of this one here: [Shiny Workshop Example Aps](https://lternetwork.shinyapps.io/asm_2022_shiny_workshop_full_app_deploy/?_ga=2.225078554.140765860.1663269972-218790057.1663269972). Participants will create the first two tabs of this app.
 
 We have also created a handful of standalone scripts that create the apps we have embedded in this workshop website. You can access them via a [dedicated GitHub repository](https://github.com/njlyon0/asm-2022_shiny-workshop-examples) and short descriptions of each app have been included in the [README file at the bottom of that page](https://github.com/njlyon0/asm-2022_shiny-workshop-examples#readme).
 
@@ -54,7 +55,7 @@ We aim to make this training fun and interactive so please reach out if you have
 
 ## Agenda*
 
-\*Note that this agenda is subject to change as we would rather move at a pace that is comfortable for everyone rather than covering all of our planned content if it means leaving some people behind.
+\*Note that this agenda is subject to change. We would rather move at a pace that is comfortable for everyone rather than covering all of our planned content and leaving some people behind.
 
 10:30a (PT) - Introductions & Workshop Overview
 
