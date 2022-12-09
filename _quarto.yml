@@ -46,9 +46,9 @@ website:
 format:
   html:
     theme:
-       light: yeti
-       dark: darkly
-    css: styles.css
+       light: lyonlight.scss
+       dark: lyondark.scss
+    mainfont: Open Sans
     toc: true
     link-external-newwindow: true
     link-external-icon: false
