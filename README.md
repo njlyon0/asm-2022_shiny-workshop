@@ -1,18 +1,6 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # All Scientists' Meeting - R Shiny Workshop
 
 ### Team led by [Gabe De La Rosa](https://www.gabrieldelarosa.com/), [Francisco J Guerrero](https://github.com/guerrero-fj) & [Nick J Lyon](https://njlyon0.github.io/)
-
-<!-- badges: start -->
-
-<!-- badges: end -->
 
 This repository includes all of the content for the workshop entitled **"[Shiny App for Sharing Science](https://2022lterasm.sched.com/event/13kyO/22x053-shiny-app-for-sharing-science)"** to be presented at the 2022 LTER [All Scientists' Meeting](https://lternet.edu/2022-all-scientists-meeting/).
 
