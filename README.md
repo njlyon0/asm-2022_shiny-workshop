@@ -14,7 +14,7 @@ R Shiny applications are a powerful way to let users explore scientific data in 
 
 The development of this training material is supported through the Long Term Ecological Research Network Office (LNO) (NSF award numbers 1545288 and 1929393) and the National Center for Ecological Analysis and Synthesis, UC Santa Barbara.
 
-**Citation:** Nick Lyon, Gabe De La Rosa, and Francisco J Guerrero. 2023. Collaborative Coding with GitHub. LNO Scientific Computing Team.
+**Citation:** Nick Lyon, Gabe De La Rosa, and Francisco J Guerrero. 2023. Shiny Apps for Sharing Science.
 
 <br>
 <hr>
