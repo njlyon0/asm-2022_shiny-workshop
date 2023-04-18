@@ -20,4 +20,17 @@ To supplement this repository, we have created a [repository to house all of our
 
 ## Workshop Abstract:
 
-R Shiny applications are a powerful way to let users explore scientific data in a curated environment. Shiny is a flexible platform that allows users to create both intricate apps and simple interfaces for sharing data with collaborators. After this workshop, attendees will be able to (1) define the fundamental structure of a Shiny app, (2) implement different user interface elements, (3) write and format useful labels and headers, and (4) learn to partition Shiny app components to create clean, concise, and easy-to-navigate apps. Workshop participants follow a guided coding session to create a demo shiny app, with an emphasis on creating an app to share and interact with scientific data. We will leverage pre-written "example apps" to facilitate attendees writing their own apps. Please bring a laptop computer. There will also be time set aside throughout the workshop to discuss issues and share best practices so whether you're a veteran Shiny user or have neer heard of it, we welcome your participation.
+R Shiny applications are a powerful way to let users explore scientific data in a curated environment. Shiny is a flexible platform that allows users to create both intricate apps and simple interfaces for sharing data with collaborators. After this workshop, attendees will be able to (1) define the fundamental structure of a Shiny app, (2) implement different user interface elements, (3) write and format useful labels and headers, and (4) learn to partition Shiny app components to create clean, concise, and easy-to-navigate apps. Workshop participants follow a guided coding session to create a demo shiny app, with an emphasis on creating an app to share and interact with scientific data. We will leverage pre-written "example apps" to facilitate attendees writing their own apps. Please bring a laptop computer. There will also be time set aside throughout the workshop to discuss issues and share best practices so whether you're a veteran Shiny user or have never heard of it, we welcome your participation.
+
+## Acknowledgment
+
+The development of this training material is supported through the Long Term Ecological Research Network Office (LNO) (NSF award numbers 1545288 and 1929393) and the National Center for Ecological Analysis and Synthesis, UC Santa Barbara.
+
+**Citation:** Nick Lyon, Gabe De La Rosa, and Francisco J Guerrero. 2023. Collaborative Coding with GitHub. LNO Scientific Computing Team.
+
+<br>
+<hr>
+
+<p align="center">
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
