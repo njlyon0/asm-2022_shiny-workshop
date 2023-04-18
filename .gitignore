@@ -50,3 +50,7 @@ vignettes/*.pdf
 # Nick's personal notes folder
 notes/
 
+# Knit License
+LICENSE.html
+
+
