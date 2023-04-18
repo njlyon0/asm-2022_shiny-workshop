@@ -24,7 +24,7 @@ First, create the UI:
 
 :::callout-note
 ####
-```{r label-ui-v1}
+```{r label-ui-v1, eval = F}
 # Define the UI
 label_ui <- fluidPage(
   
@@ -45,7 +45,7 @@ Once we have a UI, we need to define the server to tell the app how to transform
 
 :::callout-note
 ####
-```{r label-server}
+```{r label-server, eval = F}
 # Define the server
 label_server <- function(input, output){
   
@@ -60,7 +60,7 @@ With both the UI and the server defined, we can re-create our app from the previ
 
 :::callout-note
 #### 
-```{r label-app-v1, message = F}
+```{r label-app-v1, message = F, eval = F}
 shinyApp(ui = label_ui, server = label_server)
 ```
 :::
@@ -76,7 +76,7 @@ Let's add a top-level header to our app to welcome users to the app *and* while 
 :::callout-note
 ####
 
-```{r label-ui-v2}
+```{r label-ui-v2, eval = F}
 # Define the UI
 label_ui <- fluidPage(
   
@@ -106,7 +106,7 @@ With the UI modified, we can re-create the app (we don't need to re-define the s
 
 :::callout-note
 #### 
-```{r label-app-v2, message = F}
+```{r label-app-v2, message = F, eval = F}
 shinyApp(ui = label_ui, server = label_server)
 ```
 :::
@@ -117,7 +117,7 @@ Let's add two line breaks beneath the top-level header and one between the `nume
 
 :::callout-note
 ####
-```{r label-ui-v3}
+```{r label-ui-v3, eval = F}
 # Define the UI
 label_ui <- fluidPage(
   
@@ -154,7 +154,7 @@ And re-create the app to see the update.
 
 :::callout-note
 #### 
-```{r label-app-v3, message = F}
+```{r label-app-v3, message = F, eval = F}
 shinyApp(ui = label_ui, server = label_server)
 ```
 :::
@@ -167,7 +167,7 @@ To showcase this further though, we can add a label above the double line break 
 
 :::callout-note
 ####
-```{r label-ui-and-app-v4, message = F}
+```{r label-ui-and-app-v4, message = F, eval = F}
 # Define the UI
 label_ui <- fluidPage(
   
@@ -214,7 +214,7 @@ For these operations we'll return to `htmltools`. To show this, let's make "Welc
 
 :::callout-note
 ####
-```{r label-ui-and-app-v5, message = F}
+```{r label-ui-and-app-v5, message = F, eval = F}
 # Define the UI
 label_ui <- fluidPage(
   
@@ -270,7 +270,7 @@ In our app the welcome message is good but the font is a little small. Let's mak
 
 :::callout-note
 ####
-```{r label-ui-and-app-v6, message = F}
+```{r label-ui-and-app-v6, message = F, eval = F}
 # Define the UI
 label_ui <- fluidPage(
   

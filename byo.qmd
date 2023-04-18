@@ -33,7 +33,7 @@ There are a few prebuilt functions in shiny that build slightly different pages.
 
 ::: callout-note
 ####
-```{r byo-overview-ui-v1, message = F}
+```{r byo-overview-ui-v1, message = F, eval = F}
 overview_ui <- navbarPage(
   # Title of the app
   "Andrews Forest",
@@ -49,7 +49,7 @@ overview_server <- function(input, output){}
 
 ::: callout-note
 ####
-```{r byo-overview-app-v1, message = F}
+```{r byo-overview-app-v1, message = F, eval = F}
 shinyApp(ui = overview_ui, server = overview_server)
 ```
 :::
@@ -60,7 +60,7 @@ We can add a title using `titlePanel` in the main `fluidPage`---and Shiny alread
 
 ::: callout-note
 ####
-```{r byo-overview-ui-v2}
+```{r byo-overview-ui-v2, eval = F}
 overview_ui <- navbarPage(
   "Andrews Forest",
   
@@ -89,7 +89,7 @@ Now to actually add some content. Images hosted online are remarkably easy---Shi
 
 ::: callout-note
 ####
-```{r image-example, eval = FALSE}
+```{r image-example, eval = F}
 img(src = "https://lternet.edu/wp-content/uploads/2022/03/Lookout_Creek_in_the_HJ_Andrews_Experimental_Forest_Willamette_National_Forest_23908499686-1.jpg",
     width = "100%"))
 ```
@@ -99,7 +99,7 @@ We can add text and style it with other useful functions from `htmltools`. Let's
 
 ::: callout-note
 ####
-```{r heading-example, eval = FALSE}
+```{r heading-example, eval = F}
 htmltools::h2("About The Forest"),
 
 htmltools::p("The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."),
@@ -116,7 +116,7 @@ Notice that we also put in a placeholder for the map using `leafletOutput`. We c
 
 ::: callout-note
 ####
-```{r byo-overview-ui-v3}
+```{r byo-overview-ui-v3, eval = F}
 overview_ui <- navbarPage(
   "Andrews Forest",
     tabPanel("Overview",
@@ -161,7 +161,7 @@ One takeaway is that Shiny plays very nicely with some other R packages---such a
 
 ::: callout-note
 ####
-```{r byo-overview-server-v1}
+```{r byo-overview-server-v1, eval = F}
 # Define server logic required to draw a histogram
 overview_server <- function(input, output) {
 
@@ -182,7 +182,7 @@ When we run the app, we can see the layout!
 
 ::: callout-note
 ####
-```{r byo-overview-app-v2, message = F}
+```{r byo-overview-app-v2, message = F, eval = F}
 shinyApp(ui = overview_ui, server = overview_server)
 ```
 :::
@@ -199,7 +199,7 @@ Let's begin with a user interface. Reactivity happens completely in the server, 
 
 ::: callout-note
 #### 
-```{r byo-reactive-ui, message = F}
+```{r byo-reactive-ui, message = F, eval = F}
 reactive_ui <- fluidPage(
   
   # Dropdown for watershed
@@ -235,7 +235,7 @@ This looks like this:
 
 ::: callout-note
 ####
-```{r byo-reactive-server-v1,  eval = FALSE}
+```{r byo-reactive-server-v1, eval = F}
 reactive_server <- function(input, output){
   
   # Subset dataframe to selected species
@@ -256,7 +256,7 @@ Oh, and when you want to use those reactive inputs in a plot, say? You need to r
 
 ::: callout-note
 #### 
-```{r byo-reactive-server-v2, message = F}
+```{r byo-reactive-server-v2, message = F, eval = F}
 reactive_server <- function(input, output){
   
   # Subset dataframe to selected species
@@ -304,5 +304,7 @@ Generate the app from the UI and server!
 shinyApp(ui = reactive_ui, server = reactive_server)
 ```
 
-<img src="images/reactive-app-still.png" width="100%"/>
+<p align="center">
+<img src="images/reactive-app-still.png" width="60%"/>
+</p>
 :::

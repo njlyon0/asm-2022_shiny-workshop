@@ -20,7 +20,7 @@ Once we have the packages that we need, re-create the UI we wound up with at the
 
 :::callout-note
 ####
-```{r default-ui, message = F}
+```{r default-ui, message = F, eval = F}
 # Define the UI
 default_ui <- fluidPage(
   
@@ -63,7 +63,7 @@ Build the server again.
 
 :::callout-note
 ####
-```{r layout-server}
+```{r layout-server, eval = F}
 # Define the server
 layout_server <- function(input, output){
   
@@ -78,7 +78,7 @@ Finally, create the app!
 
 :::callout-note
 #### 
-```{r basic-layout-app, message = F}
+```{r basic-layout-app, message = F, eval = F}
 shinyApp(ui = default_ui, server = layout_server)
 ```
 :::
@@ -95,7 +95,7 @@ We need to use two new `shiny` functions to tell our app which UI content should
 
 :::callout-note
 ####
-```{r sidebar-ui, message = F}
+```{r sidebar-ui, message = F, eval = F}
 # Define the UI
 sidebar_ui <- fluidPage(
   
@@ -153,7 +153,7 @@ Now that the UI has been defined, we can use the same server function and create
 
 :::callout-note
 #### 
-```{r sidebar-app, message = F}
+```{r sidebar-app, message = F, eval = F}
 shinyApp(ui = sidebar_ui, server = layout_server)
 ```
 :::
@@ -170,7 +170,7 @@ In order to use the tabs layout we need two new `shiny` functions: `tabsetPanel`
 
 :::callout-note
 ####
-```{r tab-ui, message = F}
+```{r tab-ui, message = F, eval = F}
 # Define the UI
 tab_ui <- fluidPage(
   
@@ -234,7 +234,7 @@ Once the layout has been defined in the UI, we can create another app using the 
 
 :::callout-note
 #### 
-```{r tab-app, message = F}
+```{r tab-app, message = F, eval = F}
 shinyApp(ui = tab_ui, server = layout_server)
 ```
 :::

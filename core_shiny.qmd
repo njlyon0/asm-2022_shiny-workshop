@@ -40,7 +40,7 @@ Let's take a very basic example:
 
 :::callout-note
 #### 
-```{r basic-ui-v1}
+```{r basic-ui-v1, eval = F}
 # Define UI
 basic_ui <- fluidPage(
   "Here's some text"
@@ -54,7 +54,7 @@ We can add other elements, too:
 
 :::callout-note
 #### 
-```{r basic-ui-v2}
+```{r basic-ui-v2, eval = F}
 basic_ui <- fluidPage(
   titlePanel("A simple app"),
   "Here's some text",
@@ -73,7 +73,7 @@ At the end, we use the `shinyApp` function to tell R to compile our server and u
 
 :::callout-note
 #### 
-```{r basic-app, message = F}
+```{r basic-app, message = F, eval = F}
 # Define server
 basic_server <- function(input, output){ }
 
@@ -96,7 +96,7 @@ Let's start coding this up, starting with adding the buttons:
 
 :::callout-note
 #### 
-```{r reactive-ui-v1}
+```{r reactive-ui-v1, eval = F}
 # Define the UI
 reactive_ui <- fluidPage(
   
@@ -115,7 +115,7 @@ Let's also define where we want the results of our selection to show up. The syn
 
 :::callout-note
 #### 
-```{r reactive-ui-v2}
+```{r reactive-ui-v2, eval = F}
 # Define the UI
 reactive_ui <- fluidPage(
   
@@ -158,7 +158,7 @@ Returning to our growing app, let's tell the server how to handle our inputs.
 
 :::callout-note
 #### 
-```{r reactive-server}
+```{r reactive-server, eval = F}
 # Define the server
 reactive_server <- function(input, output){
   
@@ -197,7 +197,7 @@ Double check that your Environment includes both the `reactive_ui` and `reactive
 
 :::callout-note
 #### 
-```{r reactive-app, message = F}
+```{r reactive-app, message = F, eval = F}
 shinyApp(ui = reactive_ui, server = reactive_server)
 ```
 :::
