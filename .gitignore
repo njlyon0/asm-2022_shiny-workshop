@@ -46,11 +46,3 @@ vignettes/*.pdf
 
 # .DS_Store files
 .DS_Store
-
-# Nick's personal notes folder
-notes/
-
-# Knit License
-LICENSE.html
-
-
