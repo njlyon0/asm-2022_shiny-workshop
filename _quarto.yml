@@ -16,7 +16,14 @@ website:
     background: primary
     right:
       - supp_mat.qmd
-      - about.qmd
+      - text: "Content Creators"
+        menu:
+          - text: "Gabe De La Rosa"
+            href: https://www.gabrieldelarosa.com/
+          - text: "Francisco J Guerrero"
+            href: https://guerrero-fj.github.io/my-website/
+          - text: "Nick Lyon"
+            href: https://njlyon0.github.io/
       - icon: github
         href: https://github.com/njlyon0/asm-2022_shiny-workshop
   sidebar: 
