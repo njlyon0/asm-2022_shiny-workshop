@@ -10,7 +10,7 @@ Now that we've covered the fundamental architecture of a Shiny app, let's tackle
 -   If you want to learn about headers and text formatting in a Shiny app, check out the "[Labels & Headers](https://njlyon0.github.io/asm-2022_shiny-workshop/labels.html)" tab
 -   If you'd like to experiment with Shiny's UI built-in layout options, see the "[Layouts](https://njlyon0.github.io/asm-2022_shiny-workshop/layouts.html)" tab
 
-An example of the app we will build (is found here)[https://lternetwork.shinyapps.io/asm_2022_shiny_workshop_full_app_deploy/?_ga=2.225078554.140765860.1663269972-218790057.1663269972].
+A deployed example of the app we will build together during the workshop can be found [here](https://lternetwork.shinyapps.io/asm_2022_shiny_workshop_full_app_deploy/?_ga=2.225078554.140765860.1663269972-218790057.1663269972).
 
 In order to make sure we are all working with the same tools, be sure that you have the necessary R packages installed!
 

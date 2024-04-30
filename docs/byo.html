@@ -299,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>If you want to learn about headers and text formatting in a Shiny app, check out the “<a href="https://njlyon0.github.io/asm-2022_shiny-workshop/labels.html">Labels &amp; Headers</a>” tab</li>
 <li>If you’d like to experiment with Shiny’s UI built-in layout options, see the “<a href="https://njlyon0.github.io/asm-2022_shiny-workshop/layouts.html">Layouts</a>” tab</li>
 </ul>
-<p>An example of the app we will build (is found here)[https://lternetwork.shinyapps.io/asm_2022_shiny_workshop_full_app_deploy/?_ga=2.225078554.140765860.1663269972-218790057.1663269972].</p>
+<p>A deployed example of the app we will build together during the workshop can be found <a href="https://lternetwork.shinyapps.io/asm_2022_shiny_workshop_full_app_deploy/?_ga=2.225078554.140765860.1663269972-218790057.1663269972">here</a>.</p>
 <p>In order to make sure we are all working with the same tools, be sure that you have the necessary R packages installed!</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -314,16 +314,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("librarian")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(shiny, htmltools, tidyverse, leaflet, lter<span class="sc">/</span>lterdatasampler)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/private/var/folders/sf/4vjm4zs50sq4_rpvjy_08nl80000gn/T/RtmpUXXAl6/remotesa4652a4a17a3/lter-lterdatasampler-ff78476/DESCRIPTION’ ... OK
-* preparing ‘lterdatasampler’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-Removed empty directory ‘lterdatasampler/vignettes’
-* building ‘lterdatasampler_0.1.1.tar.gz’</code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -345,16 +335,16 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>overview_ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Title of the app</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Andrews Forest"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the panels, with titles</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Overview"</span>),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Species weights"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Nothing in the server yet...</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>overview_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>overview_ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Title of the app</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Andrews Forest"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the panels, with titles</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Overview"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Species weights"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Nothing in the server yet...</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>overview_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -369,7 +359,7 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> overview_ui, <span class="at">server =</span> overview_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> overview_ui, <span class="at">server =</span> overview_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -386,27 +376,27 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>overview_ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Andrews Forest"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## We're focused on this section</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Overview"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Start scaffolding</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fluidPage</span>(</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add title</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">titlePanel</span>(<span class="st">"Overview"</span>),</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add a row to add things in</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">fluidRow</span>(</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Then divide up the row into two columns, with width 4 and 8</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">4</span>),</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">8</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Species weights"</span>,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>             <span class="fu">fluidPage</span>())</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>overview_ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Andrews Forest"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## We're focused on this section</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Overview"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Start scaffolding</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fluidPage</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add title</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">titlePanel</span>(<span class="st">"Overview"</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add a row to add things in</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">fluidRow</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Then divide up the row into two columns, with width 4 and 8</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">4</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">8</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Species weights"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>             <span class="fu">fluidPage</span>())</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -422,8 +412,8 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://lternet.edu/wp-content/uploads/2022/03/Lookout_Creek_in_the_HJ_Andrews_Experimental_Forest_Willamette_National_Forest_23908499686-1.jpg"</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="st">"100%"</span>)<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://lternet.edu/wp-content/uploads/2022/03/Lookout_Creek_in_the_HJ_Andrews_Experimental_Forest_Willamette_National_Forest_23908499686-1.jpg"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="st">"100%"</span>)<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -439,13 +429,13 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">h2</span>(<span class="st">"About The Forest"</span>),</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">p</span>(<span class="st">"The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">h2</span>(<span class="st">"About This Project"</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">p</span>(<span class="st">"This project demonstrates how a site might use Shiny apps to communicate results from their research"</span>)<span class="er">)</span>,</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">h2</span>(<span class="st">"About The Forest"</span>),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">p</span>(<span class="st">"The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">h2</span>(<span class="st">"About This Project"</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">p</span>(<span class="st">"This project demonstrates how a site might use Shiny apps to communicate results from their research"</span>)<span class="er">)</span>,</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -462,39 +452,39 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>overview_ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Andrews Forest"</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Overview"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fluidPage</span>(</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">titlePanel</span>(<span class="st">"Overview"</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>          <span class="co"># This is the section we're focused on:</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">fluidRow</span>(</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">4</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># Add image</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://lternet.edu/wp-content/uploads/2022/03/Lookout_Creek_in_the_HJ_Andrews_Experimental_Forest_Willamette_National_Forest_23908499686-1.jpg"</span>,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">width =</span> <span class="st">"100%"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                   ) <span class="co"># Close column</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            ,</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">8</span>,</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># Add some text within a row — this sets us up to add a map below the text</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">fluidRow</span>(</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">h2</span>(<span class="st">"About The Forest"</span>),</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">p</span>(<span class="st">"The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."</span>),</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">h2</span>(<span class="st">"About This Project"</span>),</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">p</span>(<span class="st">"This project demonstrates how a site might use Shiny apps to communicate results from their research"</span>)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                     ), <span class="co"># Close row</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                   </span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># And add a placeholder output where we want our map to go</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">leafletOutput</span>(<span class="st">"andrews_map"</span>, <span class="at">width =</span> <span class="st">"90%"</span>, <span class="at">height =</span> <span class="dv">350</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                                 )</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                   ) <span class="co"># Close column</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            )<span class="co"># Close fluidRow</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>          ), <span class="co"># Close fluidPage</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    ), <span class="co"># Close Overview</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Species weights"</span>)</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>) <span class="co"># close navbarPage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>overview_ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Andrews Forest"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Overview"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fluidPage</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">titlePanel</span>(<span class="st">"Overview"</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>          <span class="co"># This is the section we're focused on:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">fluidRow</span>(</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">4</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># Add image</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://lternet.edu/wp-content/uploads/2022/03/Lookout_Creek_in_the_HJ_Andrews_Experimental_Forest_Willamette_National_Forest_23908499686-1.jpg"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">width =</span> <span class="st">"100%"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                   ) <span class="co"># Close column</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            ,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">column</span>(<span class="dv">8</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># Add some text within a row — this sets us up to add a map below the text</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">fluidRow</span>(</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">h2</span>(<span class="st">"About The Forest"</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">p</span>(<span class="st">"The H.J. Andrews Experimental Forest (AND) LTER is located in the Cascade Range of Oregon, and consists of 6,400 ha of conifer forest, meadows, and stream ecosystems. This mountain landscape experiences episodic disturbances, including fires, floods, and landslides. The question central to AND LTER research is: How do climate, natural disturbance, and land use, as influenced by forest governance, interact with biodiversity, hydrology, and carbon and nutrient dynamics? Andrews LTER research illuminates the complexity of native, mountain ecosystems such as: forest stream interactions; roles of dead wood; and effects of forest harvest and disturbance on hydrology, vegetation, and biogeochemistry over multiple time scales. Andrews LTER research has also been central to informing regional and national forest policy. Future research will address ongoing change in streams, forests, climate, and governance."</span>),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">h2</span>(<span class="st">"About This Project"</span>),</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">p</span>(<span class="st">"This project demonstrates how a site might use Shiny apps to communicate results from their research"</span>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                     ), <span class="co"># Close row</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># And add a placeholder output where we want our map to go</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">leafletOutput</span>(<span class="st">"andrews_map"</span>, <span class="at">width =</span> <span class="st">"90%"</span>, <span class="at">height =</span> <span class="dv">350</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                                 )</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                   ) <span class="co"># Close column</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            )<span class="co"># Close fluidRow</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>          ), <span class="co"># Close fluidPage</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    ), <span class="co"># Close Overview</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">"Species weights"</span>)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>) <span class="co"># close navbarPage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -514,19 +504,19 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>overview_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Map with marker at forest</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>andrews_map <span class="ot">&lt;-</span> <span class="fu">renderLeaflet</span>({</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">122.1641168884823</span>, <span class="at">lat =</span> <span class="fl">44.2310583215366</span>, <span class="at">label =</span> <span class="st">"Andrews Forest"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">addPopups</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">122.1641168884823</span>, <span class="at">lat =</span> <span class="fl">44.2310583215366</span>, <span class="at">popup =</span> <span class="st">"&lt;img src = 'https://andrewsforest.oregonstate.edu/sites/default/files/lter/images/logos/hja/newtlogo1.jpg', height = '30'&gt; &lt;b&gt;Andrews Forest&lt;/b&gt;"</span>, <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">setView</span>(<span class="sc">-</span><span class="fl">122.1641168884823</span>, <span class="fl">44.2310583215366</span>, <span class="at">zoom =</span> <span class="dv">5</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>overview_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Map with marker at forest</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>andrews_map <span class="ot">&lt;-</span> <span class="fu">renderLeaflet</span>({</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">addCircleMarkers</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">122.1641168884823</span>, <span class="at">lat =</span> <span class="fl">44.2310583215366</span>, <span class="at">label =</span> <span class="st">"Andrews Forest"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">addPopups</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">122.1641168884823</span>, <span class="at">lat =</span> <span class="fl">44.2310583215366</span>, <span class="at">popup =</span> <span class="st">"&lt;img src = 'https://andrewsforest.oregonstate.edu/sites/default/files/lter/images/logos/hja/newtlogo1.jpg', height = '30'&gt; &lt;b&gt;Andrews Forest&lt;/b&gt;"</span>, <span class="at">options =</span> <span class="fu">popupOptions</span>(<span class="at">closeButton =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">setView</span>(<span class="sc">-</span><span class="fl">122.1641168884823</span>, <span class="fl">44.2310583215366</span>, <span class="at">zoom =</span> <span class="dv">5</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -542,7 +532,7 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> overview_ui, <span class="at">server =</span> overview_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> overview_ui, <span class="at">server =</span> overview_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -566,24 +556,24 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dropdown for watershed</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"dropdown_site"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">"Site"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Choices are "All" or `sitecode` values in data</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"All"</span>, <span class="fu">unique</span>(and_vertebrates<span class="sc">$</span>sitecode))),</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Radio buttons for species</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"button_spp"</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">label =</span> <span class="st">"Species"</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>               <span class="co"># The `setdiff(...)` is just to remove NAs</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">choices =</span> <span class="fu">setdiff</span>(<span class="at">x =</span> <span class="fu">unique</span>(and_vertebrates<span class="sc">$</span>species), <span class="at">y =</span> <span class="cn">NA</span>)),</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create histogram output</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"hist_out"</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reactive_ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dropdown for watershed</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"dropdown_site"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">"Site"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Choices are "All" or `sitecode` values in data</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"All"</span>, <span class="fu">unique</span>(and_vertebrates<span class="sc">$</span>sitecode))),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Radio buttons for species</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"button_spp"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">label =</span> <span class="st">"Species"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>               <span class="co"># The `setdiff(...)` is just to remove NAs</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">choices =</span> <span class="fu">setdiff</span>(<span class="at">x =</span> <span class="fu">unique</span>(and_vertebrates<span class="sc">$</span>species), <span class="at">y =</span> <span class="cn">NA</span>)),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create histogram output</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"hist_out"</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -606,15 +596,15 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to selected species</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Must be done inside of "reactive consumer"</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  and_v2 <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    lterdatasampler<span class="sc">::</span>and_vertebrates <span class="sc">%&gt;%</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> input<span class="sc">$</span>button_spp)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to selected species</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Must be done inside of "reactive consumer"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  and_v2 <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    lterdatasampler<span class="sc">::</span>and_vertebrates <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> input<span class="sc">$</span>button_spp)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -632,42 +622,42 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to selected species</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  and_v2 <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    lterdatasampler<span class="sc">::</span>and_vertebrates <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> input<span class="sc">$</span>button_spp)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to desired site</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Also done in reactive consumer</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  and_actual <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If site is "All" don't subset</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(input<span class="sc">$</span>dropdown_site <span class="sc">==</span> <span class="st">"All"</span>){ </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">and_v2</span>()</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Otherwise, subset to selected site</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> { </span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">and_v2</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(sitecode <span class="sc">==</span> input<span class="sc">$</span>dropdown_site) }</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assemble title from inputs to be more informative</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  hist_title <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste0</span>(<span class="st">"Histogram of "</span>, <span class="fu">tolower</span>(input<span class="sc">$</span>button_spp),</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>             <span class="st">" weight"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"Site: "</span>, input<span class="sc">$</span>dropdown_site)</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a histogram of this content</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>hist_out <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Uses the reactively-created weight</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">x =</span> <span class="fu">and_actual</span>()<span class="sc">$</span>weight_g,</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>         <span class="do">## And the reactively-created title!</span></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="fu">hist_title</span>(),</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">"Weight (g)"</span>)</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>reactive_server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to selected species</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  and_v2 <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    lterdatasampler<span class="sc">::</span>and_vertebrates <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(species <span class="sc">==</span> input<span class="sc">$</span>button_spp)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset dataframe to desired site</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Also done in reactive consumer</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  and_actual <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If site is "All" don't subset</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(input<span class="sc">$</span>dropdown_site <span class="sc">==</span> <span class="st">"All"</span>){ </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">and_v2</span>()</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Otherwise, subset to selected site</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> { </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">and_v2</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(sitecode <span class="sc">==</span> input<span class="sc">$</span>dropdown_site) }</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assemble title from inputs to be more informative</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  hist_title <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste0</span>(<span class="st">"Histogram of "</span>, <span class="fu">tolower</span>(input<span class="sc">$</span>button_spp),</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>             <span class="st">" weight"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"Site: "</span>, input<span class="sc">$</span>dropdown_site)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a histogram of this content</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>hist_out <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Uses the reactively-created weight</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">x =</span> <span class="fu">and_actual</span>()<span class="sc">$</span>weight_g,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>         <span class="do">## And the reactively-created title!</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="fu">hist_title</span>(),</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">"Weight (g)"</span>)</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -683,7 +673,7 @@ Removed empty directory ‘lterdatasampler/vignettes’
 </div>
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> reactive_ui, <span class="at">server =</span> reactive_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> reactive_ui, <span class="at">server =</span> reactive_server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p align="center">
 <img src="images/reactive-app-still.png" width="60%">
