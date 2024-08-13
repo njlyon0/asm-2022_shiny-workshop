@@ -30,9 +30,30 @@ $navbar-hl: $blue-3; // highlight color when on a page
 $body-bg: $cream; // page background
 $body-color: $black; // page text
 $footer-bg: $blue-2; // footer
+$footer-text: $cream; // footer text
 $link-color: $blue-2; // hyperlinks
 
 // Inline code
 $code-bg: $gray-0; // inline code background color
-$code-color: $blue-3; // inline code text color
+$code-color: $gray-3; // inline code text color
+
+// Code blocks
 $code-block-bg: $gray-0; // code block background color
+
+/*-- scss:rules --*/
+
+// Code chunk ouput
+pre code:not(.sourceCode) { background-color: $blue-1; }
+
+// Active tabset panel (tab then tab content)
+.nav-tabs .nav-link.active {
+  background-color: #FFF;
+  color: $black;
+}
+.tab-content { background-color:  #FFF; }
+
+// Navbar dropdown elements
+.dropdown-menu{
+  --bs-dropdown-link-hover-color: #F4F3EE;
+  --bs-dropdown-link-hover-bg: #01BAEF;
+}
